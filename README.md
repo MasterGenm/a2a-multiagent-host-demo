@@ -1,6 +1,6 @@
 # 🧠 a2a-multiagent-host-demo
 
-本项目基于 [Google A2A 协议](https://github.com/google/a2a) 构建，实现了一个具备基本任务创建与对话交互功能的 demo。
+本项目基于 [Google A2A 协议]((https://github.com/a2aproject/a2a-samples)](https://github.com/a2aproject/a2a-samples)) 构建，实现了一个具备基本任务创建与对话交互功能的 demo。
 
 > ✅ **当前版本已成功实现 conversation 模块的消息交互流程，支持前后端完整运行！**
 
