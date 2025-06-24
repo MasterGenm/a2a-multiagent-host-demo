@@ -48,7 +48,7 @@
 * `a2a`
 * `google.adk`
 * `nest_asyncio`（若在 notebook 中运行）
-* 
+ 
 ```bash
 python ui/main.ipynb
 ```
