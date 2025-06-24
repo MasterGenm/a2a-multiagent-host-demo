@@ -31,8 +31,11 @@
 
 下图展示了 conversation 模块成功响应的消息交互界面：
 
-![图片1](https://github.com/user-attachments/assets/492df214-7383-4ef5-a901-5d20bd908ebc)
-![图片2](https://github.com/user-attachments/assets/b6798dbf-d953-4924-9131-9ff81255d910)
+![图片3](https://github.com/user-attachments/assets/6ca9d4b6-de36-4bad-b18b-d7fb782427bb)
+
+![Uploading 图片4.png…]()
+
+
 
 > 
 
