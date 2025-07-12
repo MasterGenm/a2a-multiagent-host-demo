@@ -25,6 +25,8 @@
 | 前端 | React + Zustand（或其他状态管理） |
 | 其他 | Google ADK, OpenAPI, nest_asyncio |
 
+---
+
 ## 🖥️ 异步任务列表自动更新（新增）
 
 用户点击“开始任务”按钮后，系统将任务注册为异步执行流程，并立刻返回任务编号，任务状态将在列表中自动刷新。
@@ -42,7 +44,7 @@ https://github.com/user-attachments/assets/6aec0242-14ad-48b3-b921-257418aa9cc9
 
 该机制基于 `asyncio + to_thread` 实现非阻塞任务调度，支持并发执行与前端状态轮询刷新。
 
----
+
 
 ## 🐢 优化前：执行任务时严重阻塞，等待时间过长
 
