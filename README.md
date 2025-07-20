@@ -115,8 +115,6 @@ https://github.com/user-attachments/assets/6aec0242-14ad-48b3-b921-257418aa9cc9
 ```bash
 python ui/Neo_main.ipynb
 ```
-🚀 快速启动
-
 启动步骤
 
 在 Cell 1 中，首先设置用户角色身份：
