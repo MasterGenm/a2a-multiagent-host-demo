@@ -151,7 +151,7 @@ auth_service.set_user_role("admin")
 
 ✅ conversation 模块添加 retry 与 loading 状态优化
 
-✅集成完整 API 权限校验与动态注册机制
+✅权限校验与动态注册机制
 
 * [ ] 多 Agent 切换与上下文联动支持（正在评估 Prebuilt Agent、Build Your Own 和 Q&A Agent 三种路径的适配性，未来版本将逐步引入这些功能）
       
