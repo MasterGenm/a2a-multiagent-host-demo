@@ -118,9 +118,13 @@ python ui/Neo_main.ipynb
 🚀 快速启动
 
 启动步骤
+
 在 Cell 1 中，首先设置用户角色身份：
+
 auth_service.set_user_role("guest")
+
 如果要切换身份为管理员，只需改成：
+
 auth_service.set_user_role("admin")
 
 运行服务：重启内核，然后从上到下运行所有单元格。
