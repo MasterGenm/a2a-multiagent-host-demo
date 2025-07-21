@@ -148,7 +148,7 @@ auth_service.set_user_role("admin")
 
 ✅权限校验与动态注册机制
 
-* [ ] 多 Agent 切换与上下文联动支持（正在评估 Prebuilt Agent、Build Your Own 和 Q&A Agent 三种路径的适配性，未来版本将逐步引入这些功能）
+* [ ] 多 Agent 切换与上下文联动支持（正在评估创建自Conversational Agents平台上的引入 Prebuilt Agent、Build Your Own 和 Q&A Agent 三种路径的Agent适配性，未来版本将逐步引入这些功能）
       
 * [ ] 实现高级用户角色切换与访问控制机制
 ---
