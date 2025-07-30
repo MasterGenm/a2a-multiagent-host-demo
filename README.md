@@ -2,7 +2,7 @@
 
 本项目基于 https://github.com/a2aproject/a2a-samples  构建，实现了一个具备基本任务创建与对话交互功能的 demo。
 
-> > ✅ **当前版本已成功实现 conversation 模块的消息交互流程，以及异步任务列表自动更新能力，支持前后端完整运行！**
+> > ✅ **当前版本已成功实现多agent切换进行conversation 模块的消息交互流程，以及异步任务列表自动更新能力，支持前后端完整运行！**
 
 ---
 
@@ -26,7 +26,59 @@
 | 其他 | Google ADK, OpenAPI, nest_asyncio |
 
 ---
-## 📖 权限校验与动态注册（新增）
+-----
+
+## 🌟 **新特性：服务层重构与 Mesop 集成强化**（新增）
+
+本次更新对项目的后端服务层进行了显著的重构和简化，并进一步深化了与 Mesop UI 框架的集成。主要变化包括：
+
+  - **`TaskManager` 类移除**：原有的 `TaskManager` 类的逻辑已更精细地整合到 Mesop 页面的事件处理器中，实现了更紧凑和直接的状态管理。这使得任务的创建、跟踪和更新逻辑与 UI 层的交互更加流畅，减少了中间层的复杂性。
+
+  - **Mesop UI 集成强化**：
+
+      - **全局服务注入**：`OllamaService`、`SecurityManager` 和 `AuthService` 等核心服务现在通过 FastAPI 的 `lifespan` 钩子在应用启动时一次性初始化，并注入到 Mesop 页面的模块中。这确保了服务实例的单例性，并简化了页面组件对这些服务的访问。
+      - **启动数据一次性获取**：Ollama 的连接状态和可用模型列表在应用启动时（而非每次页面加载时）一次性获取并缓存到 `STARTUP_DATA` 全局变量中。这大大减少了不必要的 API 调用，提升了应用的启动效率和用户体验。
+      - **动态页面注册优化**：Mesop 页面的注册现在是完全动态的，通过遍历 `ALL_PAGES` 列表在 `lifespan` 函数中完成。这使得页面管理更加灵活，方便未来添加或修改页面。
+      - **权限校验与日志记录**：页面访问权限的校验逻辑现在直接在 Mesop 页面包装器内部执行，并与 `SecurityManager` 集成，对每一次成功的或被拒绝的页面访问都进行审计日志记录，增强了系统的可追溯性和安全性。
+
+  - **更清晰的架构分层**：通过移除 `TaskManager` 并将相关逻辑下沉到 UI 事件处理器，项目结构变得更扁平，核心服务（如 `OllamaService`）专注于其领域职责，UI 层则更直接地管理交互和状态。
+
+  - **项目截图**：
+    
+   <img width="865" height="421" alt="image" src="https://github.com/user-attachments/assets/79681344-51ff-437d-bd52-c25ed81d99de" />
+
+
+-----
+
+## 💡 主要代码优化点
+
+  - **`Cell 1: 全局导入与设置`**：`TaskManager` 已从导入列表中移除。`STARTUP_DATA` 现在用于缓存应用启动时获取的 Ollama 连接状态和模型列表，避免重复获取。
+
+  - **`Cell 2: 核心服务定义`**：
+
+      - **`TaskManager` 类已被完全移除**。
+      - `SecurityManager` 和 `AuthService` 保持不变，继续提供集中的安全管理和权限校验。
+      - `OllamaService` 继续负责与 Ollama API 的交互，提供连接检查、模型获取和流式聊天功能。
+
+  - **`Cell 3: UI组件、页面定义与事件处理器`**：
+
+      - `on_load_main_page` 事件处理器现在从 `STARTUP_DATA` 中获取 Ollama 连接状态和可用模型，确保数据只在应用启动时加载一次。
+      - `ui_sidebar` 组件根据 `AppState` 中的 `ollama_connected` 和 `available_models` 显示连接状态和模型选择器。
+      - `audit_page` 中的 `with page_scaffold("安全审计日志")` 错误已修复，确保审计日志页面能够正确渲染。
+      - `ALL_PAGES` 列表定义了所有页面及其元数据，为动态注册提供了数据源。
+
+  - **`Cell 4: 应用生命周期与启动`**：
+
+      - **`lifespan` 函数**：这是本次更新的核心。
+          - `ollama_service` 现在作为全局变量在 `lifespan` 内部初始化，并异步检查 Ollama 连接和获取模型列表，将结果存入 `STARTUP_DATA`。
+          - **核心服务（`ollama_service`, `security_manager`, `auth_service`）被显式注入到 `conversation_page_module` 中**，取代了之前在其他地方的隐式引用。
+          - **动态页面注册**：`ALL_PAGES` 列表中的每个页面都在 `lifespan` 中通过 `me.page` 装饰器动态注册。
+          - **权限校验逻辑被集成到 `create_wrapper` 函数中**，确保权限检查在每个页面加载前执行，并记录到审计日志。
+      - `start_app` 函数：负责启动 FastAPI 和 Uvicorn 服务器，并设置初始用户角色为 "admin" 以便于测试。
+
+----------
+
+## 📖 权限校验与动态注册
 
 🔑 **权限校验的表现**：
 
@@ -112,31 +164,47 @@ https://github.com/user-attachments/assets/6aec0242-14ad-48b3-b921-257418aa9cc9
 * `nest_asyncio`（若在 notebook 中运行）
  
 ```bash
-python ui/Neo_main.ipynb
+python ui/ultimate_main.ipynb
 ```
-启动步骤
+#### 启动步骤
 
-1.在 Cell 1 中，首先设置用户角色身份：
+1.  **部署 Ollama 模型**：
+    为了体验完整的智能对话系统，您需要部署一个基于《甄嬛传》角色数据的智能对话模型。这是一个使用 LoRA 微调技术训练的甄嬛角色模型，支持多种交互方式。
 
+    ```bash
+    ollama create huanhuan -f deployment/Modelfile.huanhuan
+    ```
 
-auth_service.set_user_role("guest")
+2.  **设置用户角色身份**：在代码中，默认将用户角色设置为 "admin"。
 
-2.如果要切换身份为管理员，只需改成：
+    ```python
+    auth_service.set_user_role("admin")
+    ```
 
+    如果您想切换为 "guest" 身份，只需将上述行改为：
 
-auth_service.set_user_role("admin")
+    ```python
+    auth_service.set_user_role("guest")
+    ```
 
-3.运行服务：重启内核，然后从上到下运行所有单元格。
+3.  **运行服务**：
 
-4.在浏览器中访问：http://127.0.0.1:12000。
+      * **重启内核**：这是关键步骤，确保所有全局状态被重置。
+      * 然后，从上到下**运行所有单元格**。
 
-- **访客身份展示**：
+4.  **在浏览器中访问**：
 
-访问“Home”和“Conversation”链接，页面会正常加载；访问“Agents”、“Event List”或“Settings”链接时，系统会阻止访问并展示权限提示：“您没有权限...”。
+    ```
+    http://127.0.0.1:12000
+    ```
 
-- **管理员身份展示**：
+      * **访客身份展示**：
+        访问根路径 (`/`) 或 `/chat` 页面，页面会正常加载。当尝试访问 `/tasks` 或 `/audit` 链接时，系统会阻止访问并展示权限提示：“访问被拒绝。您没有权限查看 [页面名称] 页面。”
 
-切换为“admin”身份后，重新启动内核。访问之前被拦截的页面，权限校验通过，页面内容成功加载。
+      * **管理员身份展示**：
+        切换为 "admin" 身份后，**务必重新启动内核**。再次运行所有单元格。访问之前被拦截的页面（`/tasks` 和 `/audit`），权限校验将通过，页面内容成功加载。审计日志页面会显示所有的角色切换和页面访问事件。
+
+-----
 
 
 
@@ -148,9 +216,9 @@ auth_service.set_user_role("admin")
 
 ✅权限校验与动态注册机制
 
-* [ ] 多 Agent 切换与上下文联动支持（正在评估创建自Conversational Agents平台上的引入 Prebuilt Agent、Build Your Own 和 Q&A Agent 三种路径的Agent适配性，未来版本将逐步引入这些功能）
+✅多 Agent 切换与上下文联动支持
       
-* [ ] 实现高级用户角色切换与访问控制机制
+* [ ] 思考部署qwen3模型必要性与多模态联动方向（暂定）
 ---
 
 ## 🧑‍💻 作者
