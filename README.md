@@ -44,8 +44,8 @@
   - **更清晰的架构分层**：通过移除 `TaskManager` 并将相关逻辑下沉到 UI 事件处理器，项目结构变得更扁平，核心服务（如 `OllamaService`）专注于其领域职责，UI 层则更直接地管理交互和状态。
 
   - **项目截图**：
-  - 
-  - <img width="865" height="421" alt="image" src="https://github.com/user-attachments/assets/79681344-51ff-437d-bd52-c25ed81d99de" />
+    
+   <img width="865" height="421" alt="image" src="https://github.com/user-attachments/assets/79681344-51ff-437d-bd52-c25ed81d99de" />
 
 
 -----
