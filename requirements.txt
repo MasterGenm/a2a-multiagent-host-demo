@@ -1,0 +1,33 @@
+# --- Core runtime ---
+fastapi>=0.111,<0.116
+uvicorn[standard]>=0.30,<0.32
+httpx>=0.27,<0.28
+python-dotenv>=1.0,<2.0
+nest-asyncio>=1.5,<2.0
+
+# OpenAI 兼容客户端（代码里用 from openai import OpenAI）
+openai>=1.51,<2.0
+
+# Mesop UI（使用 me.* 组件）
+mesop>=0.12,<0.13
+
+# Pydantic v2（FastAPI 依赖；日志里也显示 v2 提示链接）
+pydantic>=2.7,<3.0
+
+# 报告/模板常用
+jinja2>=3.1,<4.0
+markdown>=3.6,<4.0
+
+# 抓取/解析常用（QE/RE 常见依赖）
+beautifulsoup4>=4.12,<5.0
+lxml>=4.9,<5.0
+
+# 搜索与资讯源
+tavily-python>=0.3.4
+duckduckgo-search>=6.2.13
+feedparser>=6.0.11
+
+# 数据处理与控制台友好输出
+pandas>=2.2,<3.0
+numpy>=1.26,<2.0
+rich>=13.7,<14.0
