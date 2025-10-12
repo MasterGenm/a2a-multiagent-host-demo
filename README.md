@@ -78,10 +78,6 @@ curl "http://127.0.0.1:12000/api/health"
 ```bash
 curl "http://127.0.0.1:12000/api/chat?input=报告任务：请生成一份关于金融科技技术与应用发展趋势的简短报告&profile=naga&force_report=true"
 ```
-<img width="1920" height="975" alt="对话界面" src="https://github.com/user-attachments/assets/ed76814b-c2b3-4b2d-8c85-9c561d44a2aa" />
-
-<img width="1920" height="973" alt="报告展示" src="https://github.com/user-attachments/assets/352a2839-3e55-48e4-832f-9c3d60981ecd" />
-
 
 预期返回（示例）：
 
@@ -98,6 +94,14 @@ curl "http://127.0.0.1:12000/api/chat?input=先研究后报告：请总结近一
 ```
 
 预期：先跑 QE 生成草稿/state，再喂给 RE 产出 HTML，返回合成的完成提示。
+
+**实例效果图**：
+
+
+<img width="1920" height="975" alt="对话界面" src="https://github.com/user-attachments/assets/ed76814b-c2b3-4b2d-8c85-9c561d44a2aa" />
+
+
+<img width="1920" height="973" alt="报告展示" src="https://github.com/user-attachments/assets/352a2839-3e55-48e4-832f-9c3d60981ecd" />
 
 ---
 
