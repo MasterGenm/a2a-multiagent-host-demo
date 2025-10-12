@@ -252,7 +252,7 @@ ReportEngine 会读取 `service/ReportEngine/report_template/` 下的模板。
 
 *  UI 增加**报告预览/下载**入口以及优化
   
-*  进一步的agent引入以及mcp搭载
+*  **进一步**的agent引入以及mcp搭载
 
 
 -----
