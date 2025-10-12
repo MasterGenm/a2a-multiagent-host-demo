@@ -1,99 +1,64 @@
-# components/conversation_list.py (最终重构版)
-
+# components/conversation_list.py
 import mesop as me
-import pandas as pd
+from state.state import AppState
+import hashlib
 
-# 导入新的数据类和全局状态
-from state.state import AppState, ChatMessage
+def _short_id(raw: str) -> str:
+    if not raw:
+        return "Unsaved"
+    if len(raw) <= 10:
+        return raw
+    return f"{raw[:6]}…{raw[-4:]}"
 
-# 我们不再依赖 host_agent_service 来创建对话，因为新模式下更简单。
-# 但为了保留多代理框架的潜力，我们暂时保留它。
-from state.host_agent_service import CreateConversation
+def _hash_if_needed(text: str) -> str:
+    if not text:
+        return "Unsaved"
+    # 如果是临时名，给个稳定截断哈希
+    h = hashlib.sha1(text.encode("utf-8")).hexdigest()[:8]
+    return f"{text[:12]}… ({h})" if len(text) > 14 else text
 
-
-@me.component
 def conversation_list():
-    """
-    重构后的对话列表组件。
-    它现在适配新的 AppState 结构，动态地构建对话视图。
-    """
-    state = me.state(AppState)
-    
-    # --- 适配器逻辑 ---
-    # 动态地根据当前状态构建一个用于显示的对话列表。
-    # 在这个简化模型中，我们只显示一个“当前对话”。
-    # 如果 current_conversation_id 为空，表示是一个全新的会话。
-    display_conversations = []
-    if state.current_conversation_id or state.messages:
-        conv_id = state.current_conversation_id if state.current_conversation_id else "Unsaved Conversation"
-        conv_name = f"Chat {conv_id[:8]}..."
-        # 消息数直接从 state.messages 的长度获取
-        message_count = len(state.messages)
-        
-        display_conversations.append({
-            'ID': conv_id,
-            'Name': conv_name,
-            'Status': 'Active',
-            'Messages': message_count,
-        })
-    
-    # 如果有多个对话保存在旧结构中，也可以在这里添加逻辑来显示它们。
-    # for conv in state.legacy_conversations: ...
+    st = me.state(AppState)
 
-    df = pd.DataFrame(display_conversations)
+    # 计算展示用字段
+    conv_id = getattr(st, "conversation_id", None)
+    conv_name = getattr(st, "conversation_name", None)
+    model_name = getattr(st, "selected_model", "naga:default") or "naga:default"
+    show_id = _short_id(conv_id or "")
+    show_name = _hash_if_needed(conv_name or model_name)
+    msg_count = len(getattr(st, "messages", []) or [])
 
-    with me.box(
-        style=me.Style(
-            display='flex',
-            justify_content='space-between',
-            flex_direction='column',
-        )
-    ):
-        me.table(
-            df,
-            on_click=on_click,
-            header=me.TableHeader(sticky=True),
-        )
-        with me.content_button(
-            type='raised',
-            on_click=add_conversation,
-            key='new_conversation',
-            style=me.Style(
-                display='flex',
-                flex_direction='row',
-                gap=5,
-                align_items='center',
-                margin=me.Margin(top=10),
-            ),
-        ):
-            me.icon(icon='add')
-            me.text("New Chat")
+    with me.box(style=me.Style(padding=me.Padding.all(0))):
+        # 标题
+        with me.box(style=me.Style(
+            padding=me.Padding.symmetric(vertical=8, horizontal=12),
+            border=me.Border(bottom=me.BorderSide(style="solid", width=1, color=me.theme_var("outline-variant")))
+        )):
+            me.text("会话", type="subtitle-1")
 
+        # 表头（尽量用 Mesop 允许的字体等级）
+        with me.box(style=me.Style(
+            display="flex",
+            padding=me.Padding.symmetric(vertical=6, horizontal=12),
+            color=me.theme_var("on-surface-variant")
+        )):
+            with me.box(style=me.Style(width="38%")): me.text("ID / Name", type="caption")
+            with me.box(style=me.Style(width="62%")): me.text("概要", type="caption")
 
-async def add_conversation(e: me.ClickEvent):
-    """
-    处理“创建新对话”按钮的点击事件。
-    在新的简化模型中，这会清空当前状态，模拟开始一个新对话。
-    """
-    state = me.state(AppState)
-    
-    # 清空当前聊天状态
-    state.messages = []
-    state.user_input = ""
-    state.tasks = {} # 清空关联的任务
-    state.current_conversation_id = "" # 重置对话ID
-    
-    # 导航到主页，URL中不再带有conversation_id，表示是一个新会话
-    me.navigate('/')
-    yield
+        # 单条（当前会话）
+        with me.box(style=me.Style(
+            display="flex",
+            padding=me.Padding.symmetric(vertical=10, horizontal=12),
+            align_items="flex-start",
+            border=me.Border(bottom=me.BorderSide(style="solid", width=1, color=me.theme_var("outline-variant")))
+        )):
+            # 左：ID + Name
+            with me.box(style=me.Style(width="38%")):
+                me.text(show_id, type="body-2")
+                me.text(show_name, type="caption", style=me.Style(color=me.theme_var("on-surface-variant")))
 
-
-def on_click(e: me.TableClickEvent):
-    """
-    处理点击对话列表条目的事件。
-    在当前简化模型中，由于只有一个活动对话，这个函数的作用不大。
-    但在一个真正的多对话应用中，它会用于加载被点击的对话的状态。
-    """
-    # 可以在这里添加加载不同对话历史的逻辑（如果实现了多对话存储）
-    print(f"Clicked on conversation at index {e.row_index}. Future implementation can load this chat.")
-    yield
+            # 右：概要（messages 合并 status）
+            with me.box(style=me.Style(width="62%")):
+                # 这里把 Status 合并为一句话概要；若将来有状态再替换
+                summary = f"{msg_count} messages"
+                me.text(summary, type="body-2")

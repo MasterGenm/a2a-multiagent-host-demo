@@ -56,6 +56,37 @@ def chat_box(
                         object_fit='contain',
                     ),
                 )
+            elif media_type == 'image':
+                # 支持更多图片格式
+                if '/message/file' not in content and not content.startswith('http'):
+                    content = 'data:image/png;base64,' + content
+                me.image(
+                    src=content,
+                    style=me.Style(
+                        width='50%',
+                        object_fit='contain',
+                    ),
+                )
+            elif media_type == 'markdown':
+                # 处理包含图片的Markdown内容
+                me.markdown(
+                    content,
+                    style=me.Style(
+                        font_family='Google Sans',
+                        box_shadow=(
+                            '0 1px 2px 0 rgba(60, 64, 67, 0.3), '
+                            '0 1px 3px 1px rgba(60, 64, 67, 0.15)'
+                        ),
+                        padding=me.Padding(top=1, left=15, right=15, bottom=1),
+                        margin=me.Margin(top=5, left=0, right=0, bottom=5),
+                        background=(
+                            me.theme_var('primary-container')
+                            if role == 'user'
+                            else me.theme_var('secondary-container')
+                        ),
+                        border_radius=15,
+                    ),
+                )
             else:
                 me.markdown(
                     content,

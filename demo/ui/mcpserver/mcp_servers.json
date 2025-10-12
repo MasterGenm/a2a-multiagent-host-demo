@@ -1,0 +1,44 @@
+{
+  "mcpServers": {
+    "WebSearch": {
+      "type": "sse",
+      "description": "阿里云百炼_联网搜索",
+      "isActive": true,
+      "name": "阿里云百炼_联网搜索",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch/sse",
+      "headers": { "Authorization": "Bearer sk-632fcd8098e94c998363c94b37de8d09" }
+    },
+    "WebParser": {
+      "type": "sse",
+      "description": "阿里云百炼_网页解析",
+      "isActive": true,
+      "name": "阿里云百炼_网页解析",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/WebParser/sse",
+      "headers": { "Authorization": "Bearer sk-3cd22b35957f4d7cb3512bb44e850e7e" }
+    },
+    "bz-finance": {
+      "type": "sse",
+      "description": "阿里云百炼_博众财报指标",
+      "isActive": true,
+      "name": "阿里云百炼_博众财报指标",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/bz-finance/sse",
+      "headers": { "Authorization": "Bearer sk-9fb6064937ff46858a1d684958dcc6b6" }
+    },
+    "Qieman": {
+      "type": "sse",
+      "description": "阿里云百炼_且慢",
+      "isActive": true,
+      "name": "阿里云百炼_且慢",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/Qieman/sse",
+      "headers": { "Authorization": "Bearer sk-84195b6ab3b841f78cae5fb074b78b16" }
+    },
+    "tzyk-mcp-server-sse": {
+      "type": "sse",
+      "description": "tzyk demo finance",
+      "isActive": true,
+      "name": "tzyk demo finance",
+      "baseUrl": "https://mcp-server.get88.cn/finance/sse",
+      "headers": { "apikey": "640064c5d63a4c0e82435179215f3409" }
+    }
+  }
+}

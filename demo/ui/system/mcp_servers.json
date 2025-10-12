@@ -1,0 +1,92 @@
+{
+  "mcpServers": {
+    "WebSearch": {
+      "type": "streamable_http",
+      "description": "阿里云百炼_联网搜索",
+      "isActive": true,
+      "name": "阿里云百炼_联网搜索",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/WebSearch",
+      "headers": { "Authorization": "Bearer sk-632fcd8098e94c998363c94b37de8d09" }
+    },
+    "WebParser": {
+      "type": "streamable_http",
+      "description": "阿里云百炼_网页解析",
+      "isActive": true,
+      "name": "阿里云百炼_网页解析",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/WebParser",
+      "headers": { "Authorization": "Bearer sk-3cd22b35957f4d7cb3512bb44e850e7e" }
+    },
+    "bz-finance": {
+      "type": "streamable_http",
+      "description": "阿里云百炼_博众财报指标",
+      "isActive": true,
+      "name": "阿里云百炼_博众财报指标",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/bz-finance",
+      "headers": { "Authorization": "Bearer sk-9fb6064937ff46858a1d684958dcc6b6" }
+    },
+    "Qieman": {
+      "type": "streamable_http",
+      "description": "阿里云百炼_且慢",
+      "isActive": true,
+      "name": "阿里云百炼_且慢",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/Qieman",
+      "headers": { "Authorization": "Bearer sk-84195b6ab3b841f78cae5fb074b78b16" }
+    },
+    "tzyk-mcp-server-sse": {
+      "type": "streamable_http",
+      "description": "tzyk demo finance",
+      "isActive": true,
+      "name": "tzyk demo finance",
+      "baseUrl": "https://mcp-server.get88.cn/finance",
+      "headers": { "apikey": "640064c5d63a4c0e82435179215f3409" }
+    },
+    "@bailian/amap-maps": {
+      "type": "sse",
+      "description": "高德地图MCP Server现已覆盖12大核心接口，提供全场景覆盖的地理信息服务，包括地理编码、逆地理编码、IP定位、天气查询、骑行路径规划、步行路径规划、驾车路径规划、公交路径规划、距离测量、关键词搜索、周边搜索、详情搜索等。",
+      "isActive": false,
+      "name": "Amap Maps",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/amap-maps/sse",
+      "headers": { "Authorization": "Bearer sk-07a41795158043629c62d0d16a8f763f" },
+      "provider": "阿里云百炼",
+      "providerUrl": "https://bailian.console.aliyun.com/?tab=mcp#/mcp-market/detail/amap-maps",
+      "logoUrl": "https://img.alicdn.com/imgextra/i4/O1CN01iPPabT1EGRN6uatHP_!!6000000000324-0-tps-512-512.jpg",
+      "tags": ["地图服务"]
+    },
+    "@bailian/EdgeOne": {
+      "type": "sse",
+      "description": "零门槛生成网页，一句话即可快速生成并部署HTML页面",
+      "isActive": false,
+      "name": "EdgeOne Pages",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/EdgeOne/sse",
+      "headers": { "Authorization": "Bearer sk-07a41795158043629c62d0d16a8f763f" },
+      "provider": "阿里云百炼",
+      "providerUrl": "https://bailian.console.aliyun.com/?tab=mcp#/mcp-market/detail/EdgeOne",
+      "logoUrl": "https://img.alicdn.com/imgextra/i2/O1CN01v4qRlW28oRG7iKXHD_!!6000000007979-2-tps-160-160.png",
+      "tags": ["网页生成"]
+    },
+    "@bailian/TextToImage": {
+      "type": "sse",
+      "description": "基于通义实验室通义万相-文生图模型封装，适配多版本模型，阿里云百炼官方文生图服务。",
+      "isActive": false,
+      "name": "通义万相-文生图",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/TextToImage/sse",
+      "headers": { "Authorization": "Bearer sk-07a41795158043629c62d0d16a8f763f" },
+      "provider": "阿里云百炼",
+      "providerUrl": "https://bailian.console.aliyun.com/?tab=mcp#/mcp-market/detail/TextToImage",
+      "logoUrl": "https://gw.alicdn.com/imgextra/i4/O1CN01vVn7g32134zNZEeAR_!!6000000006928-55-tps-24-24.svg",
+      "tags": ["图像生成"]
+    },
+    "@bailian/Gfsecurities-quant": {
+      "type": "sse",
+      "description": "广发证券易淘金 MCP Server 现已覆盖上市公司财务对比工具服务接口，提供沪深市场A股财务数据对比分析功能，通过对估值、盈利、现金流、偿债力、成长性的综合分析，直观比较两家上市公司的优势点和差异点，可为投资者提供多角度、长周期的参考数据，为投资决策给出客观数据支持。",
+      "isActive": true,
+      "name": "广发证券财务对比",
+      "baseUrl": "https://dashscope.aliyuncs.com/api/v1/mcps/Gfsecurities-quant/sse",
+      "headers": { "Authorization": "Bearer sk-07a41795158043629c62d0d16a8f763f" },
+      "provider": "阿里云百炼",
+      "providerUrl": "https://bailian.console.aliyun.com/?tab=mcp#/mcp-market/detail/Gfsecurities-quant",
+      "logoUrl": "https://img.alicdn.com/imgextra/i1/O1CN01NYatTB1gif1LRqRNP_!!6000000004176-2-tps-1024-1024.png",
+      "tags": ["金融服务"]
+    }
+  }
+}

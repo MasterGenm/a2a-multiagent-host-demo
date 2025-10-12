@@ -22,6 +22,7 @@ class ChatMessage:
     role: Literal["user", "model"] = "model"  # <-- 关键修复：添加默认值
     content: str = ""                         # <-- 关键修复：添加默认值
     message_id: str = field(default_factory=lambda: str(uuid.uuid4()))
+    media_type: str = "text"                  # 添加媒体类型支持
 
 @dataclass
 class AgentTask:
@@ -93,6 +94,13 @@ class AppState:
     user_input: str = ""
     messages: List[ChatMessage] = field(default_factory=list)
     tasks: Dict[str, AgentTask] = field(default_factory=dict)
+    
+    # --- 人设和代理调度状态 ---
+    active_persona_id: str = "assistant"
+    persona_selector_open: bool = False
+    remote_agent_monitor_open: bool = False
+    auto_dispatch_enabled: bool = True
+    current_model_provider: str = "zhipu"  # zhipu 或 ollama
 
     # --- 保留：来自原始 a2a 框架的字段 ---
     sidenav_open: bool = False
