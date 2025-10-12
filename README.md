@@ -31,7 +31,7 @@
 * [常见问题与排障](#常见问题与排障)
 * [最近改动（Changelog）](#最近改动changelog)
 * [后续规划](#后续规划)
-* [以往历史更新(#以往历史更新）]
+* [以往历史更新](#以往历史更新)
 
 ---
 
@@ -228,10 +228,10 @@ ReportEngine 会读取 `service/ReportEngine/report_template/` 下的模板。
 
 * ✅ **Intent Parser**（`service/utils/intent_parser.py`）：
 
-  * 读取 `NAGA_*` / Provider Key，OpenAI 兼容调用
+  * 读取 `NAGA_*` / Provider Key调用
   * 稳定 JSON 输出，内置时间窗口解析与兜底
   * 新增 `to_query_engine_inputs()`，与 QE 无缝对接
-* ✅ **主控（test01_main.py）**：
+* ✅ **主控（main.py）**：
 
   * 集成 IP → QE → RE 的 **Combo** 编排
   * `FASTBOOT` 后台初始化，服务即起即用
