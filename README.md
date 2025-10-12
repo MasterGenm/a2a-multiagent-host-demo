@@ -6,15 +6,6 @@
 
 ---
 
-## 📌 项目亮点
-
-- ✅ 支持多 Agent 注册与任务协作
-- ✅ 实现完整对话流：发送消息 → 等待回复 → 展示响应
-- ✅ 支持异步任务后台调度，任务状态自动刷新（**Pending → Running → Success**）✅
-- ✅ 使用 FastAPI + Uvicorn 构建轻量后端服务
-- ✅ 前端使用现代 UI 架构（支持状态管理与消息流程可视化）
-- ✅ 提供运行演示截图与状态跳动 demo（见下方）
----
 
 ## 🧪 A2A Multi-Agent Host Demo（Naga + QueryEngine + ReportEngine + Mesop）
 
@@ -40,7 +31,7 @@
 * [常见问题与排障](#常见问题与排障)
 * [最近改动（Changelog）](#最近改动changelog)
 * [后续规划](#后续规划)
-* [以往历史更新]
+* [以往历史更新(#以往历史更新）]
 
 ---
 
