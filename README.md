@@ -1,8 +1,8 @@
 # 🧠 a2a-multiagent-host-demo
 
-本项目基于 https://github.com/a2aproject/a2a-samples  构建，实现了一个具备基本任务创建与对话交互功能的 demo。
+本项目基于 https://github.com/a2aproject/a2a-samples  构建，集成式多智能体演示工程。
 
-> > ✅ **当前版本已成功实现多agent切换进行conversation 模块的消息交互流程，以及异步任务列表自动更新能力，支持前后端完整运行！**
+> > ✅ **当前版本已成功实现从用户请求 → 深度研究（QE）→ 套模板生成报告（RE）→ 返回 UI/接口 的闭环通路。**
 
 ---
 
@@ -16,19 +16,251 @@
 - ✅ 提供运行演示截图与状态跳动 demo（见下方）
 ---
 
-## 🧪 技术栈
+## 🧪 A2A Multi-Agent Host Demo（Naga + QueryEngine + ReportEngine + Mesop）
 
-| 模块 | 技术 |
-|------|------|
-| 后端 | FastAPI, Uvicorn, asyncio |
-| 协议 | A2A, gRPC |
-| 前端 | React + Zustand（或其他状态管理） |
-| 其他 | Google ADK, OpenAPI, nest_asyncio |
+一个集成式多智能体演示工程：
+
+* 前端用 **Mesop** 渲染对话与任务进度
+* 后端用 **FastAPI** 提供统一接口
+* **Intent Parser** 解析意图 → 路由到 **QueryEngine（研究）** 与 **ReportEngine（报告）**
+* 内置 **Ollama** 作为本地模型（可选）
+
 
 ---
+
+## 目录
+
+* [架构总览](#架构总览)
+* [快速开始（5 分钟 Smoke Test）](#快速开始5-分钟-smoke-test)
+* [环境变量与配置](#环境变量与配置)
+* [如何运行](#如何运行)
+* [API 说明](#api-说明)
+* [输出与目录结构](#输出与目录结构)
+* [模板与自动选模](#模板与自动选模)
+* [常见问题与排障](#常见问题与排障)
+* [最近改动（Changelog）](#最近改动changelog)
+* [后续规划](#后续规划)
+* [以往历史更新]
+
+---
+
+## 架构总览
+
+```
+Mesop UI  ──▶  FastAPI (/api/chat,/api/query,/api/report)
+                │
+                ├─ Intent Parser（service/utils/intent_parser.py）
+                │     └─ 产出结构化意图 + QE 查询提示
+                │
+                ├─ QueryEngine（service/QueryEngine）
+                │     └─ 网络检索/反思/草稿 & state 文件
+                │
+                └─ ReportEngine（service/ReportEngine）
+                      └─ 读取 QE 草稿/state + 模板 → 生成 HTML 报告
+```
+
+可选：Ollama 作为本地模型兜底；论坛引导 `forum_reader` 非必须（缺失时自动降级）。
+
+---
+
+## 快速开始（5 分钟 Smoke Test）
+
+> 目标：验证“研究 → 报告 → 返回可读反馈”的闭环。
+
+1. **准备环境变量**（见下文）
+2. **启动 UI/服务：**
+
+```bash
+cd demo/ui
+python main.py
+# 默认: http://127.0.0.1:12000
+```
+
+3. **健康检查：**
+
+```bash
+curl "http://127.0.0.1:12000/api/health"
+```
+
+4. **一键生成简短报告（强制 ReportEngine）：**
+
+```bash
+curl "http://127.0.0.1:12000/api/chat?input=报告任务：请生成一份关于金融科技技术与应用发展趋势的简短报告&profile=naga&force_report=true"
+```
+
+预期返回（示例）：
+
+```
+... "result": "……哼，别催了，按你的指示都处理好了。
+报告已生成（xxxx 字节）。 报告文件：<路径> 使用模板：<模板名>
+— Amadeus·牧濑红莉栖"
+```
+
+5. **联动链路（QE → RE，Combo 模式）：**
+
+```bash
+curl "http://127.0.0.1:12000/api/chat?input=先研究后报告：请总结近一年的金融科技趋势并生成报告&profile=naga&force_combo=true"
+```
+
+预期：先跑 QE 生成草稿/state，再喂给 RE 产出 HTML，返回合成的完成提示。
+
+---
+
+## 环境变量与配置
+
+在 `demo/ui/.env`（或系统环境）中配置 **至少一个**可用的模型提供方与其 API Key。
+
+**核心（Naga 总控）：**
+
+```ini
+# 任选其一或多提供方，按优先顺序自动回落
+NAGA_PROVIDER=zhipu            # zhipu | dashscope | siliconflow
+NAGA_BASE_URL=https://open.bigmodel.cn/api/paas/v4
+NAGA_MODEL_NAME=glm-4.5
+NAGA_API_KEY=你的主Key          # 或用下列各自 Provider 的 Key
+
+# Provider 直填（任选）
+ZHIPU_API_KEY=...
+DASHSCOPE_API_KEY=...
+SILICONFLOW_API_KEY=...
+OPENAI_API_KEY=...             # 如需 OpenAI 兼容模型
+
+TAVILY_API_KEY=...
+```
+
+# Persona（可自定义）
+NAGA_PERSONA=你是《命运石之门》Amadeus·牧濑红莉栖...
+```
+
+---
+
+## 如何运行
+
+```bash
+
+python main.py
+
+```
+
+启动日志里能看到：
+
+* `✅ Mesop UI mounted at /`
+* `Uvicorn running on http://127.0.0.1:12000`
+* QueryEngine / ReportEngine 初始化成功
+* （可选）Ollama 探测状态
+
+访问 `http://127.0.0.1:12000/` 打开 Mesop UI。
+
+---
+
+## API 说明
+
+### `GET /api/health`
+
+健康状态与路径信息。
+
+### `GET|POST /api/chat`
+
+统一编排接口。
+
+**入参（常用）：**
+
+* `input`: 文本问题 / 任务描述
+* `profile`: 固定 `naga`
+* `force_report`: `true|false` 强制走 ReportEngine
+* `force_query`: `true|false` 强制走 QueryEngine
+* `force_combo`: `true|false` 先 QE 再 RE 的联动
+* `persona`: 可覆盖默认 Persona（可选）
+
+**返回字段（核心）：**
+
+* `result`: 最终文本反馈（含“红莉栖”完成提示包装）
+* `intent_plan`: 意图解析结果（结构化 JSON）
+* `used_mcp`: 恒为 `false`（当前关闭 MCP）
+* `error`: 出错信息（若有）
+
+**调用示例：**
+
+```bash
+# 仅研究（QE）
+curl "http://127.0.0.1:12000/api/chat?input=请列举近一周的金融科技相关新闻并给出处&force_query=true"
+
+# 仅报告（RE）
+curl "http://127.0.0.1:12000/api/chat?input=报告任务：生成关于实时支付的趋势综述&force_report=true"
+
+# 研究 + 报告（Combo）
+curl "http://127.0.0.1:12000/api/chat?input=先研究后报告：AI+金融的风险与监管趋势&force_combo=true"
+```
+
+---
+
+## 输出与目录结构
+
+默认输出目录（日志可见具体路径）：
+
+```
+demo/ui/reports/
+  ├─ query_engine_streamlit_reports/
+  │   ├─ deep_search_report_*.md      # 研究汇编
+  │   ├─ draft_*.md                   # 初稿
+  │   └─ state_*.json                 # 研究状态 (供 RE 消化)
+  └─ final_reports/
+      └─ *.html                       # ReportEngine 产出的最终报告（保存开启时）
+```
+
+---
+
+## 模板与自动选模
+
+ReportEngine 会读取 `service/ReportEngine/report_template/` 下的模板。
+当前在主控中提供了简单的**关键词 → 模板**映射（ `_select_template_by_query` ）：
+
+* 命中“金融科技 / fintech / 技术发展 / 趋势 / 年度 / 季度 / 研究报告”
+  → `金融科技技术与应用发展.md`
+* 命中“舆情” → `日常或定期舆情监测报告模板.md`
+* 命中“竞争格局 / 行业动态” → `市场竞争格局舆情分析报告.md`
+
+> **扩展方法：**
+> 新增模板文件到 `service/ReportEngine/report_template/`，并在 `_select_template_by_query` 中加入关键词规则即可。
+
+---
+
+## 最近改动（Changelog）
+
+* ✅ **Intent Parser**（`service/utils/intent_parser.py`）：
+
+  * 读取 `NAGA_*` / Provider Key，OpenAI 兼容调用
+  * 稳定 JSON 输出，内置时间窗口解析与兜底
+  * 新增 `to_query_engine_inputs()`，与 QE 无缝对接
+* ✅ **主控（test01_main.py）**：
+
+  * 集成 IP → QE → RE 的 **Combo** 编排
+  * `FASTBOOT` 后台初始化，服务即起即用
+  * 报告模板 **自动选择**
+  * 统一限流/退避与重试
+* ✅ **Mesop UI 修复**：Text type、Border 兼容问题
+* ✅ **组件瘦身**：仅注册对话页，避免多余依赖牵引
+
+---
+
+## 后续规划
+
+
+  
+* 报告导出 **PDF/Docx**
+
+* 更细粒度的**可观测性**（链路时序、各段耗时）
+
+*  UI 增加**报告预览/下载**入口以及优化
+  
+*  进一步的agent引入以及mcp搭载
+
+
+-----
+## 以往历史更新
 -----
 
-## 🌟 **新特性：服务层重构与 Mesop 集成强化**（新增）
+## 🌟 **特性：服务层重构与 Mesop 集成强化**
 
 本次更新对项目的后端服务层进行了显著的重构和简化，并进一步深化了与 Mesop UI 框架的集成。主要变化包括：
 
