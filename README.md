@@ -7,9 +7,7 @@
 ---
 
 
-## 🧪 A2A Multi-Agent Host Demo（Naga + QueryEngine + ReportEngine + Mesop）
-
-一个集成式多智能体演示工程：
+## 🧪一个集成式多智能体演示工程：
 
 * 前端用 **Mesop** 渲染对话与任务进度
 * 后端用 **FastAPI** 提供统一接口
