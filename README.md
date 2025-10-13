@@ -48,7 +48,7 @@ Mesop UI  ──▶  FastAPI (/api/chat,/api/query,/api/report)
                       └─ 读取 QE 草稿/state + 模板 → 生成 HTML 报告
 ```
 
-可选：Ollama 作为本地模型兜底；论坛引导 `forum_reader` 非必须（缺失时自动降级）。
+可选：Ollama 本地模型 ；论坛引导 `forum_reader` 非必须（缺失时自动降级）。
 
 ---
 
