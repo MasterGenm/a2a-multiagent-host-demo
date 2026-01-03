@@ -103,6 +103,12 @@ curl "http://127.0.0.1:12000/api/chat?input=先研究后报告：请总结近一
 
 **实例效果图**：
 
+![动画 (1)](https://github.com/user-attachments/assets/636693e1-d537-4224-b5c7-261afb71b49c)
+
+
+
+<img width="1920" height="910" alt="记忆展示" src="https://github.com/user-attachments/assets/44f9e1da-6026-4d9d-9099-8ffbb75a3695" />
+
 
 <img width="1920" height="975" alt="对话界面" src="https://github.com/user-attachments/assets/ed76814b-c2b3-4b2d-8c85-9c561d44a2aa" />
 
@@ -121,7 +127,7 @@ curl "http://127.0.0.1:12000/api/chat?input=先研究后报告：请总结近一
 # 任选其一或多提供方，按优先顺序自动回落
 NAGA_PROVIDER=zhipu            # zhipu | dashscope | siliconflow
 NAGA_BASE_URL=https://open.bigmodel.cn/api/paas/v4
-NAGA_MODEL_NAME=glm-4.5
+NAGA_MODEL_NAME=glm-4.7
 NAGA_API_KEY=你的主Key          # 或用下列各自 Provider 的 Key
 
 # Provider 直填（任选）
