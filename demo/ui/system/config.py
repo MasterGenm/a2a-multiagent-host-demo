@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- 
 """
 config.py — Lite 版（开箱即用）
 目标：
@@ -38,7 +38,8 @@ def _normalize_base_url(u: str) -> str:
     return u
 
 def _provider_from_env() -> str:
-    return (os.getenv("NAGA_PROVIDER") or "").strip().lower()  # ollama / lmstudio / siliconflow / openai / ""
+    # ollama / lmstudio / siliconflow / openai / ""
+    return (os.getenv("NAGA_PROVIDER") or "").strip().lower()
 
 # ---------------- 配置对象（简单 dataclass 风） ----------------
 class APIConfig:
@@ -126,6 +127,29 @@ class SystemPrompts:
 如果你看到的"可用 MCP 服务"内容不完整，或者只包含Echo Demo和local_info，请明确告知用户系统中MCP服务可能未正确加载。
 """
 
+class GragConfig:
+    """GRAG / 图谱记忆相关配置"""
+    def __init__(self, data: Optional[Dict[str, Any]] = None):
+        data = data or {}
+
+        # 总开关 + 提取行为
+        self.enabled: bool = bool(data.get("enabled", True))
+        self.auto_extract: bool = bool(data.get("auto_extract", True))
+        self.context_length: int = int(data.get("context_length", 8))
+        self.similarity_threshold: float = float(data.get("similarity_threshold", 0.5))
+
+        # 任务管理器相关
+        self.max_workers: int = int(data.get("max_workers", 3))
+        self.max_queue_size: int = int(data.get("max_queue_size", 100))
+        self.task_timeout: int = int(data.get("task_timeout", 30))
+        self.auto_cleanup_hours: int = int(data.get("auto_cleanup_hours", 24))
+
+        # Neo4j 图数据库配置
+        self.neo4j_uri: str = data.get("neo4j_uri", "bolt://127.0.0.1:7687")
+        self.neo4j_user: str = data.get("neo4j_user", "neo4j")
+        self.neo4j_password: str = data.get("neo4j_password", "neo4j")
+        self.neo4j_database: str = data.get("neo4j_database", "neo4j")
+
 # ---------------- 主 Config：合并 env / config.json / 默认 ----------------
 class Config:
     def __init__(self):
@@ -135,6 +159,7 @@ class Config:
         self.online_search = OnlineSearchConfig()        # 兼容 OnlineSearchAgent
         self.naga_portal = NagaPortalConfig()            # 预留
         self.prompts = SystemPrompts()                   # 系统提示词
+        self.grag = GragConfig()                         # GRAG / 图谱记忆配置（有默认值）
 
         # 2) 根据 NAGA_PROVIDER 自动填默认 base_url / model（若未显式提供）
         pv = _provider_from_env()
@@ -178,6 +203,10 @@ class Config:
                     self.naga_portal.portal_url = portal.get("portal_url", self.naga_portal.portal_url)
                     self.naga_portal.username   = portal.get("username", self.naga_portal.username)
                     self.naga_portal.password   = portal.get("password", self.naga_portal.password)
+                # grag 图谱记忆配置
+                grag_data = data.get("grag") or {}
+                if grag_data:
+                    self.grag = GragConfig(grag_data)
         except Exception as e:
             print(f"[naga-config] 读取 config.json 失败：{e}")
 
@@ -197,7 +226,7 @@ class Config:
             print("[naga-config] ⚠️ 检测到云端 Provider，但 OPENAI_API_KEY 为空。请在 .env 设置。")
 
 # ---------------- 单例/工具函数 ----------------
-_config = None
+_config: Optional[Config] = None
 
 def load_config() -> Config:
     global _config
@@ -206,6 +235,9 @@ def load_config() -> Config:
 
 # 供全局直接使用：from system.config import config
 config: Config = load_config()
+
+# 兼容旧代码：from system.config import AI_NAME
+AI_NAME: str = config.ai_name
 
 def get_config() -> Config:
     return config

@@ -1,28 +1,62 @@
 # -*- coding: utf-8 -*-
 """
-ReportEngine FastAPI 子路由（增强版 + 幂等初始化）
+ReportEngine FastAPI 子路由（增强版 + 幂等初始化 + 原生 DOCX/PDF 直出）
 - 兼容原 Flask 蓝图能力：/status /generate /progress/{id} /result/{id} /cancel/{id}
 - 保留 run_report_sync(...) 供主控 /api/chat 同步委托
-- 新增：run_report_sync 支持“文件模式（files）”，并标准化返回字段
+- 新增：
+  1) run_report_sync 支持“文件模式（files）”
+  2) 新增 output_format = html|docx|pdf（默认 html，保持兼容）
+  3) 当 output_format 为 docx/pdf 时，直接走 python-docx / reportlab，不经由 HTML 中转
+
+用法示例（与主控 main.py 配合）：
+await run_report_sync({
+    "mode": "files",
+    "query": "国内人工智能进展季度盘点",
+    "draft_path": "E:/.../query_outputs/draft_2025-10-28.md",
+    "state_path": "E:/.../query_outputs/state_2025-10-28.json",
+    "forum_path": "logs/forum.log",
+    "custom_template": "金融科技技术与应用发展.md",
+    "output_format": "docx"   # 或 "pdf" / "html"
+})
 """
 
 from __future__ import annotations
+
 import os
 import time
 import json
 import logging
 import threading
 import traceback
+
+# --- ADD IMPORTS (如果你文件顶部没这些，就补上) ---
+import mimetypes
+from pathlib import Path
+
+from fastapi import HTTPException, Query
+from fastapi.responses import FileResponse
+
+
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, Any, Optional, Union
+from typing import Dict, Any, Optional, Union, List
 
 from fastapi import APIRouter, Body
 from fastapi.responses import JSONResponse, Response
 
 from .agent import ReportAgent
 from .utils.config import load_config
+
+# —— 新增：结构化模型 & Writer 适配层 —— #
+try:
+    from .model import build_model_from_inputs
+    from .writers.base import pick_writer, pick_ext
+    _WRITER_AVAILABLE = True
+except Exception as _e:
+    # 若你尚未按方案添加 model.py / writers/，仍可使用 HTML 产线
+    _WRITER_AVAILABLE = False
+    _WRITER_IMPORT_ERROR = f"{type(_e).__name__}: {_e}"
 
 report_router = APIRouter(prefix="/api/report", tags=["report"])
 
@@ -36,8 +70,97 @@ _TASK_LOCK = threading.Lock()
 
 _LOG = logging.getLogger("ReportEngine")
 
+_STARTUP_PRINTED = False
+
 
 # -------------------- 工具函数 --------------------
+# --- ADD: download helpers + endpoint ---
+
+
+
+# 以本文件位置推一个稳定的 ui/reports 根目录
+_UI_ROOT = Path(__file__).resolve().parents[2]          # .../demo/ui
+_DEFAULT_REPORTS_ROOT = (_UI_ROOT / "reports").resolve()
+
+def _is_under_any_root(p: Path, roots: List[Path]) -> bool:
+    rp = p.resolve()
+    for r in roots:
+        rr = r.resolve()
+        try:
+            if rp.is_relative_to(rr):  # py3.9+
+                return True
+        except Exception:
+            try:
+                rp.relative_to(rr)
+                return True
+            except Exception:
+                pass
+    return False
+
+@report_router.get("/download")
+def download_report(
+    path: str = Query(..., description="Absolute path or relative path"),
+    format: str = Query("auto", description="auto|html|pdf|docx|md"),
+    inline: bool = Query(False, description="open inline if true"),
+):
+    fmt = (format or "auto").lower().strip()
+    allowed_fmt = {"auto", "html", "pdf", "docx", "md"}
+    if fmt not in allowed_fmt:
+        raise HTTPException(status_code=422, detail=f"invalid format: {format}")
+
+    # 解析路径
+    p = Path(path).expanduser()
+    if not p.is_absolute():
+        p = (Path.cwd() / p).resolve()
+    else:
+        p = p.resolve()
+
+    # 收集允许目录（白名单）
+    roots: List[Path] = [_DEFAULT_REPORTS_ROOT]
+
+    # 尽量从 ReportEngine 配置拿 output_dir（不依赖 get_report_agent）
+    try:
+        if not initialize_report_engine() or _REPORT_AGENT is None:
+            raise RuntimeError("ReportEngine not initialized")
+        cfg_out = getattr(_REPORT_AGENT.config, "output_dir", None)
+        if cfg_out:
+            roots.append(Path(cfg_out).expanduser().resolve())
+    except Exception:
+        pass
+
+    roots.append((Path.cwd() / "outputs" / "final").resolve())
+    env_final = os.getenv("REPORT_FINAL_DIR")
+    if env_final:
+        roots.append(Path(env_final).expanduser().resolve())
+
+    if not _is_under_any_root(p, roots):
+        raise HTTPException(status_code=403, detail="forbidden path")
+
+    ext_map = {"html": ".html", "pdf": ".pdf", "docx": ".docx", "md": ".md"}
+
+    target = p
+    if fmt != "auto":
+        want_ext = ext_map[fmt]
+        if p.suffix.lower() != want_ext:
+            target = p.with_suffix(want_ext)
+
+        # fallback：pdf/docx 不存在时退回原文件，避免旧 UI 404
+        if (not target.exists()) and p.exists():
+            target = p
+
+    if (not target.exists()) or (not target.is_file()):
+        raise HTTPException(status_code=404, detail="file not found")
+
+    media_type = mimetypes.guess_type(target.name)[0] or "application/octet-stream"
+
+    if inline:
+        headers = {"Content-Disposition": f'inline; filename="{target.name}"'}
+        return FileResponse(str(target), media_type=media_type, headers=headers)
+
+    return FileResponse(str(target), media_type=media_type, filename=target.name)
+
+
+
 def _normpath(p: Optional[str]) -> str:
     """把路径标准化为绝对路径，兼容 Windows"""
     try:
@@ -59,6 +182,25 @@ def _safe_get_report_title(agent: ReportAgent) -> str:
             except Exception:
                 pass
     return ""
+
+
+def _ensure_dir(p: str) -> None:
+    Path(p).mkdir(parents=True, exist_ok=True)
+
+
+def _final_output_dir(cfg) -> str:
+    """
+    决定 DOCX/PDF 的落盘目录：
+      1) 环境变量 REPORT_FINAL_DIR
+      2) cfg.output_dir（ReportAgent 配置里的输出目录）
+      3) 默认 'outputs/final'
+    """
+    cand = os.getenv("REPORT_FINAL_DIR")
+    if cand:
+        return _normpath(cand)
+    if getattr(cfg, "output_dir", None):
+        return _normpath(cfg.output_dir)
+    return _normpath(str(Path("outputs/final").resolve()))
 
 
 # -------------------- 任务模型 --------------------
@@ -101,9 +243,6 @@ class ReportTask:
         }
 
 
-_STARTUP_PRINTED = False
-
-
 # -------------------- 初始化 --------------------
 def initialize_report_engine() -> bool:
     global _REPORT_AGENT, _INITIALIZED, _LAST_ERROR, _STARTUP_PRINTED
@@ -135,7 +274,7 @@ async def _startup_init_report_engine():
     initialize_report_engine()
 
 
-# -------------------- 同步入口：支持 prompt/文件 两种模式 --------------------
+# -------------------- 同步入口：支持 prompt/文件 + html/docx/pdf --------------------
 async def run_report_sync(
     query: Union[str, Dict[str, Any]],
     *,
@@ -144,28 +283,36 @@ async def run_report_sync(
 ) -> Dict[str, Any]:
     """
     用法1（原有）：await run_report_sync("请基于研究材料生成HTML报告", timeout_s=180)
-    用法2（新增文件模式）：
+    用法2（文件模式）：
         await run_report_sync({
             "mode": "files",
-            "query": "（可选）报告标题/主题",
+            "query": "（可选标题/主题）",
             "draft_path": "reports/draft_xxx.md",
             "state_path": "reports/state_xxx.json",
             "forum_path": "logs/forum.log",
-            "custom_template": "",      # 可选
-            "save_html": True           # 可选，默认 True
+            "custom_template": "",
+            "save_html": True,
+            "output_format": "docx" | "pdf" | "html"
         })
-    兼容别名：query_engine_draft/query_engine_state/forum_log_path
-    返回统一结构：
-        {"ok": True, "result": {
-            "html_len": N,
-            "html_path": "/abs/path/to/final.html",
-            "custom_template": "xxx.md",
-            "report_title": "（尽力从 Agent 获取）"
-        }}
+
+    返回：
+      - html: {"ok": True, "result": {"html_len", "html_path", "custom_template", "report_title"}}
+      - docx: {"ok": True, "result": {"docx_len", "docx_path", "report_title"}}
+      - pdf : {"ok": True, "result": {"pdf_len",  "pdf_path",  "report_title"}}
     """
     try:
         if not initialize_report_engine() or _REPORT_AGENT is None:
             return {"ok": False, "error": _LAST_ERROR or "ReportEngine not initialized"}
+
+        # 读取输出格式（默认 html 保持兼容）
+        def _resolve_output_format(q) -> str:
+            if isinstance(q, dict):
+                v = (q.get("output_format") or os.getenv("REPORTENGINE_OUTPUT") or "html").lower().strip()
+            else:
+                v = (os.getenv("REPORTENGINE_OUTPUT") or "html").lower().strip()
+            return v if v in ("html", "docx", "pdf") else "html"
+
+        output_format = _resolve_output_format(query)
 
         # --------- 模式自动判定 ---------
         if isinstance(query, dict):
@@ -176,94 +323,205 @@ async def run_report_sync(
                                or payload.get("state_path") or payload.get("query_engine_state")):
                 mode = "files"
 
-            if mode == "files":
-                qtext = payload.get("query")  # 可为空，让 Agent 自行从 state 推断
-                draft_path = payload.get("draft_path") or payload.get("query_engine_draft")
-                state_path = payload.get("state_path") or payload.get("query_engine_state")
-                forum_path = payload.get("forum_path") or payload.get("forum_log_path")
-                ctpl = payload.get("custom_template") or custom_template
-                save_html = payload.get("save_html")
-                if save_html is None:
-                    save_html = True
+            # ====== A) HTML 路线（保持原有产线） ======
+            if output_format == "html":
+                if mode == "files":
+                    qtext = payload.get("query")  # 可为空，让 Agent 自行从 state 推断
+                    draft_path = payload.get("draft_path") or payload.get("query_engine_draft")
+                    state_path = payload.get("state_path") or payload.get("query_engine_state")
+                    forum_path = payload.get("forum_path") or payload.get("forum_log_path")
+                    ctpl = payload.get("custom_template") or custom_template
+                    save_html = payload.get("save_html")
+                    if save_html is None:
+                        save_html = True
 
+                    try:
+                        html_path = _REPORT_AGENT.generate_report_from_files(
+                            query=qtext,
+                            query_dir=None,
+                            draft_path=draft_path,
+                            state_path=state_path,
+                            forum_log_path=forum_path,
+                            custom_template=ctpl,
+                            save_report=bool(save_html),
+                        )
+                        if not html_path:
+                            html_path = _REPORT_AGENT.get_last_saved_html_path()
+                    except Exception as e:
+                        traceback.print_exc()
+                        return {"ok": False, "error": f"{type(e).__name__}: {e}"}
+
+                    html_path = _normpath(html_path)
+                    html_len = 0
+                    if html_path and Path(html_path).exists():
+                        try:
+                            html_len = len(Path(html_path).read_text(encoding="utf-8", errors="ignore"))
+                        except Exception:
+                            pass
+
+                    return {"ok": True, "result": {
+                        "html_len": html_len,
+                        "html_path": html_path,
+                        "custom_template": ctpl or "",
+                        "report_title": _safe_get_report_title(_REPORT_AGENT),
+                    }}
+
+                # —— 非 files：旧模式 —— #
+                query_text = (payload.get("query") or "").strip() or "综合报告"
+                custom_template = payload.get("custom_template") or custom_template
+
+                cfg = _REPORT_AGENT.config
+                # 推断 forum 日志（若没有，就用 log_file 兜底）
+                forum_log_path = str(Path(cfg.log_file).with_name("forum.log"))
+                if not Path(forum_log_path).exists():
+                    forum_log_path = cfg.log_file
+
+                # 尝试读取上游产物；缺失也允许最小输入生成
                 try:
-                    html_path = _REPORT_AGENT.generate_report_from_files(
-                        query=qtext,
-                        query_dir=None,
-                        draft_path=draft_path,
-                        state_path=state_path,
-                        forum_log_path=forum_path,
-                        custom_template=ctpl,
-                        save_report=bool(save_html),
+                    status = _REPORT_AGENT.check_input_files(
+                        cfg.insight_dir, cfg.media_dir, cfg.query_dir, forum_log_path
                     )
-                    if not html_path:
-                        html_path = _REPORT_AGENT.get_last_saved_html_path()
-                except Exception as e:
-                    traceback.print_exc()
-                    return {"ok": False, "error": f"{type(e).__name__}: {e}"}
+                    if status and status.get("ready"):
+                        content = _REPORT_AGENT.load_input_files(status.get("latest_files", {}))
+                    else:
+                        content = {"reports": [], "forum_logs": ""}
+                except Exception:
+                    content = {"reports": [], "forum_logs": ""}
+
+                html = _REPORT_AGENT.generate_report(
+                    query=query_text,
+                    reports=content.get("reports", []),
+                    forum_logs=content.get("forum_logs", ""),
+                    custom_template=custom_template,
+                    save_report=True,
+                )
+                html_path = ""
+                try:
+                    html_path = _REPORT_AGENT.get_last_saved_html_path()
+                except Exception:
+                    pass
 
                 html_path = _normpath(html_path)
-                html_len = 0
-                if html_path and Path(html_path).exists():
-                    try:
-                        html_len = len(Path(html_path).read_text(encoding="utf-8", errors="ignore"))
-                    except Exception:
-                        pass
-
                 return {"ok": True, "result": {
-                    "html_len": html_len,
+                    "html_len": len(html or ""),
                     "html_path": html_path,
-                    "custom_template": ctpl or "",
+                    "custom_template": custom_template or "",
                     "report_title": _safe_get_report_title(_REPORT_AGENT),
                 }}
 
-            # 非 files，则回落到老的“prompt+自动搜素材”模式
-            query_text = (payload.get("query") or "").strip() or "综合报告"
-            custom_template = payload.get("custom_template") or custom_template
-        else:
-            # 纯字符串模式
-            query_text = (query or "").strip() or "综合报告"
+            # ====== B) DOCX/PDF 路线（原生直出） ======
+            # 需配合 model.py & writers/
+            if not _WRITER_AVAILABLE:
+                return {"ok": False, "error": f"Writers not available: {_WRITER_IMPORT_ERROR}"}
 
-        # --------- 旧模式：prompt + 自动加载上游产物 ---------
-        cfg = _REPORT_AGENT.config
-
-        # 推断 forum 日志（若没有，就用 log_file 兜底）
-        forum_log_path = str(Path(cfg.log_file).with_name("forum.log"))
-        if not Path(forum_log_path).exists():
-            forum_log_path = cfg.log_file
-
-        # 尝试读取上游产物；缺失也允许最小输入生成
-        try:
-            status = _REPORT_AGENT.check_input_files(
-                cfg.insight_dir, cfg.media_dir, cfg.query_dir, forum_log_path
-            )
-            if status and status.get("ready"):
-                content = _REPORT_AGENT.load_input_files(status.get("latest_files", {}))
+            if mode == "files":
+                # 结构化自 state/draft 合并
+                draft = payload.get("draft_path") or payload.get("query_engine_draft")
+                state = payload.get("state_path") or payload.get("query_engine_state")
+                meta = {
+                    "title": payload.get("title") or payload.get("query") or "研究报告",
+                    "subtitle": payload.get("subtitle"),
+                    "author": payload.get("author") or "Auto Researcher",
+                    "date": payload.get("date"),
+                }
+                model = build_model_from_inputs(state_path=state, draft_path=draft, free_text=None, meta_overrides=meta)
             else:
-                content = {"reports": [], "forum_logs": ""}
-        except Exception:
-            content = {"reports": [], "forum_logs": ""}
+                # 纯文本/Prompt 场景：直接把文本作为正文
+                free_text = (payload.get("text") or payload.get("query") or "").strip() or "（无可用正文）"
+                model = build_model_from_inputs(state_path=None, draft_path=None, free_text=free_text, meta_overrides={
+                    "title": payload.get("title") or payload.get("query") or "研究报告",
+                    "author": payload.get("author") or "Auto Researcher",
+                    "date": payload.get("date"),
+                })
 
-        html = _REPORT_AGENT.generate_report(
-            query=query_text,
-            reports=content.get("reports", []),
-            forum_logs=content.get("forum_logs", ""),
-            custom_template=custom_template,
-            save_report=True,
-        )
-        html_path = ""
-        try:
-            html_path = _REPORT_AGENT.get_last_saved_html_path()
-        except Exception:
-            pass
+        else:
+            # —— query 为字符串 —— #
+            if output_format == "html":
+                # 旧的 HTML 产线：使用现有 Agent 自行加载上游产物
+                query_text = (query or "").strip() or "综合报告"
+                cfg = _REPORT_AGENT.config
+                forum_log_path = str(Path(cfg.log_file).with_name("forum.log"))
+                if not Path(forum_log_path).exists():
+                    forum_log_path = cfg.log_file
 
-        html_path = _normpath(html_path)
-        return {"ok": True, "result": {
-            "html_len": len(html or ""),
-            "html_path": html_path,
-            "custom_template": custom_template or "",
-            "report_title": _safe_get_report_title(_REPORT_AGENT),
-        }}
+                try:
+                    status = _REPORT_AGENT.check_input_files(
+                        cfg.insight_dir, cfg.media_dir, cfg.query_dir, forum_log_path
+                    )
+                    if status and status.get("ready"):
+                        content = _REPORT_AGENT.load_input_files(status.get("latest_files", {}))
+                    else:
+                        content = {"reports": [], "forum_logs": ""}
+                except Exception:
+                    content = {"reports": [], "forum_logs": ""}
+
+                html = _REPORT_AGENT.generate_report(
+                    query=query_text,
+                    reports=content.get("reports", []),
+                    forum_logs=content.get("forum_logs", ""),
+                    custom_template=custom_template,
+                    save_report=True,
+                )
+                html_path = ""
+                try:
+                    html_path = _REPORT_AGENT.get_last_saved_html_path()
+                except Exception:
+                    pass
+
+                html_path = _normpath(html_path)
+                return {"ok": True, "result": {
+                    "html_len": len(html or ""),
+                    "html_path": html_path,
+                    "custom_template": custom_template or "",
+                    "report_title": _safe_get_report_title(_REPORT_AGENT),
+                }}
+
+            # —— 字符串 + DOCX/PDF —— #
+            if not _WRITER_AVAILABLE:
+                return {"ok": False, "error": f"Writers not available: {_WRITER_IMPORT_ERROR}"}
+
+            free_text = (query or "").strip()
+            model = build_model_from_inputs(state_path=None, draft_path=None, free_text=free_text, meta_overrides={
+                "title": "研究报告",
+                "author": "Auto Researcher",
+            })
+
+        # ====== 统一的 DOCX/PDF 落盘逻辑 ======
+        if output_format in ("docx", "pdf"):
+            if not _WRITER_AVAILABLE:
+                return {"ok": False, "error": f"Writers not available: {_WRITER_IMPORT_ERROR}"}
+
+            writer = pick_writer(output_format)  # docx_writer / pdf_writer
+            cfg = _REPORT_AGENT.config
+            out_dir = _final_output_dir(cfg)
+            _ensure_dir(out_dir)
+
+            base_name = (model.meta.title or "report").strip().replace(" ", "_")
+            out_path = str(Path(out_dir) / f"{base_name}{pick_ext(output_format)}")
+
+            try:
+                result_path = writer.write(model, out_path)
+                size = os.path.getsize(result_path) if os.path.exists(result_path) else 0
+            except Exception as e:
+                traceback.print_exc()
+                return {"ok": False, "error": f"{type(e).__name__}: {e}"}
+
+            if output_format == "docx":
+                return {"ok": True, "result": {
+                    "docx_path": _normpath(result_path),
+                    "docx_len": size,
+                    "report_title": model.meta.title,
+                }}
+            else:
+                return {"ok": True, "result": {
+                    "pdf_path": _normpath(result_path),
+                    "pdf_len": size,
+                    "report_title": model.meta.title,
+                }}
+
+        # 理论到不了这里（上面已覆盖 html/docx/pdf）
+        return {"ok": False, "error": "unsupported output format"}
+
     except Exception as e:
         traceback.print_exc()
         return {"ok": False, "error": f"{type(e).__name__}: {e}"}
@@ -337,12 +595,15 @@ def get_status():
             except Exception:
                 pass
             info.update({
-                "output_dir": _normpath(cfg.output_dir),
-                "template_dir": _normpath(cfg.template_dir),
-                "log_file": _normpath(cfg.log_file),
+                "output_dir": _normpath(getattr(cfg, "output_dir", "")),
+                "template_dir": _normpath(getattr(cfg, "template_dir", "")),
+                "log_file": _normpath(getattr(cfg, "log_file", "")),
                 "model": model_info,
                 "last_html_path": last_html,
+                "writers_available": _WRITER_AVAILABLE,
             })
+            if not _WRITER_AVAILABLE:
+                info["writers_error"] = _WRITER_IMPORT_ERROR
         return JSONResponse(info, status_code=200)
     except Exception as e:
         return JSONResponse({"success": False, "error": str(e)}, status_code=200)
@@ -351,7 +612,7 @@ def get_status():
 @report_router.post("/generate")
 def generate_report(payload: Dict[str, Any] = Body(...)):
     """
-    异步任务接口（保持原有）：暂未接入 files 模式，前端需要 files 直出请用 run_report_sync 的 dict 调用，
+    异步任务接口（保持原有）：暂未接入 files/docx/pdf 模式，前端需要 files 直出请用 run_report_sync 的 dict 调用，
     或另开同步接口（按需增加）。
     """
     try:

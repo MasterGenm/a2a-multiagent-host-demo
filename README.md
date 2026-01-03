@@ -45,7 +45,7 @@ Mesop UI  ──▶  FastAPI (/api/chat,/api/query,/api/report)
                 │     └─ 网络检索/反思/草稿 & state 文件
                 │
                 └─ ReportEngine（service/ReportEngine）
-                      └─ 读取 QE 草稿/state + 模板 → 生成 HTML 报告
+                      └─ 读取 QE 草稿/state + 模板 → 生成 HTML / PDF / DOCX 报告
 ```
 
 可选：Ollama 本地模型 ；论坛引导 `forum_reader` 非必须（缺失时自动降级）。
@@ -91,7 +91,15 @@ curl "http://127.0.0.1:12000/api/chat?input=报告任务：请生成一份关于
 curl "http://127.0.0.1:12000/api/chat?input=先研究后报告：请总结近一年的金融科技趋势并生成报告&profile=naga&force_combo=true"
 ```
 
-预期：先跑 QE 生成草稿/state，再喂给 RE 产出 HTML，返回合成的完成提示。
+预期：先跑 QE 生成草稿/state，再喂给 RE 产出 HTML/PDF/DOCX（取决于 `report_output`），返回合成的完成提示。
+
+6. **在 UI 内一键导出（推荐）：**
+
+在 Mesop 对话框里直接输入：
+
+* `/report pdf <你的主题>`
+* `/report docx <你的主题>`
+* `/report html <你的主题>`
 
 **实例效果图**：
 
@@ -167,6 +175,7 @@ python main.py
 * `force_report`: `true|false` 强制走 ReportEngine
 * `force_query`: `true|false` 强制走 QueryEngine
 * `force_combo`: `true|false` 先 QE 再 RE 的联动
+* `report_output`: `html|pdf|docx` 报告输出格式（仅当 RE 参与时生效）
 * `persona`: 可覆盖默认 Persona（可选）
 
 **返回字段（核心）：**
@@ -187,6 +196,27 @@ curl "http://127.0.0.1:12000/api/chat?input=报告任务：生成关于实时支
 
 # 研究 + 报告（Combo）
 curl "http://127.0.0.1:12000/api/chat?input=先研究后报告：AI+金融的风险与监管趋势&force_combo=true"
+
+# 研究 + 报告（Combo）并导出 PDF/DOCX（推荐：POST JSON，避免 URL 编码问题）
+curl -X POST "http://127.0.0.1:12000/api/chat" \
+  -H "Content-Type: application/json" \
+  -d '{"input":"请生成一份关于 RAG 发展的简要报告（含定义/里程碑/进展）","profile":"naga","force_combo":true,"report_output":"pdf"}'
+```
+
+### `GET /api/report/download`
+
+报告下载/预览端点（由 UI 和下载链接使用）。
+
+**Query 参数：**
+
+* `path`: 报告文件路径（绝对路径或相对路径；服务端会做白名单校验）
+* `format`: `auto|html|pdf|docx|md`
+* `inline`: `0|1`（HTML/PDF 可用 inline 预览）
+
+示例：
+
+```bash
+curl "http://127.0.0.1:12000/api/report/download?path=demo/ui/reports/final_reports/xxx.pdf&format=auto"
 ```
 
 ---
@@ -202,7 +232,10 @@ demo/ui/reports/
   │   ├─ draft_*.md                   # 初稿
   │   └─ state_*.json                 # 研究状态 (供 RE 消化)
   └─ final_reports/
-      └─ *.html                       # ReportEngine 产出的最终报告（保存开启时）
+      ├─ *.html                       # ReportEngine 产出的最终报告（HTML）
+      ├─ *.pdf                        # ReportEngine 产出的最终报告（PDF）
+      ├─ *.docx                       # ReportEngine 产出的最终报告（Word）
+      └─ report_state_*.json           # 生成过程/元信息（可用于排障）
 ```
 
 ---
@@ -235,6 +268,9 @@ ReportEngine 会读取 `service/ReportEngine/report_template/` 下的模板。
   * `FASTBOOT` 后台初始化，服务即起即用
   * 报告模板 **自动选择**
   * 统一限流/退避与重试
+* ✅ **ReportEngine 导出增强**：支持 `report_output=pdf|docx`（产物落盘到 `demo/ui/reports/final_reports/`）
+* ✅ **下载链路闭环**：新增 `GET /api/report/download`（UI 可点击下载/预览）
+* ✅ **记忆模块（GRAG）**：/api/chat 可回传 `memory_context`，并把对话写入记忆（best-effort）
 * ✅ **Mesop UI 修复**：Text type、Border 兼容问题
 * ✅ **组件瘦身**：仅注册对话页，避免多余依赖牵引
 
@@ -244,7 +280,7 @@ ReportEngine 会读取 `service/ReportEngine/report_template/` 下的模板。
 
 
   
-* 报告导出 **PDF/Docx**
+* PDF/DOCX 排版增强（字体、样式、表格/图片表现）
 
 * 更细粒度的**可观测性**（链路时序、各段耗时）
 

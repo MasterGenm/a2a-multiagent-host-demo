@@ -127,3 +127,15 @@ Agent can also be built using a container file.
 
 > [!Important]  
 > Using the `host` network not recommended in production.
+
+---
+
+## Experimental: Naga pipeline skeleton (optional)
+
+If you want to refactor the demo along the TradingAgents style (unified state + node pipeline), there is a new optional helper under `demo/ui/service/naga_pipeline.py`:
+
+- `NagaState`: a single state object carrying intent, QE/RE placeholders, memory context, and the final reply.
+- Node functions: `planner_node` (intent), `memory_retrieve_node` (GRAG fetch, optional), `query_engine_node` (placeholder), `report_engine_node` (placeholder), `synthesize_node` (merge outputs).
+- `run_pipeline(user_input, force_query=False, force_report=False, force_combo=False)`: a minimal runner that chains the nodes. It is safe to run locally and does **not** affect the existing `/api/chat` flow.
+
+This is intended as a gentle starting point for gradual refactoring. You can replace the placeholder QE/RE nodes with your real QueryEngine/ReportEngine calls when ready, and eventually wire the pipeline into `/api/chat` if desired.

@@ -1,0 +1,15 @@
+{
+  "task_id": "report_20251228_162247",
+  "query": "",
+  "status": "completed",
+  "progress": 100.0,
+  "selected_template": "",
+  "has_html_content": true,
+  "html_content_length": 5633,
+  "metadata": {
+    "query": "请生成一份报告并导出（pdf/docx都可以），随便内容",
+    "template_used": "custom",
+    "generation_time": 0.0,
+    "timestamp": "2025-12-28T16:22:47.404383"
+  }
+}

@@ -83,34 +83,51 @@ class StateEvent:
 
 @me.stateclass
 class AppState:
-    # --- 新增：来自 ultimate_main 的核心状态字段 ---
     is_initialized: bool = False
     ollama_connected: bool = False
     available_models: List[str] = field(default_factory=list)
-    selected_model: str = "huanhuan-qwen"
+
+    # 建议：默认就用一个一定存在的占位值
+    selected_model: str = "naga:default"
+
     temperature: float = 0.7
     top_p: float = 0.9
     top_k: int = 40
     user_input: str = ""
     messages: List[ChatMessage] = field(default_factory=list)
     tasks: Dict[str, AgentTask] = field(default_factory=dict)
-    
-    # --- 人设和代理调度状态 ---
+
+    # ✅ 新增：回复语言，和 main.py 对齐
+    #    （与 main.py 的 LANGUAGE_ALIASES / LANGUAGE_DIRECTIVES 一致）
+    reply_lang: Literal["auto", "zh", "en", "ja", "ko"] = "auto"
+
+    # 人设与调度
     active_persona_id: str = "assistant"
     persona_selector_open: bool = False
     remote_agent_monitor_open: bool = False
     auto_dispatch_enabled: bool = True
-    current_model_provider: str = "zhipu"  # zhipu 或 ollama
+    current_model_provider: str = "zhipu"
 
-    # --- 保留：来自原始 a2a 框架的字段 ---
+    # 调试面板与最近一次调用的状态
+    debug_panel_open: bool = False
+    debug_mode: bool = False  # 控制是否在对话中插入 Plan/Language/Memory 调试消息
+    used_query_engine: bool = False
+    used_report_engine: bool = False
+    used_grag_memory: bool = False
+    last_report_path: str = ""
+    last_task: str = ""
+    last_memory_snippet: str = ""
+    debug_show_plan: bool = True
+    debug_show_memory: bool = True
+    debug_show_language: bool = True
+
+    # a2a 兼容字段
     sidenav_open: bool = False
     theme_mode: Literal['system', 'light', 'dark'] = 'system'
     current_conversation_id: str = ''
     conversations: list[StateConversation] = field(default_factory=list)
-    
-    # 关键：恢复 task_list 以兼容旧的 GetTasks 逻辑
+
     task_list: list[SessionTask] = field(default_factory=list)
-    
     legacy_messages: list[StateMessage] = field(default_factory=list)
     background_tasks: dict[str, str] = field(default_factory=dict)
     completed_forms: dict[str, dict[str, Any] | None] = field(default_factory=dict)

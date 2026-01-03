@@ -1,0 +1,15 @@
+{
+  "task_id": "report_20251227_185258",
+  "query": "",
+  "status": "completed",
+  "progress": 100.0,
+  "selected_template": "",
+  "has_html_content": true,
+  "html_content_length": 7792,
+  "metadata": {
+    "query": "请你围绕「近五年中国A股高频交易监管政策的演变及其对市场流动性的影响」， 写一份结构化的长篇研究报告，字数不少于 3000 字， 按「摘要-引言-文献综述-政策时间线-影响分析-结论与展望」分节， 并生成一个可以下载的报告文件。",
+    "template_used": "custom",
+    "generation_time": 0.0,
+    "timestamp": "2025-12-27T18:52:58.808380"
+  }
+}

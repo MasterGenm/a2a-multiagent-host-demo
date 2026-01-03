@@ -1,0 +1,15 @@
+{
+  "task_id": "report_20251229_192517",
+  "query": "",
+  "status": "completed",
+  "progress": 100.0,
+  "selected_template": "",
+  "has_html_content": true,
+  "html_content_length": 6020,
+  "metadata": {
+    "query": "download smoke test - html",
+    "template_used": "custom",
+    "generation_time": 91.850353,
+    "timestamp": "2025-12-29T19:25:17.211802"
+  }
+}

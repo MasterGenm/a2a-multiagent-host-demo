@@ -1,0 +1,15 @@
+{
+  "task_id": "report_20251229_151051",
+  "query": "",
+  "status": "completed",
+  "progress": 100.0,
+  "selected_template": "",
+  "has_html_content": true,
+  "html_content_length": 5401,
+  "metadata": {
+    "query": "download smoke test",
+    "template_used": "自由发挥模板（fallback）",
+    "generation_time": 0.0,
+    "timestamp": "2025-12-29T15:10:51.146708"
+  }
+}

@@ -1,0 +1,1006 @@
+{
+  "query": "[User request]\n请生成一份报告并导出（pdf/docx都可以），随便内容\n\n[Intent]\n{'task': 'report', 'should_use_qe': False, 'needs_browsing': False, 'queries': ['请生成一份报告并导出（pdf/docx都可以），随便内容'], 'time_window': 'auto', 'date_from': None, 'date_to': None, 'sources': ['news'], 'region': 'auto', 'output': {'format': 'markdown', 'citations': False, 'max_length': 'medium'}, 'constraints': {'language': 'zh', 'avoid_topics': [], 'style': '严谨'}, 'notes': '用户请求生成一份内容随意的报告，并导出为PDF或DOCX格式。不需要查询外部信息，可直接生成报告内容。'}\n\n[QE inputs]\n{'should_use_qe': False, 'search_tool': 'basic_search_news', 'query': '请生成一份报告并导出（pdf/docx都可以），随便内容', 'start_date': None, 'end_date': None}\n\n[Memory]\n我在知识图谱中找到以下相关信息：\n\n- 系统(概念) —[走]→ 报告(活动)\n- 报告路径(概念) —[直接回答]→ 基础知识问题(概念)\n",
+  "report_title": "关于'[User request]\n请生成一份报告并导出（pdf/docx都可以），随便内容\n\n[Intent]\n{'task': 'report', 'should_use_qe': False, 'needs_browsing': False, 'queries': ['请生成一份报告并导出（pdf/docx都可以），随便内容'], 'time_window': 'auto', 'date_from': None, 'date_to': None, 'sources': ['news'], 'region': 'auto', 'output': {'format': 'markdown', 'citations': False, 'max_length': 'medium'}, 'constraints': {'language': 'zh', 'avoid_topics': [], 'style': '严谨'}, 'notes': '用户请求生成一份内容随意的报告，并导出为PDF或DOCX格式。不需要查询外部信息，可直接生成报告内容。'}\n\n[QE inputs]\n{'should_use_qe': False, 'search_tool': 'basic_search_news', 'query': '请生成一份报告并导出（pdf/docx都可以），随便内容', 'start_date': None, 'end_date': None}\n\n[Memory]\n我在知识图谱中找到以下相关信息：\n\n- 系统(概念) —[走]→ 报告(活动)\n- 报告路径(概念) —[直接回答]→ 基础知识问题(概念)\n'的深度研究报告",
+  "paragraphs": [
+    {
+      "title": "引言：人工智能在教育领域的兴起背景",
+      "content": "随着信息技术的飞速发展，人工智能(AI)正逐渐渗透到各个行业和领域，教育行业也不例外。近年来，全球教育机构开始积极探索AI技术在教学过程中的应用，以期提高教学效率、个性化学习体验以及教育资源的优化配置。本报告将探讨人工智能在现代教育中的多方面应用及其影响。",
+      "research": {
+        "search_history": [
+          {
+            "query": "人工智能 教育应用 个性化学习 教学效率 资源优化",
+            "url": "https://www.nbcnews.com/tech/tech-news/ai-school-teacher-student-train-chatgpt-rcna248726",
+            "title": "Teachers test-drive AI as schools give mixed signals on rules - NBC News",
+            "content": "More importantly, Weil said, AI “should not be a replacement for human interaction and human relationships. Human relationships can be messy and really problematic and hard, but that’s the beauty of humanity.”\n\nFaced with an often-crushing dearth of resources and little time to provide individual attention to students, many teachers at the workshop were eager to learn how AI systems can enhance — not replace — existing education methods. [...] As the use of AI has spread, some educators who have taught the same material for decades are finding that certain AI tools can simplify time-consuming tasks like creating lesson plans or decks of flash cards. At the same time, AI systems still raise significant questions about the role of creativity, critical-thinking and the purpose of education — for teachers and for their students. [...] Stillman, like Goodnow and many other teachers, noted that AI can help tailor her lessons for students of different abilities, creating more-advanced activities for higher-performing students and more-basic tasks for students who are functionally illiterate in English.",
+            "score": 0.29478866,
+            "timestamp": "2025-12-28T16:26:18.348112"
+          },
+          {
+            "query": "人工智能 教育应用 个性化学习 教学效率 资源优化",
+            "url": "https://www.forbes.com/sites/avivalegatt/2025/12/26/7-ai-decisions-that-will-define-higher-education-in-2026/",
+            "title": "7 AI Decisions That Will Define Higher Education In 2026 - Forbes",
+            "content": "Survey data shows that roughly 90% of college students have used AI in college, with usage accelerating across age groups and program types—including adult learners returning to higher education. And usage is increasingly task-specific: students use AI to brainstorm, outline, draft, and clarify complex concepts. This is no longer a fringe behavior; it’s becoming part of the academic workflow. [...] Early adopters are already proving the value. Georgia State’s Pounce reduces friction in student support and improves persistence. Michigan Ross built a teaching assistant that guides students through reasoning. Penn State’s MyResource helps students navigate advising and services 24/7. These aren’t novelty deployments; they’re early evidence that governed agents can measurably reduce bottlenecks in advising, enrollment, learning support, and operational coordination. [...] Over the past year, the shift from AI as a tool to AI as institutional infrastructure has become unmistakable. Students have already integrated AI into daily academic workflows, vendors are pushing enterprise deployments, federal and accreditation expectations are rising, and labor-market volatility is forcing colleges to rethink how learning connects to opportunity. At the same time, agentic AI is moving from experimentation to execution, reshaping how advising, enrollment, learning support,",
+            "score": 0.2843181,
+            "timestamp": "2025-12-28T16:26:18.348148"
+          },
+          {
+            "query": "人工智能 教育应用 个性化学习 教学效率 资源优化",
+            "url": "https://www.nature.com/articles/s41598-025-28179-z",
+            "title": "Using explainable AI to align pre-university profiles with bachelor’s degree success - Nature",
+            "content": "Recent studies have shown the potential of machine learning in predicting academic success and providing personalized recommendations. For example, Iatrellis et al.32.\") developed a machine learning-based system for predicting student performance and providing personalized learning path recommendations in higher education. Similarly, Moreno-Marcos et al.33.\") explored the use of machine learning techniques for early prediction of student performance in MOOCs, demonstrating the potential of [...] these approaches in educational contexts. [...] with more comprehensive models give students better career information, prepare them better for their future, and students obtain higher grades and have a more positive climate in their schools8.\").",
+            "score": 0.262555,
+            "timestamp": "2025-12-28T16:26:18.348164"
+          },
+          {
+            "query": "人工智能 教育应用 个性化学习 教学效率 资源优化",
+            "url": "https://www.govtech.com/education/higher-ed/ai-nudges-syracuse-professors-back-toward-blue-books-in-class-work",
+            "title": "AI Nudges Syracuse Professors Back Toward Blue Books, In-Class Work - GovTech",
+            "content": "Facebook\n LinkedIn\n Twitter\n Print)\n Email\n\n## Tags:\n\nArtificial Intelligence Higher EducationEducationArtificial Intelligence\n\nRelated Content\n\nHigher Education\n\nOnline PD Resource Trains Educators on ‘Growth Mindset’\n\nDecember 22, 2025\n\n · Abby Sourwine\n\nK-12 Education\n\nCarousel and FileWave Partner for Device Management, Digital Comms\n\nDecember 22, 2025\n\n · News Staff\n\nHigher Education\n\nNebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy\n\nDecember 22, 2025 [...] As generative AI continues to develop, faculty are learning how to use it along with students. Some, like Ryan, are skeptical of its application and try to avoid it while others, like Santiago , spend hours figuring out the best application for students.  \n  \n“This has shaken up what education does in a way that other technologies haven’t,” Hannan said.  \n  \n©2025 Advance Local Media LLC. Distributed by Tribune Content Agency, LLC. [...] Multiple professors said they see students upload class slides or paste class notes into a chatbot and ask it to create study tools like a practice quiz or study questions. Anthropic , the creator of AI bot Claude,analyzed student chatsand found they also use it to troubleshoot coding problems or synthesize complex information.",
+            "score": 0.24742371,
+            "timestamp": "2025-12-28T16:26:18.348176"
+          },
+          {
+            "query": "人工智能 教育应用 个性化学习 教学效率 资源优化",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "Conversations with leaders in higher education inevitably revolve around AI. How do we improve student advising? Lower instruction costs? Streamline administration? Update our antiquated business processes? Deliver on the promise of liberal arts? Break the stranglehold of disciplinary silos? Match our students with the skills they need to succeed in the job market? [...] while 61% of faculty have used AI in teaching, 88% of those do so minimally. [...] There are signs that faculty are getting the point. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. The Digital Education Council’s 2025 Global AI Faculty Survey found that",
+            "score": 0.23890553,
+            "timestamp": "2025-12-28T16:26:18.348185"
+          },
+          {
+            "query": "人工智能 教育应用 个性化学习 教学效率 资源优化",
+            "url": "https://www.ynetnews.com/tech-and-digital/article/sjjvaupmzl",
+            "title": "Who fares better in the AI era: students who use it or those who don’t? - Ynetnews",
+            "content": "“As a lecturer, for example, I have a smart personal teaching assistant. At the same time, there are things I choose to teach myself and things I allow students to learn independently with the help of AI. We are in the midst of a deep change across three dimensions: teaching, learning and assessment. Everything is changing together. It’s complex, but there is no choice. If we ignore AI, we will become irrelevant both to students and to the job market.” [...] “We need to separate the pedagogical principle from the logistical challenge. Pedagogically, there’s no question here: to give a grade, I need to know what the student knows, and the way to express knowledge is in writing or orally. Exams can also be held in large groups, and there’s no problem with that. The student can use AI in their learning, but at the moment of truth, they are alone with the paper. [...] “Alongside that, academic faculty also need training. Lecturers and teachers weren’t born with AI knowledge. The Education Ministry and academic institutions are investing in this, but there is always more that can and should be done. Only in this way can artificial intelligence be properly integrated and passed on to students.”",
+            "score": 0.19182713,
+            "timestamp": "2025-12-28T16:26:18.348194"
+          },
+          {
+            "query": "人工智能 教育应用 个性化学习 教学效率 资源优化",
+            "url": "https://www.usatoday.com/story/money/economy/2025/12/24/college-or-training-ai-future/87898126007/",
+            "title": "As AI expands, parents of high schoolers mull college and job training - USA Today",
+            "content": "AI is changing many aspects of work, Cook said, but “it is not replacing human judgment, problem-solving, and adaptability. Education that builds those skills, along with digital and technical capabilities, helps learners succeed in jobs with AI as a tool rather than a threat.\"\n\nFeatured Weekly Ad [...] New insights from a company that specializes in online education and training solutions highlights some of those concerns. Penn Foster Group, a group of companies that includes Penn Foster High School, Penn Foster Career School, the New York Institute of Photography and others, surveyed over 500 parents of high school students in December to learn more about how Americans are thinking about this uncertain future. [...] Artificial intelligence is already transforming everything from the mundane, like how we search the internet, to profound endeavors such as scientific progress. So for parents considering how their children can grow up to thrive in the workforce, a future shaped by AI may seem overwhelming.",
+            "score": 0.161863,
+            "timestamp": "2025-12-28T16:26:18.348204"
+          },
+          {
+            "query": "人工智能 教育应用 个性化学习 教学效率 资源优化",
+            "url": "https://www.webpronews.com/ai-transforms-workforce-automation-upskilling-and-optimism-amid-layoffs/",
+            "title": "AI Transforms Workforce: Automation, Upskilling, and Optimism Amid Layoffs - WebProNews",
+            "content": "As AI evolves, the role of education becomes paramount. Tech executives push for curricula that incorporate AI literacy from early stages, preparing a workforce resilient to change. This is supported by projections from Nexford University, which anticipate new roles in AI-driven fields by 2030. [...] Challenges persist, including AI’s energy demands and potential biases. Tech leaders call for sustainable practices, integrating green tech with AI development.\n\nFor individuals, continuous learning is non-negotiable. Resources like free online courses, mentioned in X posts, offer accessible entry points. [...] Ethical considerations extend to talent gaps. With projections of 97 million AI jobs by 2025 from sources like the World Economic Forum, shared via X, the supply of experts remains critically low. Tech leaders urge educational reforms, recommending courses in AI fundamentals to bridge this divide.\n\nStrategic Adaptation for Long-Term Success",
+            "score": 0.15338454,
+            "timestamp": "2025-12-28T16:26:18.348213"
+          },
+          {
+            "query": "人工智能 教育应用 个性化学习 教学效率 资源优化",
+            "url": "https://www.govtech.com/education/higher-ed/nebraska-colleges-embrace-ai-bots-for-extracuriculars-group-therapy",
+            "title": "Nebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy - GovTech",
+            "content": "Schmitz said he could see how AI could be useful in courses that train accountants or auditors, easily identifying potential mistakes that then allow students the time to dig into analyzing what went wrong.  \n  \n“It can be the difference between having busy work in a class and doing really meaningful work,” Schmitz said. [...] During a capstone project exploring how AI could be used in accounting education, Schmitz said he was able to efficiently comb through nearly 200 research articles using a detailed set of prompts.  \n  \nThe AI was able to return published articles that matched the parameters he had set, providing him with a structure he used to narrow his sources to the 25 he incorporated in his final paper. [...] Facebook\n LinkedIn\n Twitter\n Print)\n Email\n\n## Tags:\n\nArtificial Intelligence Higher EducationEducationNebraska\n\nRelated Content\n\nHigher Education\n\nStanford Grads Struggle to Find Work in AI-Enabled Job Market\n\nDecember 19, 2025\n\nHigher Education\n\nElizabethtown College Receives Grant for Science Program\n\nDecember 19, 2025\n\nHigher Education\n\nRivian Partners With Georgia Colleges to Train Engineers\n\nDecember 19, 2025\n\nHigher Education\n\nCoursera and Udemy to Merge in $2.5B Deal",
+            "score": 0.14447471,
+            "timestamp": "2025-12-28T16:26:18.348222"
+          },
+          {
+            "query": "人工智能 教育应用 个性化学习 教学效率 资源优化",
+            "url": "https://www.prnewswire.com/apac/news-releases/tutorabc-launches-12-specialized-industry-curriculums-to-power-global-workforce-transformation-302649565.html",
+            "title": "TutorABC Launches 12 Specialized Industry Curriculums to Power Global Workforce Transformation - PR Newswire",
+            "content": "Each Oxford Business English program builds real workplace communication skills through:\n\n Industry Language Essentials: Key terms and expressions used in the field.\n Workplace Scenarios: Meetings, client interactions, and daily communication practice.\n Practical Skills: Presenting, negotiating, writing emails, and working with global teams.\n AI-Personalized Learning: AI recommends the right teacher, lessons, and exercises.\n Progress Tracking: Clear feedback and measurable improvement. [...] Technology & Innovation: US$300 million invested in R&D with 19 patented technologies powering AI-driven learning.\n Global Footprint: Headquartered in Hong Kong with offices worldwide, partnering with Oxford, Cambridge, National Geographic Learning, Kaplan, ETS, and Barron's. [...] The Oxford Business English integrates authoritative materials from Oxford University Press with TutorABC Group's proprietary AI-matching technology. The curriculum is divided into three strategic pillars covering 12 specialized pathways:\n\n Technology & Engineering: Manufacturing, Automotive, Tech, Logistics.\n Corporate Functions: Finance, Banking, Sales & Marketing, Customer Service.\n Service Excellence: Hospitality, Healthcare, Retail, Aviation.",
+            "score": 0.1153716,
+            "timestamp": "2025-12-28T16:26:18.348248"
+          },
+          {
+            "query": "AI education applications case studies long-term impact",
+            "url": "https://www.govtech.com/education/higher-ed/nebraska-colleges-embrace-ai-bots-for-extracuriculars-group-therapy",
+            "title": "Nebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy - GovTech",
+            "content": "The artificial intelligence assistant, or AI bot, is trained to lead students through proposing clubs that fit university guidelines, as well as help them draft a constitution, set a budget and develop fundraising ideas. Miller, an assistant professor of management at Doane, said the class models for students how to best use AI as a tool in an ethical way, while also demonstrating the limits to the rapidly spreading technology. “It’s not all about AI,” Miller said. While nearly half of the survey's respondents said they felt inadequately prepared for an AI-enabled workforce, Doane students in Miller's class said the opposite. While Doane students said the experience of training an AI bot to solve a problem for a client has helped them prepare for their future careers, students at Nebraska Wesleyan University are using AI to simulate the dynamics of a group therapy session. Both students said the AI bot's ability to better help them understand concepts has been surprising.",
+            "score": 0.97821885,
+            "timestamp": "2025-12-28T16:29:08.934781"
+          },
+          {
+            "query": "AI education applications case studies long-term impact",
+            "url": "https://www.forbes.com/sites/avivalegatt/2025/12/26/7-ai-decisions-that-will-define-higher-education-in-2026/",
+            "title": "7 AI Decisions That Will Define Higher Education In 2026 - Forbes",
+            "content": "It’s what becomes the new operating model for teaching, assessment, student support, and workforce pathways in an AI-native world. Federal guidance has made clear that institutions may use grant dollars for AI in instruction, student support, and workforce programs, but only with civil-rights and privacy compliance—and with humans remaining accountable for high-stakes decisions. In 2026, the differentiator will be whether institutions can produce a living evidence trail: who owns AI decisions, what uses are permitted, how risk is assessed, how people are trained, how tools are monitored for drift and bias, and how policy evolves over time. In practical terms, the strategic play is to rebuild the pipeline: Make AI literacy universal across majors, require workplace AI experience through internships and co-ops, remake career services into skills-based advising, build stackable credentials tied to verified job data, and invest in AI-driven student success infrastructure that supports retention and equitable access to opportunity.",
+            "score": 0.61878043,
+            "timestamp": "2025-12-28T16:29:08.934802"
+          },
+          {
+            "query": "AI education applications case studies long-term impact",
+            "url": "https://abovethelaw.com/2025/12/lessons-from-the-abas-second-report-on-the-next-phase-of-legal-ai/",
+            "title": "Lessons From The ABA’s Second Report On The Next Phase Of Legal AI - Above the Law",
+            "content": "For example, the American Bar Association recently released its “AI Task Force on Law and Artificial Intelligence Report.” This was the second in a series of reports addressing AI’s impact on the legal profession. The report covered a lot of ground, with topics ranging from AI adoption and its impact on access to justice to how law schools and the courts are approaching AI. That same cost dynamic extends beyond law firms and into the access-to-justice space where, once again, AI offers tremendous unrealized potential. The report cites a Berkeley-led study documenting 100-plus real-world AI use cases in legal aid, “including ratings, recommendations, and estimates of efficiency gains.” However, pricing is once again a barrier, and “high subscription costs for the best and most reliable legal AI tools might make those tools unaffordable and inaccessible to the access-to-justice community.”. Another 83% provide hands-on AI experiences like clinics or labs, and Case Western Reserve Law School even requires all first-year students to obtain legal AI certification.",
+            "score": 0.21076632,
+            "timestamp": "2025-12-28T16:29:08.934810"
+          },
+          {
+            "query": "AI education applications case studies long-term impact",
+            "url": "https://www.forbes.com/sites/tracybrower/2025/12/22/how-ai-is-changing-work-and-the-human-experience/",
+            "title": "How AI Is Changing Work And The Human Experience - Forbes",
+            "content": "However, while 65% believed they were using AI to augment their work, true use of AI, based on observation rather than self-reports, demonstrated that in reality, only 47% of the work was augmentation, while 49% was automation in which AI was doing the work for the employees. Another set of studies involving 3,500 people published in *Scientific Reports* found that AI increased the effectiveness of people writing emails, writing social media posts, writing performance reviews and brainstorming ideas. A study of 3,270 people published in the *Journal of Public Health* found that when people had patterns of higher daily use for personal conversation, they experienced greater loneliness, social isolation, social withdrawal and increasing dependence on AI, replacing human relationships. And 15% report they are investing in AI to cut the need for humans to perform work. Here is a link to the study about how people use AI. Here is the link to the survey on AI tutoring results published in *Scientific Reports.*.",
+            "score": 0.037892424,
+            "timestamp": "2025-12-28T16:29:08.934816"
+          },
+          {
+            "query": "AI education applications case studies long-term impact",
+            "url": "https://www.webpronews.com/ai-transforms-workforce-automation-upskilling-and-optimism-amid-layoffs/",
+            "title": "AI Transforms Workforce: Automation, Upskilling, and Optimism Amid Layoffs - WebProNews",
+            "content": "Insights from 50 tech leaders reveal AI's transformative impact on the workforce, automating routine tasks while creating needs for upskilling in areas like prompt engineering and ethics. Beyond automation, tech leaders stress the ethical dimensions of AI deployment. Gone are the days of rote coding; now, new hires must integrate AI tools into workflows, a trend that tech leaders say will elevate the baseline for tech careers. For example, leaders from Anthropic discuss how AI can handle data analysis, allowing teams to focus on strategic decisions. One podcast guest emphasized diversifying skills across full-stack development and AI engineering, aligning with X discussions on trends like multi-agent systems and edge reasoning for 2026. Looking ahead, tech leaders foresee AI driving innovation in unexpected areas. Insights from El-Balad.com, aggregating leader perspectives, highlight AI’s transformative effects across sectors, emphasizing ethical skill requirements globally. Tech leaders call for sustainable practices, integrating green tech with AI development. Perfect for business leaders, tech professionals, and AI enthusiasts looking to stay ahead of the curve.",
+            "score": 0.036493763,
+            "timestamp": "2025-12-28T16:29:08.934822"
+          },
+          {
+            "query": "AI education applications case studies long-term impact",
+            "url": "https://www.wsj.com/business/entrepreneurship/teenage-founders-ecb9cbd3?gaa_at=eafs&gaa_n=AWEtsqeTL7gIvTPSM5FrbVaMyZdje-rXqDTyku6RrPf7PZOU_2cPLTvg9WoZ&gaa_ts=6948a05b&gaa_sig=Co4juRooxuI8RGWOhQNzKQ_-mWXSsJEM-kN2Hr56gegwtq1Z4LCayjTkhCKKpZBGqGEgJRQhSHpyLUgJtca50w%3D%3D",
+            "title": "These Teenagers Are Already Running Their Own AI Companies - The Wall Street Journal",
+            "content": "# These Teenagers Are Already Running Their Own AI Companies. Nick Dobroshinsky built an AI-powered finance tool with more than 50,000 monthly users, but he’s still just a sophomore in high school. “I just spent a long time thinking about what problems there are that could be fixed with AI.”. Plus, an unhinged AI vending-machine takeover, the crazy year in AI and a columnist’s tips for helping family with tech. ### This Is What the World’s Smartest Minds Really Think About AI. Plus, anti-drunken-driving technology, an AI-powered vending machine and ChatGPT’s integration with DoorDash. Find insight on Lyft, AI investments impact on global credit in 2026 and more in the latest Market Talks covering technology, media and telecom. ### This Buzzy Cyber Startup Wants to Take On Dangerous AI Threat. As AI threatens to give an advantage to attackers, the man who built Google’s $5.4 billion Mandiant business is working to restore the balance. ### Behind the Deal That Took Disney From AI Skeptic to OpenAI Investor.",
+            "score": 0.014392335,
+            "timestamp": "2025-12-28T16:29:08.934828"
+          },
+          {
+            "query": "AI education applications case studies long-term impact",
+            "url": "https://www.forbes.com/sites/bernardmarr/2025/12/22/8-ai-agents-every-hr-leader-needs-to-know-in-2026/",
+            "title": "8 AI Agents Every HR Leader Needs To Know In 2026 - Forbes",
+            "content": "There are many agentic tools and platforms for AI tasks on the market, and the most effective approach is to focus on practical, high-impact workflows. These agents can handle routine employee requests, guide staff through HR processes, and escalate complex or sensitive issues to human specialists. Workday is embedding agentic capabilities across its core HR, finance, and talent platforms to automate tasks across the employee lifecycle. In HR, agentic capabilities are used to automate case management, employee requests, onboarding tasks, and cross-functional workflows that span HR, IT, and facilities. Moonhub uses agentic AI assistants to support sourcing, vetting, and hiring talent, with a strong focus on automating time-intensive early-stage recruitment tasks. Leena provides HR agents that can connect to and interact with over one thousand enterprise applications, allowing it to automate a wide range of HR use cases. There are nearly limitless possibilities when it comes to automating routine, day-to-day HR tasks with the help of AI agents.",
+            "score": 0.009340025,
+            "timestamp": "2025-12-28T16:29:08.934834"
+          },
+          {
+            "query": "人工智能教育应用伦理框架解决方案",
+            "url": "https://legal.thomsonreuters.com/blog/how-cocounsel-legal-can-enhance-critical-thinking-for-lawyers/",
+            "title": "How CoCounsel Legal can enhance critical thinking for lawyers - Thomson Reuters Legal Solutions",
+            "content": "# How CoCounsel Legal can enhance critical thinking for lawyers. * CoCounsel Legal amplifies human analytical skills through transparent, structured frameworks that support sustainable AI integration. However, recent research shows that increased AI usage correlates strongly with decreased critical thinking abilities, threatening the analytical core of legal practice. We risk creating a generation of lawyers skilled at managing AI outputs but incapable of independent legal analysis. 1. **Structured analytical frameworks** CoCounsel Legal guides lawyers through systematic reasoning processes rather than providing quick answers. In each application, CoCounsel Legal amplifies your analytical capabilities while preserving strategic thinking and professional insight. By integrating transparent reasoning with trusted Westlaw and Practical Law content, it transforms routine legal work into opportunities for strategic thinking and professional growth. Download the complete white paper ***“The impact of artificial intelligence on critical thinking: Challenges and opportunities for legal professionals“*** for comprehensive frameworks on building AI partnerships that strengthen rather than weaken analytical skills.",
+            "score": 0.116151296,
+            "timestamp": "2025-12-28T16:29:49.807389"
+          },
+          {
+            "query": "人工智能教育应用伦理框架解决方案",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "*   Your Four-Part Blueprint To Unlock AI Value In 2025| Paid Program. Conversations with leaders in higher education inevitably revolve around AI. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. So if you see a faculty manual that leads with attitudes about AI as an \"academic integrity violation,\" if the recommendation is a retreat to blue-books, there’s an institution that is shutting itself – and its students —off from the future. AI scales to meet society’s great needs for education and upskilling in a time of rapidly changing job. Without internships, and without AI skills, the students have been let down first by their educators and then again, by employers who want productive employees from day one.",
+            "score": 0.113295,
+            "timestamp": "2025-12-28T16:29:49.807420"
+          },
+          {
+            "query": "人工智能教育应用伦理框架解决方案",
+            "url": "https://www.forbes.com/sites/avivalegatt/2025/12/26/7-ai-decisions-that-will-define-higher-education-in-2026/",
+            "title": "7 AI Decisions That Will Define Higher Education In 2026 - Forbes",
+            "content": "It’s what becomes the new operating model for teaching, assessment, student support, and workforce pathways in an AI-native world. Federal guidance has made clear that institutions may use grant dollars for AI in instruction, student support, and workforce programs, but only with civil-rights and privacy compliance—and with humans remaining accountable for high-stakes decisions. In 2026, the differentiator will be whether institutions can produce a living evidence trail: who owns AI decisions, what uses are permitted, how risk is assessed, how people are trained, how tools are monitored for drift and bias, and how policy evolves over time. In practical terms, the strategic play is to rebuild the pipeline: Make AI literacy universal across majors, require workplace AI experience through internships and co-ops, remake career services into skills-based advising, build stackable credentials tied to verified job data, and invest in AI-driven student success infrastructure that supports retention and equitable access to opportunity.",
+            "score": 0.085870296,
+            "timestamp": "2025-12-28T16:29:49.807435"
+          },
+          {
+            "query": "人工智能教育应用伦理框架解决方案",
+            "url": "https://www.govtech.com/education/higher-ed/nebraska-colleges-embrace-ai-bots-for-extracuriculars-group-therapy",
+            "title": "Nebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy - GovTech",
+            "content": "The artificial intelligence assistant, or AI bot, is trained to lead students through proposing clubs that fit university guidelines, as well as help them draft a constitution, set a budget and develop fundraising ideas. Miller, an assistant professor of management at Doane, said the class models for students how to best use AI as a tool in an ethical way, while also demonstrating the limits to the rapidly spreading technology. “It’s not all about AI,” Miller said. While nearly half of the survey's respondents said they felt inadequately prepared for an AI-enabled workforce, Doane students in Miller's class said the opposite. While Doane students said the experience of training an AI bot to solve a problem for a client has helped them prepare for their future careers, students at Nebraska Wesleyan University are using AI to simulate the dynamics of a group therapy session. Both students said the AI bot's ability to better help them understand concepts has been surprising.",
+            "score": 0.07727375,
+            "timestamp": "2025-12-28T16:29:49.807446"
+          },
+          {
+            "query": "人工智能教育应用伦理框架解决方案",
+            "url": "https://www.axios.com/2025/12/22/ai-child-teen-safety-politicies-state-map",
+            "title": "AI is reshaping childhood. The guardrails aren't ready - Axios",
+            "content": "Most teens now use generative AI, even as parents and schools struggle to keep up with guidance on how to keep kids safe. **Why it matters:** Kids' AI habits are outpacing adult oversight, raising concerns about privacy, development and online safety. **By the numbers:** Seven in 10 teens used generative AI last year, and 83% of parents said schools haven't addressed it, a Common Sense Media survey found. * Trump signed an executive order to override state AI laws — including those aimed at protecting children — in favor of a single national framework. **What they're saying:** \"There really does need to be more overarching policy to move the needle towards safer online experiences for kids, including AI,\" Tiffany Munzer, a developmental behavioral pediatrician, tells Axios. * A 1998 FTC survey found nearly 90% of kids' websites collected personal data — a catalyst for the Children's Online Privacy Protection Act and the Children's Internet Protection Act.",
+            "score": 0.074722916,
+            "timestamp": "2025-12-28T16:29:49.807458"
+          },
+          {
+            "query": "人工智能教育应用伦理框架解决方案",
+            "url": "https://www.nbcnews.com/tech/tech-news/ai-school-teacher-student-train-chatgpt-rcna248726",
+            "title": "Teachers test-drive AI as schools give mixed signals on rules - NBC News",
+            "content": "“I feel like we have started talking more openly about AI, but there’s also very much a feeling among teachers of, ‘Oh, aren’t we supposed to not use that?’” said Jen Goodnow, who attended the workshop and teaches English-as-a-new-language (ENL) and French classes at Sunset Park High School in Brooklyn. As someone who uses AI “very, very little,” Goodnow, the ENL teacher, said she was eager to learn more about the technology in general. “I love incorporating AI into my classes because my school is mostly ENL students, and we have students with disabilities,” Stillman said, referring to the high proportion of students in her school who speak English as a second or third language. “I want to move past the fact that teachers are using AI to help them with lesson plans,” said Rose, the computer skills teacher who works in Queens, citing one of the more commonly-used examples of AI in the classroom today. I want to make sure that all of us are well informed and that teachers understand all the different uses of AI.”.",
+            "score": 0.052235804,
+            "timestamp": "2025-12-28T16:29:49.807470"
+          },
+          {
+            "query": "人工智能教育应用伦理框架解决方案",
+            "url": "https://www.ynetnews.com/tech-and-digital/article/sjjvaupmzl",
+            "title": "Who fares better in the AI era: students who use it or those who don’t? - Ynetnews",
+            "content": "## As academia adapts to a world where students can generate flawless work with a click, the job market now expects AI literacy; in a special interview, Dr. Amir Gefen explains why grades remain, exams are returning and whether overusing AI or avoiding it altogether is the bigger concern. A conversation with Dr. Amir Gefen, a researcher and lecturer in artificial intelligence and online safety at Gordon Academic College of Education and an academic adviser to Israel’s Education Ministry, reveals a far more complex picture than the simple question of whether students are copy-pasting their assignments. Pedagogically, there’s no question here: to give a grade, I need to know what the student knows, and the way to express knowledge is in writing or orally. Students who don’t use artificial intelligence at all and lack AI literacy worry me a lot, because they will struggle to find jobs. But that’s less serious, because it’s something you can work on, improve and teach the student how to use the tools properly.",
+            "score": 0.04229698,
+            "timestamp": "2025-12-28T16:29:49.807482"
+          }
+        ],
+        "latest_summary": "随着信息技术的飞速发展，人工智能(AI)正逐渐渗透到各个行业和领域，教育行业也不例外。近年来，全球教育机构开始积极探索AI技术在教学过程中的应用，以期提高教学效率、个性化学习体验以及教育资源的优化配置。从大学校园到K-12教育，AI正在改变教学、学习和评估的多个维度。例如，在高等教育中，AI助手被用来帮助学生组建符合学校指南的俱乐部、起草章程、制定预算和发展筹款想法；在法律教育领域，美国律师协会已发布关于AI对法律职业影响的系列报告，并记录了100多个法律援助领域的AI实际应用案例；在人力资源方面，AI代理工具正在自动化处理员工请求、指导HR流程，并将复杂问题转给人类专家。研究显示，AI在提高人类工作效率方面表现显著，一项涉及3500人的研究发现AI增强了人们撰写邮件、社交媒体内容、绩效评估和头脑风暴的能力。然而，这一转变也面临着数据隐私、作弊风险、伦理问题以及教师培训不足等挑战。调查显示，93%的高等教育工作人员预计将扩大AI的使用，但表达了对数据隐私、作弊和伦理准则的担忧，以及他们的机构没有提供足够指导或专业发展的顾虑。联邦指导表明，机构可以在教学、学生支持和职业规划项目中使用AI，但必须遵守民权和隐私合规要求，并且人类必须对高风险决策负责。2026年的差异化因素将是机构能否产生\"活的证据轨迹\"：谁拥有AI决策权、允许哪些用途、如何评估风险、如何培训人员、如何监控工具的漂移和偏见、政策如何随时间演变。本报告将探讨人工智能在现代教育中的多方面应用及其影响，分析AI如何从辅助工具逐渐转变为教育基础设施，并展望其对教育理念、教学方法以及师生关系的深刻变革。",
+        "reflection_iteration": 2,
+        "is_completed": true
+      },
+      "order": 0
+    },
+    {
+      "title": "人工智能在教学中的应用方式",
+      "content": "人工智能在教育中的应用主要体现在智能教学系统、自适应学习平台、智能评估工具以及虚拟教学助手等方面。智能教学系统能够根据学生的学习进度和能力水平提供个性化的教学内容；自适应学习平台通过算法分析学生的学习行为，动态调整学习路径；智能评估工具可以实时分析学生的学习成果并提供反馈；虚拟教学助手则能够为学生提供24/7的学习支持，解答疑问并提供学习建议。",
+      "research": {
+        "search_history": [
+          {
+            "query": "人工智能在教学中的应用方式",
+            "url": "https://www.govtech.com/education/higher-ed/ai-nudges-syracuse-professors-back-toward-blue-books-in-class-work",
+            "title": "AI Nudges Syracuse Professors Back Toward Blue Books, In-Class Work - GovTech",
+            "content": "Teaching about AI is not only happening in classes or studies surrounding the topic. Malinovsky said she talks about AI a lot in her English classes. To help her students better understand why they need to do their own work, she sometimes has students do the work themselves then ask an AI chatbot to do the work. Then the students compare and discuss. [...] Malinovsky, who teaches English and is also a librarian, said she has implemented similar practices. She encourages students to send pictures of handwritten assignments.  \n  \n“(AI) challenges professors to rethink the assessment. Perhaps if they’re worried about AI use, then bring some of that assessment back into the classroom,” Rubin said. [...] Multiple professors said they see students upload class slides or paste class notes into a chatbot and ask it to create study tools like a practice quiz or study questions. Anthropic , the creator of AI bot Claude,analyzed student chatsand found they also use it to troubleshoot coding problems or synthesize complex information.",
+            "score": 0.67501575,
+            "timestamp": "2025-12-28T16:31:19.404714"
+          },
+          {
+            "query": "人工智能在教学中的应用方式",
+            "url": "https://www.nbcnews.com/tech/tech-news/ai-school-teacher-student-train-chatgpt-rcna248726",
+            "title": "Teachers test-drive AI as schools give mixed signals on rules - NBC News",
+            "content": "As the use of AI has spread, some educators who have taught the same material for decades are finding that certain AI tools can simplify time-consuming tasks like creating lesson plans or decks of flash cards. At the same time, AI systems still raise significant questions about the role of creativity, critical-thinking and the purpose of education — for teachers and for their students. [...] Stillman, like Goodnow and many other teachers, noted that AI can help tailor her lessons for students of different abilities, creating more-advanced activities for higher-performing students and more-basic tasks for students who are functionally illiterate in English. [...] Stillman mostly uses Canva and Adobe, two graphic-design software products, for AI lessons instead of more-general AI services like ChatGPT or Anthropic’s Claude. Her students are currently using Canva’s AI functions to design ugly holiday sweaters.\n\n“It’s wonderful to reach out to and engage them with AI,” she said, describing how students play around with text prompts to direct the AI systems to create seasonal showpieces.",
+            "score": 0.6479992,
+            "timestamp": "2025-12-28T16:31:19.404732"
+          },
+          {
+            "query": "人工智能在教学中的应用方式",
+            "url": "https://www.forbes.com/sites/avivalegatt/2025/12/26/7-ai-decisions-that-will-define-higher-education-in-2026/",
+            "title": "7 AI Decisions That Will Define Higher Education In 2026 - Forbes",
+            "content": "Survey data shows that roughly 90% of college students have used AI in college, with usage accelerating across age groups and program types—including adult learners returning to higher education. And usage is increasingly task-specific: students use AI to brainstorm, outline, draft, and clarify complex concepts. This is no longer a fringe behavior; it’s becoming part of the academic workflow. [...] Over the past year, the shift from AI as a tool to AI as institutional infrastructure has become unmistakable. Students have already integrated AI into daily academic workflows, vendors are pushing enterprise deployments, federal and accreditation expectations are rising, and labor-market volatility is forcing colleges to rethink how learning connects to opportunity. At the same time, agentic AI is moving from experimentation to execution, reshaping how advising, enrollment, learning support, [...] tools were used, how, and why. That requires faculty scaffolds—AI-integrated assignment templates, rubrics that reward reasoning, and clear norms for attribution and process evidence. This shift also forces assessment redesign, because assignments built on assumptions of no AI use are increasingly disconnected from how students actually work.",
+            "score": 0.60917604,
+            "timestamp": "2025-12-28T16:31:19.404741"
+          },
+          {
+            "query": "人工智能在教学中的应用方式",
+            "url": "https://www.newsweek.com/student-writing-assignment-professor-realization-ai-artificial-intelligence-11251699",
+            "title": "Student Spends 3 Weeks Writing Assignment, Then Professor Has Realization - Newsweek",
+            "content": "AI use among students is increasingly common. In a survey conducted by the Digital Education Council that gathered nearly 4,000 responses from bachelor’s, master’s, and doctorate students across 16 countries, 86 percent of respondents said they use AI in their studies. Just over half, 54 percent, reported using AI at least weekly, with students using an average of 2.1 AI tools each. [...] A post highlighting a professor’s frustration over widespread AI-generated student writing has gone viral on social media, striking a nerve amid ongoing debates about artificial intelligence in education. [...] In the caption accompanying the Reddit post, u/MortemPerPectus expressed mixed feelings about the outcome. While relieved that the final assignment was canceled, the user wrote that it was \"mildly infuriating\" because they had spent three weeks on the previous position paper, writing more than 3,000 words arguing against the use of AI, including in education. The user said they were \"really proud\" of the work and had hoped for feedback to improve their writing, adding that the \"Instructor got",
+            "score": 0.5596998,
+            "timestamp": "2025-12-28T16:31:19.404748"
+          },
+          {
+            "query": "人工智能在教学中的应用方式",
+            "url": "https://edtechmagazine.com/k12/article/2025/12/ai-translation-breaks-down-language-barriers-k-12-schools?amp",
+            "title": "AI Translation Breaks Down Language Barriers in K–12 Schools - EdTech Magazine",
+            "content": "Microsoft Translator, for example, can be used to translate verbal content from a lesson — transmitted via a Bluetooth connection to a phone in the teacher’s pocket — into the language a student chooses, says Conley. The student then accesses the content by entering a code into a school-provided device. [...] In the past, K–12 schools may have relied on limited interpreter and other resources to communicate with families that primarily spoke languages other than English. Now, however, artificial intelligence–powered tech tools are making information more accessible.\n\nThe technology supports multiple languages — a growing need for numerous districts. Students in New York’s Buffalo Public Schools, for instance, speak a total of 113, according to Instructional Technology Coach Greg Conley. [...] “You have to innovate to support those families in some way,” Conley says. “Educators are seeing a change toward AI enabling more contextualized translations.” \n\nClick the banner below for insights into how artificial intelligence is modernizing classrooms.\n\n## Tech Devices and Platforms Facilitate Clearer Exchanges",
+            "score": 0.5501488,
+            "timestamp": "2025-12-28T16:31:19.404755"
+          },
+          {
+            "query": "人工智能在教学中的应用方式",
+            "url": "https://www.govtech.com/education/higher-ed/nebraska-colleges-embrace-ai-bots-for-extracuriculars-group-therapy",
+            "title": "Nebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy - GovTech",
+            "content": "Schmitz said he could see how AI could be useful in courses that train accountants or auditors, easily identifying potential mistakes that then allow students the time to dig into analyzing what went wrong.  \n  \n“It can be the difference between having busy work in a class and doing really meaningful work,” Schmitz said. [...] During a capstone project exploring how AI could be used in accounting education, Schmitz said he was able to efficiently comb through nearly 200 research articles using a detailed set of prompts.  \n  \nThe AI was able to return published articles that matched the parameters he had set, providing him with a structure he used to narrow his sources to the 25 he incorporated in his final paper. [...] Used properly, Johnson said, an AI will provide a framework for her to find the answers to her questions. In that, it almost acts as a second teacher, she added: \"I talk to it like I talk to Dr. Miller.\"  \n  \nAndrew Schmitz, who, along with Johnson, was on the ClubCompass team, described AI as a scaffolding that lets you ascend to high, hard-to-reach places.",
+            "score": 0.5479727,
+            "timestamp": "2025-12-28T16:31:19.404762"
+          },
+          {
+            "query": "人工智能在教学中的应用方式",
+            "url": "https://www.seattletimes.com/education-lab/wa-students-try-out-new-tech-at-hour-of-ai/",
+            "title": "WA students try out new tech at 'Hour of AI' - The Seattle Times",
+            "content": "The Microsoft initiative partners with the state office of superintendent of public instruction, as well as the national and local teachers unions, to use AI programs to reduce administrative processes.\n\nThe company will also announce grants next month to 10 school districts and 10 community colleges to help them use AI to attack ongoing school-related challenges they identify. [...] A RAND report published in September found that even as AI was increasingly used in schools, K-12 policies have not caught up, and parents, students and districts weren’t always on the same page. [...] The first step is to get the technology into students’ and teachers’ hands, she said. The company will make its Copilot Studio available to school districts and community colleges in January.\n\nAdvertising\n\nThe moves come as schools and districts expand AI use, even as questions emerge about its long-term use and the potential negative impacts on children.",
+            "score": 0.5013922,
+            "timestamp": "2025-12-28T16:31:19.404768"
+          },
+          {
+            "query": "人工智能在教学中的应用方式",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "while 61% of faculty have used AI in teaching, 88% of those do so minimally. [...] There are signs that faculty are getting the point. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. The Digital Education Council’s 2025 Global AI Faculty Survey found that [...] Retraining for AI instruction will likely be far more complicated than Zoom. Looking for ways to accelerate and institutionalize the shift, I recently have argued for AI inclusion in every course syllabus. In return, I received swift and angry pushback from those who believe that we should avoid anything widespread or mandatory. But how is that different from requiring a certain calculator, database, or software? AI is simply the best tool _du jour_. As it happens, AI is also the best tool of",
+            "score": 0.49787658,
+            "timestamp": "2025-12-28T16:31:19.404774"
+          },
+          {
+            "query": "人工智能在教学中的应用方式",
+            "url": "https://www.ynetnews.com/tech-and-digital/article/sjjvaupmzl",
+            "title": "Who fares better in the AI era: students who use it or those who don’t? - Ynetnews",
+            "content": "“We need to separate the pedagogical principle from the logistical challenge. Pedagogically, there’s no question here: to give a grade, I need to know what the student knows, and the way to express knowledge is in writing or orally. Exams can also be held in large groups, and there’s no problem with that. The student can use AI in their learning, but at the moment of truth, they are alone with the paper. [...] “As a lecturer, for example, I have a smart personal teaching assistant. At the same time, there are things I choose to teach myself and things I allow students to learn independently with the help of AI. We are in the midst of a deep change across three dimensions: teaching, learning and assessment. Everything is changing together. It’s complex, but there is no choice. If we ignore AI, we will become irrelevant both to students and to the job market.” [...] “The real challenge is ensuring that the grade reflects the student’s knowledge, not just their ability to operate one model or another. At the same time, it’s important to say that using artificial intelligence is legitimate, even welcome. We encourage students to use these tools as part of the learning process, and the world of work expects it as well.",
+            "score": 0.47943115,
+            "timestamp": "2025-12-28T16:31:19.404781"
+          },
+          {
+            "query": "人工智能在教学中的应用方式",
+            "url": "https://www.govtech.com/education/k-12/cyber-org-reframes-digital-readiness-around-ethics-unplugged-learning",
+            "title": "Cyber.org Reframes Digital Readiness Around Ethics, Unplugged Learning - GovTech",
+            "content": "As artificial intelligence tools become more accessible to students, Cooper said, the need for critical evaluation skills has only intensified.  \n  \nPositioning students to be successful in a potentially AI-driven future requires an emphasis on judgment, Cooper added, emphasizing the importance of teaching students how to evaluate information — and its origins — critically. [...] December 22, 2025\n\nK-12 Education\n\nAll Learners Network Unveils AI Tool for Math Education\n\nDecember 19, 2025\n\n · News Staff\n\nNever miss a story with the GovTech Today newsletter. [...] “We have to prepare our students to be successful with technology and AI, but we still need to make sure that they're able to discern between factual information and look at what may not be clear,” she said.",
+            "score": 0.2871732,
+            "timestamp": "2025-12-28T16:31:19.404787"
+          },
+          {
+            "query": "人工智能教育应用效果评估案例研究",
+            "url": "https://www.govtech.com/education/higher-ed/ai-nudges-syracuse-professors-back-toward-blue-books-in-class-work",
+            "title": "AI Nudges Syracuse Professors Back Toward Blue Books, In-Class Work - GovTech",
+            "content": "“That is completely AI-proof,” said Korol, a biology professor at Onondaga Community College. Korol, like countless other professors in Central New York, has had to change the way she teaches her class and assesses students’ learning due to the ballooning use of generative artificial intelligence. Professors have to either adapt their classes or risk students using AI to avoid thinking through tough assignments. At the three largest educational institutions in Syracuse — Syracuse University, Le Moyne College and Onondaga Community College — many professors are returning to pre-technology assessments while students use AI to study in futuristic ways. SU, Le Moyne and OCC either encourage or require professors to decide how they want students to use AI. Multiple professors said they see students upload class slides or paste class notes into a chatbot and ask it to create study tools like a practice quiz or study questions. The idea is not to teach students how to create or use AI, but rather to think critically about its real world applications, said program director Johannes Himmelreich.",
+            "score": 0.19178173,
+            "timestamp": "2025-12-28T16:32:53.343466"
+          },
+          {
+            "query": "人工智能教育应用效果评估案例研究",
+            "url": "https://www.forbes.com/sites/tracybrower/2025/12/22/how-ai-is-changing-work-and-the-human-experience/",
+            "title": "How AI Is Changing Work And The Human Experience - Forbes",
+            "content": "However, while 65% believed they were using AI to augment their work, true use of AI, based on observation rather than self-reports, demonstrated that in reality, only 47% of the work was augmentation, while 49% was automation in which AI was doing the work for the employees. Another set of studies involving 3,500 people published in *Scientific Reports* found that AI increased the effectiveness of people writing emails, writing social media posts, writing performance reviews and brainstorming ideas. A study of 3,270 people published in the *Journal of Public Health* found that when people had patterns of higher daily use for personal conversation, they experienced greater loneliness, social isolation, social withdrawal and increasing dependence on AI, replacing human relationships. And 15% report they are investing in AI to cut the need for humans to perform work. Here is a link to the study about how people use AI. Here is the link to the survey on AI tutoring results published in *Scientific Reports.*.",
+            "score": 0.12959012,
+            "timestamp": "2025-12-28T16:32:53.343499"
+          },
+          {
+            "query": "人工智能教育应用效果评估案例研究",
+            "url": "https://www.ynetnews.com/tech-and-digital/article/sjjvaupmzl",
+            "title": "Who fares better in the AI era: students who use it or those who don’t? - Ynetnews",
+            "content": "## As academia adapts to a world where students can generate flawless work with a click, the job market now expects AI literacy; in a special interview, Dr. Amir Gefen explains why grades remain, exams are returning and whether overusing AI or avoiding it altogether is the bigger concern. A conversation with Dr. Amir Gefen, a researcher and lecturer in artificial intelligence and online safety at Gordon Academic College of Education and an academic adviser to Israel’s Education Ministry, reveals a far more complex picture than the simple question of whether students are copy-pasting their assignments. Pedagogically, there’s no question here: to give a grade, I need to know what the student knows, and the way to express knowledge is in writing or orally. Students who don’t use artificial intelligence at all and lack AI literacy worry me a lot, because they will struggle to find jobs. But that’s less serious, because it’s something you can work on, improve and teach the student how to use the tools properly.",
+            "score": 0.100022875,
+            "timestamp": "2025-12-28T16:32:53.343511"
+          },
+          {
+            "query": "人工智能教育应用效果评估案例研究",
+            "url": "https://edtechmagazine.com/k12/article/2025/12/ai-translation-breaks-down-language-barriers-k-12-schools?amp",
+            "title": "AI Translation Breaks Down Language Barriers in K–12 Schools - EdTech Magazine",
+            "content": "AI translation technology’s use expanded during the COVID-19 pandemic as schools sought ways to stay connected with multilingual families, says Sophie Othman, an associate language education and technology professor at the University of Marie and Louis Pasteur in France. “Tools like Microsoft Translator and education-specific platforms allow teachers to communicate with multilingual families in real time,” Othman says. “When the students join the conversation, they select their language,” he says. It will translate what they say into English.”. As I’m speaking, it’s translating,” she says. Washington’s Bellevue School District uses technologies from a variety of providers for translation purposes, including Microsoft Copilot and a platform that lets families receive and respond to texts in their preferred language, according to Ricardo Macias, director of community outreach. “We use AI for translation, mostly for communication with families, email and things like that,” Macias says. While the district has gotten some constructive feedback suggesting translated documents weren’t always 100% accurate, Macias believes that with regular use, AI-based language tools can help strengthen schools’ correspondence**.**.",
+            "score": 0.09860774,
+            "timestamp": "2025-12-28T16:32:53.343522"
+          },
+          {
+            "query": "人工智能教育应用效果评估案例研究",
+            "url": "https://www.usatoday.com/story/money/economy/2025/12/24/college-or-training-ai-future/87898126007/",
+            "title": "As AI expands, parents of high schoolers mull college and job training - USA Today",
+            "content": "# As AI expands, parents of high schoolers mull college and job training. Penn Foster Group, a group of companies that includes Penn Foster High School, Penn Foster Career School, the New York Institute of Photography and others, surveyed over 500 parents of high school students in December to learn more about how Americans are thinking about this uncertain future. Parents are rethinking what success after high school should look like, the survey revealed, as they question whether the educational paths that have served generations of Americans are right for their own children in an increasingly automated future. Among the important points revealed by the survey: 55% of parents say they feel anxious about whether their child is prepared for an AI-driven job market. Education that builds those skills, along with digital and technical capabilities, helps learners succeed in jobs with AI as a tool rather than a threat.\".",
+            "score": 0.094218515,
+            "timestamp": "2025-12-28T16:32:53.343533"
+          },
+          {
+            "query": "人工智能教育应用效果评估案例研究",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "*   Your Four-Part Blueprint To Unlock AI Value In 2025| Paid Program. Conversations with leaders in higher education inevitably revolve around AI. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. So if you see a faculty manual that leads with attitudes about AI as an \"academic integrity violation,\" if the recommendation is a retreat to blue-books, there’s an institution that is shutting itself – and its students —off from the future. AI scales to meet society’s great needs for education and upskilling in a time of rapidly changing job. Without internships, and without AI skills, the students have been let down first by their educators and then again, by employers who want productive employees from day one.",
+            "score": 0.09126073,
+            "timestamp": "2025-12-28T16:32:53.343544"
+          },
+          {
+            "query": "人工智能教育应用效果评估案例研究",
+            "url": "https://abovethelaw.com/2025/12/lessons-from-the-abas-second-report-on-the-next-phase-of-legal-ai/",
+            "title": "Lessons From The ABA’s Second Report On The Next Phase Of Legal AI - Above the Law",
+            "content": "For example, the American Bar Association recently released its “AI Task Force on Law and Artificial Intelligence Report.” This was the second in a series of reports addressing AI’s impact on the legal profession. The report covered a lot of ground, with topics ranging from AI adoption and its impact on access to justice to how law schools and the courts are approaching AI. That same cost dynamic extends beyond law firms and into the access-to-justice space where, once again, AI offers tremendous unrealized potential. The report cites a Berkeley-led study documenting 100-plus real-world AI use cases in legal aid, “including ratings, recommendations, and estimates of efficiency gains.” However, pricing is once again a barrier, and “high subscription costs for the best and most reliable legal AI tools might make those tools unaffordable and inaccessible to the access-to-justice community.”. Another 83% provide hands-on AI experiences like clinics or labs, and Case Western Reserve Law School even requires all first-year students to obtain legal AI certification.",
+            "score": 0.08350859,
+            "timestamp": "2025-12-28T16:32:53.343551"
+          },
+          {
+            "query": "AI education long-term impact assessment studies",
+            "url": "https://chainstoreage.com/amazon-doubles-ai-education-investment-800k",
+            "title": "Amazon doubles AI education investment to $800K - Chain Store Age",
+            "content": "Amazon is supporting AI education. Interest from education partners exceeded the scope of the pilot, leading Amazon to now more than double its initial investment to $800,000 and expand support to more educational partners through its Amazon Future Engineer program. All educators and students participating in this program have access to a no-cost membership with Amazon Web Services (AWS) Educate, Amazon’s global initiative to provide students resources for building skills in cloud technology. Through a collaboration with education nonprofit Playlab, Amazon will provide participating school districts with access to custom AI tools for both students and teachers, along with hands-on training to implement AI education. \"The strong response from school districts showed us how many educators are ready to bring AI into the classroom to help students build skills for the future,\" said Bettina Stix, Amazon global director of community impact.",
+            "score": 0.9433476,
+            "timestamp": "2025-12-28T16:34:35.385098"
+          },
+          {
+            "query": "AI education long-term impact assessment studies",
+            "url": "https://www.forbes.com/sites/avivalegatt/2025/12/26/7-ai-decisions-that-will-define-higher-education-in-2026/",
+            "title": "7 AI Decisions That Will Define Higher Education In 2026 - Forbes",
+            "content": "It’s what becomes the new operating model for teaching, assessment, student support, and workforce pathways in an AI-native world. Federal guidance has made clear that institutions may use grant dollars for AI in instruction, student support, and workforce programs, but only with civil-rights and privacy compliance—and with humans remaining accountable for high-stakes decisions. In 2026, the differentiator will be whether institutions can produce a living evidence trail: who owns AI decisions, what uses are permitted, how risk is assessed, how people are trained, how tools are monitored for drift and bias, and how policy evolves over time. In practical terms, the strategic play is to rebuild the pipeline: Make AI literacy universal across majors, require workplace AI experience through internships and co-ops, remake career services into skills-based advising, build stackable credentials tied to verified job data, and invest in AI-driven student success infrastructure that supports retention and equitable access to opportunity.",
+            "score": 0.8840393,
+            "timestamp": "2025-12-28T16:34:35.385119"
+          },
+          {
+            "query": "AI education long-term impact assessment studies",
+            "url": "https://www.govtech.com/education/higher-ed/nebraska-colleges-embrace-ai-bots-for-extracuriculars-group-therapy",
+            "title": "Nebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy - GovTech",
+            "content": "The artificial intelligence assistant, or AI bot, is trained to lead students through proposing clubs that fit university guidelines, as well as help them draft a constitution, set a budget and develop fundraising ideas. Miller, an assistant professor of management at Doane, said the class models for students how to best use AI as a tool in an ethical way, while also demonstrating the limits to the rapidly spreading technology. “It’s not all about AI,” Miller said. While nearly half of the survey's respondents said they felt inadequately prepared for an AI-enabled workforce, Doane students in Miller's class said the opposite. While Doane students said the experience of training an AI bot to solve a problem for a client has helped them prepare for their future careers, students at Nebraska Wesleyan University are using AI to simulate the dynamics of a group therapy session. Both students said the AI bot's ability to better help them understand concepts has been surprising.",
+            "score": 0.83761996,
+            "timestamp": "2025-12-28T16:34:35.385126"
+          },
+          {
+            "query": "AI education long-term impact assessment studies",
+            "url": "https://www.forbes.com/sites/tracybrower/2025/12/22/how-ai-is-changing-work-and-the-human-experience/",
+            "title": "How AI Is Changing Work And The Human Experience - Forbes",
+            "content": "However, while 65% believed they were using AI to augment their work, true use of AI, based on observation rather than self-reports, demonstrated that in reality, only 47% of the work was augmentation, while 49% was automation in which AI was doing the work for the employees. Another set of studies involving 3,500 people published in *Scientific Reports* found that AI increased the effectiveness of people writing emails, writing social media posts, writing performance reviews and brainstorming ideas. A study of 3,270 people published in the *Journal of Public Health* found that when people had patterns of higher daily use for personal conversation, they experienced greater loneliness, social isolation, social withdrawal and increasing dependence on AI, replacing human relationships. And 15% report they are investing in AI to cut the need for humans to perform work. Here is a link to the study about how people use AI. Here is the link to the survey on AI tutoring results published in *Scientific Reports.*.",
+            "score": 0.2509128,
+            "timestamp": "2025-12-28T16:34:35.385132"
+          },
+          {
+            "query": "AI education long-term impact assessment studies",
+            "url": "https://abovethelaw.com/2025/12/lessons-from-the-abas-second-report-on-the-next-phase-of-legal-ai/",
+            "title": "Lessons From The ABA’s Second Report On The Next Phase Of Legal AI - Above the Law",
+            "content": "For example, the American Bar Association recently released its “AI Task Force on Law and Artificial Intelligence Report.” This was the second in a series of reports addressing AI’s impact on the legal profession. The report covered a lot of ground, with topics ranging from AI adoption and its impact on access to justice to how law schools and the courts are approaching AI. That same cost dynamic extends beyond law firms and into the access-to-justice space where, once again, AI offers tremendous unrealized potential. The report cites a Berkeley-led study documenting 100-plus real-world AI use cases in legal aid, “including ratings, recommendations, and estimates of efficiency gains.” However, pricing is once again a barrier, and “high subscription costs for the best and most reliable legal AI tools might make those tools unaffordable and inaccessible to the access-to-justice community.”. Another 83% provide hands-on AI experiences like clinics or labs, and Case Western Reserve Law School even requires all first-year students to obtain legal AI certification.",
+            "score": 0.15203224,
+            "timestamp": "2025-12-28T16:34:35.385138"
+          },
+          {
+            "query": "AI education long-term impact assessment studies",
+            "url": "https://www.nature.com/articles/s41598-025-27939-1",
+            "title": "Evaluating the impact of artificial intelligence development on industrial green transformation in China - Nature",
+            "content": "However, regarding the systematic enabling role of AI development in industrial green transformation, existing literature has not yet provided a clear answer, and there are obvious research gaps: first, there are limitations in research perspectives, as most studies focus on efficiency improvement in a single dimension, resulting in insufficient coverage of the dual connotations of “structure་efficiency” in industrial green transformation; second, the exploration of heterogeneous characteristics is inadequate, and most conclusions are general, failing to provide differentiated guidance for policy-making in different regions; third, research methods are simplistic, with most studies adopting conventional panel data regression and overlooking the potential spatial spillover effects between AI and industrial green transformation; fourth, the sample scale is limited, as most samples are concentrated at the industry, provincial, or national level. This study systematically investigates the directional impacts, mechanisms, heterogeneity, and spatial effects of AI development on industrial green transformation using panel data from 283 Chinese cities at the prefecture level and above (2004–2023).",
+            "score": 0.030675802,
+            "timestamp": "2025-12-28T16:34:35.385144"
+          },
+          {
+            "query": "AI education long-term impact assessment studies",
+            "url": "https://www.webpronews.com/ai-transforms-workforce-automation-upskilling-and-optimism-amid-layoffs/",
+            "title": "AI Transforms Workforce: Automation, Upskilling, and Optimism Amid Layoffs - WebProNews",
+            "content": "Insights from 50 tech leaders reveal AI's transformative impact on the workforce, automating routine tasks while creating needs for upskilling in areas like prompt engineering and ethics. Beyond automation, tech leaders stress the ethical dimensions of AI deployment. Gone are the days of rote coding; now, new hires must integrate AI tools into workflows, a trend that tech leaders say will elevate the baseline for tech careers. For example, leaders from Anthropic discuss how AI can handle data analysis, allowing teams to focus on strategic decisions. One podcast guest emphasized diversifying skills across full-stack development and AI engineering, aligning with X discussions on trends like multi-agent systems and edge reasoning for 2026. Looking ahead, tech leaders foresee AI driving innovation in unexpected areas. Insights from El-Balad.com, aggregating leader perspectives, highlight AI’s transformative effects across sectors, emphasizing ethical skill requirements globally. Tech leaders call for sustainable practices, integrating green tech with AI development. Perfect for business leaders, tech professionals, and AI enthusiasts looking to stay ahead of the curve.",
+            "score": 0.030214587,
+            "timestamp": "2025-12-28T16:34:35.385150"
+          }
+        ],
+        "latest_summary": "人工智能在教育中的应用主要体现在智能教学系统、自适应学习平台、智能评估工具以及虚拟教学助手等方面。智能教学系统能够根据学生的学习进度和能力水平提供个性化的教学内容；自适应学习平台通过算法分析学生的学习行为，动态调整学习路径；智能评估工具可以实时分析学生的学习成果并提供反馈；虚拟教学助手则能够为学生提供24/7的学习支持，解答疑问并提供学习建议。随着AI技术的成熟，这些应用正从概念验证阶段迅速进入实践应用阶段，如Amazon通过其Amazon Future Engineer项目将投资增加至80万美元，为教育合作伙伴提供定制AI工具和培训。AI正在重塑教育的运营模式，成为教学、评估、学生支持和职业发展路径的新基础设施。研究表明，虽然65%的教育工作者认为他们使用AI来增强工作，但实际观察显示只有47%是增强型应用，49%则是自动化替代。然而，多项研究也证实了AI在提高效率方面的价值，如《科学报告》发表的研究发现AI增强了人们撰写邮件、社交媒体内容、绩效评估和头脑风暴的能力。未来，AI在教育中的应用将更加注重伦理考量、数据隐私保护和教育公平，同时推动教育评估体系的根本性重构，从关注学生操作AI工具的能力转向评估其真实知识和技能。",
+        "reflection_iteration": 2,
+        "is_completed": true
+      },
+      "order": 1
+    },
+    {
+      "title": "人工智能对学生学习体验的影响",
+      "content": "人工智能技术的引入显著改变了传统的学习模式，为学生提供了更加个性化和灵活的学习体验。通过AI技术，学生可以根据自己的学习节奏和兴趣点进行学习，不再受限于统一的课程进度。此外，AI驱动的学习平台能够识别学生的知识盲点，提供针对性的练习和资源，帮助学生更有效地掌握知识。这种个性化的学习体验不仅提高了学习效率，也增强了学生的学习积极性和自主性。",
+      "research": {
+        "search_history": [
+          {
+            "query": "人工智能对学生学习体验的影响",
+            "url": "https://www.govtech.com/education/higher-ed/ai-nudges-syracuse-professors-back-toward-blue-books-in-class-work",
+            "title": "AI Nudges Syracuse Professors Back Toward Blue Books, In-Class Work - GovTech",
+            "content": "“That is completely AI-proof,” said Korol, a biology professor at Onondaga Community College. Korol, like countless other professors in Central New York, has had to change the way she teaches her class and assesses students’ learning due to the ballooning use of generative artificial intelligence. Professors have to either adapt their classes or risk students using AI to avoid thinking through tough assignments. At the three largest educational institutions in Syracuse — Syracuse University, Le Moyne College and Onondaga Community College — many professors are returning to pre-technology assessments while students use AI to study in futuristic ways. SU, Le Moyne and OCC either encourage or require professors to decide how they want students to use AI. Multiple professors said they see students upload class slides or paste class notes into a chatbot and ask it to create study tools like a practice quiz or study questions. The idea is not to teach students how to create or use AI, but rather to think critically about its real world applications, said program director Johannes Himmelreich.",
+            "score": 0.997285,
+            "timestamp": "2025-12-28T16:35:10.309263"
+          },
+          {
+            "query": "人工智能对学生学习体验的影响",
+            "url": "https://www.govtech.com/education/higher-ed/nebraska-colleges-embrace-ai-bots-for-extracuriculars-group-therapy",
+            "title": "Nebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy - GovTech",
+            "content": "The artificial intelligence assistant, or AI bot, is trained to lead students through proposing clubs that fit university guidelines, as well as help them draft a constitution, set a budget and develop fundraising ideas. Miller, an assistant professor of management at Doane, said the class models for students how to best use AI as a tool in an ethical way, while also demonstrating the limits to the rapidly spreading technology. “It’s not all about AI,” Miller said. While nearly half of the survey's respondents said they felt inadequately prepared for an AI-enabled workforce, Doane students in Miller's class said the opposite. While Doane students said the experience of training an AI bot to solve a problem for a client has helped them prepare for their future careers, students at Nebraska Wesleyan University are using AI to simulate the dynamics of a group therapy session. Both students said the AI bot's ability to better help them understand concepts has been surprising.",
+            "score": 0.9908035,
+            "timestamp": "2025-12-28T16:35:10.309285"
+          },
+          {
+            "query": "人工智能对学生学习体验的影响",
+            "url": "https://www.ynetnews.com/tech-and-digital/article/sjjvaupmzl",
+            "title": "Who fares better in the AI era: students who use it or those who don’t? - Ynetnews",
+            "content": "## As academia adapts to a world where students can generate flawless work with a click, the job market now expects AI literacy; in a special interview, Dr. Amir Gefen explains why grades remain, exams are returning and whether overusing AI or avoiding it altogether is the bigger concern. A conversation with Dr. Amir Gefen, a researcher and lecturer in artificial intelligence and online safety at Gordon Academic College of Education and an academic adviser to Israel’s Education Ministry, reveals a far more complex picture than the simple question of whether students are copy-pasting their assignments. Pedagogically, there’s no question here: to give a grade, I need to know what the student knows, and the way to express knowledge is in writing or orally. Students who don’t use artificial intelligence at all and lack AI literacy worry me a lot, because they will struggle to find jobs. But that’s less serious, because it’s something you can work on, improve and teach the student how to use the tools properly.",
+            "score": 0.9763105,
+            "timestamp": "2025-12-28T16:35:10.309295"
+          },
+          {
+            "query": "人工智能对学生学习体验的影响",
+            "url": "https://www.seattletimes.com/education-lab/wa-students-try-out-new-tech-at-hour-of-ai/",
+            "title": "WA students try out new tech at 'Hour of AI' - The Seattle Times",
+            "content": "Like Enzo, the majority of the students had dabbled with AI at home or at school; some had even played the game before. “It’s a pretty good game,” Enzo said, adding he’s likely to try it at home with his younger sister who is also into video games. The company will work with educators “shoulder to shoulder to revise and change the programs as needed and as the technology changes over time,” she said. “It’s especially challenging with AI, because, one, the technology is moving so fast, and two, no one really knows what will happen with AI in terms of what are the skills that are needed, what are the jobs that are going to be created,” Broom said. “This program gives our kids access to AI and technology that they maybe wouldn’t normally get,” Campbell said. Mohammad Sohrawardy, a finance manager in the gaming sectionat Microsoft, said while the concepts may seem elementary, students were learning how to manage time, how to strategize and how opponents can use their prompts against them.",
+            "score": 0.9719925,
+            "timestamp": "2025-12-28T16:35:10.309303"
+          },
+          {
+            "query": "人工智能对学生学习体验的影响",
+            "url": "https://www.nbcnews.com/tech/tech-news/ai-school-teacher-student-train-chatgpt-rcna248726",
+            "title": "Teachers test-drive AI as schools give mixed signals on rules - NBC News",
+            "content": "“I feel like we have started talking more openly about AI, but there’s also very much a feeling among teachers of, ‘Oh, aren’t we supposed to not use that?’” said Jen Goodnow, who attended the workshop and teaches English-as-a-new-language (ENL) and French classes at Sunset Park High School in Brooklyn. As someone who uses AI “very, very little,” Goodnow, the ENL teacher, said she was eager to learn more about the technology in general. “I love incorporating AI into my classes because my school is mostly ENL students, and we have students with disabilities,” Stillman said, referring to the high proportion of students in her school who speak English as a second or third language. “I want to move past the fact that teachers are using AI to help them with lesson plans,” said Rose, the computer skills teacher who works in Queens, citing one of the more commonly-used examples of AI in the classroom today. I want to make sure that all of us are well informed and that teachers understand all the different uses of AI.”.",
+            "score": 0.97068775,
+            "timestamp": "2025-12-28T16:35:10.309310"
+          },
+          {
+            "query": "人工智能对学生学习体验的影响",
+            "url": "https://www.newsweek.com/student-writing-assignment-professor-realization-ai-artificial-intelligence-11251699",
+            "title": "Student Spends 3 Weeks Writing Assignment, Then Professor Has Realization - Newsweek",
+            "content": "A post highlighting a professor’s frustration over widespread AI-generated student writing has gone viral on social media, striking a nerve amid ongoing debates about artificial intelligence in education. In the Reddit post, the professor warned students that relying on AI-generated writing ultimately harms them, saying, \"you are harming yourselves\" and that \"you weaken not just your ability to write, but also your ability to reason, to communicate, and to advocate for yourselves.\". While relieved that the final assignment was canceled, the user wrote that it was \"mildly infuriating\" because they had spent three weeks on the previous position paper, writing more than 3,000 words arguing against the use of AI, including in education. \"I think the instructor's point is that by canceling the assignment, they're losing the opportunity to learn and develop their skills—that's the punishment,\" u/Poodlestrike wrote, calling it \"a genuinely sad state of affairs.\".",
+            "score": 0.96814114,
+            "timestamp": "2025-12-28T16:35:10.309318"
+          },
+          {
+            "query": "人工智能对学生学习体验的影响",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "*   Your Four-Part Blueprint To Unlock AI Value In 2025| Paid Program. Conversations with leaders in higher education inevitably revolve around AI. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. So if you see a faculty manual that leads with attitudes about AI as an \"academic integrity violation,\" if the recommendation is a retreat to blue-books, there’s an institution that is shutting itself – and its students —off from the future. AI scales to meet society’s great needs for education and upskilling in a time of rapidly changing job. Without internships, and without AI skills, the students have been let down first by their educators and then again, by employers who want productive employees from day one.",
+            "score": 0.8940517,
+            "timestamp": "2025-12-28T16:35:10.309326"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 教学变革",
+            "url": "https://www.govtech.com/education/higher-ed/ai-nudges-syracuse-professors-back-toward-blue-books-in-class-work",
+            "title": "AI Nudges Syracuse Professors Back Toward Blue Books, In-Class Work - GovTech",
+            "content": "“That is completely AI-proof,” said Korol, a biology professor at Onondaga Community College. Korol, like countless other professors in Central New York, has had to change the way she teaches her class and assesses students’ learning due to the ballooning use of generative artificial intelligence. Professors have to either adapt their classes or risk students using AI to avoid thinking through tough assignments. At the three largest educational institutions in Syracuse — Syracuse University, Le Moyne College and Onondaga Community College — many professors are returning to pre-technology assessments while students use AI to study in futuristic ways. SU, Le Moyne and OCC either encourage or require professors to decide how they want students to use AI. Multiple professors said they see students upload class slides or paste class notes into a chatbot and ask it to create study tools like a practice quiz or study questions. The idea is not to teach students how to create or use AI, but rather to think critically about its real world applications, said program director Johannes Himmelreich.",
+            "score": 0.30566671,
+            "timestamp": "2025-12-28T16:37:02.165791"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 教学变革",
+            "url": "https://www.forbes.com/sites/avivalegatt/2025/12/26/7-ai-decisions-that-will-define-higher-education-in-2026/",
+            "title": "7 AI Decisions That Will Define Higher Education In 2026 - Forbes",
+            "content": "It’s what becomes the new operating model for teaching, assessment, student support, and workforce pathways in an AI-native world. Federal guidance has made clear that institutions may use grant dollars for AI in instruction, student support, and workforce programs, but only with civil-rights and privacy compliance—and with humans remaining accountable for high-stakes decisions. In 2026, the differentiator will be whether institutions can produce a living evidence trail: who owns AI decisions, what uses are permitted, how risk is assessed, how people are trained, how tools are monitored for drift and bias, and how policy evolves over time. In practical terms, the strategic play is to rebuild the pipeline: Make AI literacy universal across majors, require workplace AI experience through internships and co-ops, remake career services into skills-based advising, build stackable credentials tied to verified job data, and invest in AI-driven student success infrastructure that supports retention and equitable access to opportunity.",
+            "score": 0.2716046,
+            "timestamp": "2025-12-28T16:37:02.165827"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 教学变革",
+            "url": "https://www.ynetnews.com/tech-and-digital/article/sjjvaupmzl",
+            "title": "Who fares better in the AI era: students who use it or those who don’t? - Ynetnews",
+            "content": "## As academia adapts to a world where students can generate flawless work with a click, the job market now expects AI literacy; in a special interview, Dr. Amir Gefen explains why grades remain, exams are returning and whether overusing AI or avoiding it altogether is the bigger concern. A conversation with Dr. Amir Gefen, a researcher and lecturer in artificial intelligence and online safety at Gordon Academic College of Education and an academic adviser to Israel’s Education Ministry, reveals a far more complex picture than the simple question of whether students are copy-pasting their assignments. Pedagogically, there’s no question here: to give a grade, I need to know what the student knows, and the way to express knowledge is in writing or orally. Students who don’t use artificial intelligence at all and lack AI literacy worry me a lot, because they will struggle to find jobs. But that’s less serious, because it’s something you can work on, improve and teach the student how to use the tools properly.",
+            "score": 0.2664645,
+            "timestamp": "2025-12-28T16:37:02.165847"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 教学变革",
+            "url": "https://www.nbcnews.com/tech/tech-news/ai-school-teacher-student-train-chatgpt-rcna248726",
+            "title": "Teachers test-drive AI as schools give mixed signals on rules - NBC News",
+            "content": "“I feel like we have started talking more openly about AI, but there’s also very much a feeling among teachers of, ‘Oh, aren’t we supposed to not use that?’” said Jen Goodnow, who attended the workshop and teaches English-as-a-new-language (ENL) and French classes at Sunset Park High School in Brooklyn. As someone who uses AI “very, very little,” Goodnow, the ENL teacher, said she was eager to learn more about the technology in general. “I love incorporating AI into my classes because my school is mostly ENL students, and we have students with disabilities,” Stillman said, referring to the high proportion of students in her school who speak English as a second or third language. “I want to move past the fact that teachers are using AI to help them with lesson plans,” said Rose, the computer skills teacher who works in Queens, citing one of the more commonly-used examples of AI in the classroom today. I want to make sure that all of us are well informed and that teachers understand all the different uses of AI.”.",
+            "score": 0.25789165,
+            "timestamp": "2025-12-28T16:37:02.165861"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 教学变革",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "*   Your Four-Part Blueprint To Unlock AI Value In 2025| Paid Program. Conversations with leaders in higher education inevitably revolve around AI. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. So if you see a faculty manual that leads with attitudes about AI as an \"academic integrity violation,\" if the recommendation is a retreat to blue-books, there’s an institution that is shutting itself – and its students —off from the future. AI scales to meet society’s great needs for education and upskilling in a time of rapidly changing job. Without internships, and without AI skills, the students have been let down first by their educators and then again, by employers who want productive employees from day one.",
+            "score": 0.23802772,
+            "timestamp": "2025-12-28T16:37:02.165873"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 教学变革",
+            "url": "https://www.seattletimes.com/education-lab/wa-students-try-out-new-tech-at-hour-of-ai/",
+            "title": "WA students try out new tech at 'Hour of AI' - The Seattle Times",
+            "content": "Like Enzo, the majority of the students had dabbled with AI at home or at school; some had even played the game before. “It’s a pretty good game,” Enzo said, adding he’s likely to try it at home with his younger sister who is also into video games. The company will work with educators “shoulder to shoulder to revise and change the programs as needed and as the technology changes over time,” she said. “It’s especially challenging with AI, because, one, the technology is moving so fast, and two, no one really knows what will happen with AI in terms of what are the skills that are needed, what are the jobs that are going to be created,” Broom said. “This program gives our kids access to AI and technology that they maybe wouldn’t normally get,” Campbell said. Mohammad Sohrawardy, a finance manager in the gaming sectionat Microsoft, said while the concepts may seem elementary, students were learning how to manage time, how to strategize and how opponents can use their prompts against them.",
+            "score": 0.1867916,
+            "timestamp": "2025-12-28T16:37:02.165887"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 教学变革",
+            "url": "https://chainstoreage.com/amazon-doubles-ai-education-investment-800k",
+            "title": "Amazon doubles AI education investment to $800K - Chain Store Age",
+            "content": "Amazon is supporting AI education. Interest from education partners exceeded the scope of the pilot, leading Amazon to now more than double its initial investment to $800,000 and expand support to more educational partners through its Amazon Future Engineer program. All educators and students participating in this program have access to a no-cost membership with Amazon Web Services (AWS) Educate, Amazon’s global initiative to provide students resources for building skills in cloud technology. Through a collaboration with education nonprofit Playlab, Amazon will provide participating school districts with access to custom AI tools for both students and teachers, along with hands-on training to implement AI education. \"The strong response from school districts showed us how many educators are ready to bring AI into the classroom to help students build skills for the future,\" said Bettina Stix, Amazon global director of community impact.",
+            "score": 0.16012181,
+            "timestamp": "2025-12-28T16:37:02.165895"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 个性化学习 教学方法变革 AI素养",
+            "url": "https://www.ynetnews.com/tech-and-digital/article/sjjvaupmzl",
+            "title": "Who fares better in the AI era: students who use it or those who don’t? - Ynetnews",
+            "content": "## As academia adapts to a world where students can generate flawless work with a click, the job market now expects AI literacy; in a special interview, Dr. Amir Gefen explains why grades remain, exams are returning and whether overusing AI or avoiding it altogether is the bigger concern. A conversation with Dr. Amir Gefen, a researcher and lecturer in artificial intelligence and online safety at Gordon Academic College of Education and an academic adviser to Israel’s Education Ministry, reveals a far more complex picture than the simple question of whether students are copy-pasting their assignments. Pedagogically, there’s no question here: to give a grade, I need to know what the student knows, and the way to express knowledge is in writing or orally. Students who don’t use artificial intelligence at all and lack AI literacy worry me a lot, because they will struggle to find jobs. But that’s less serious, because it’s something you can work on, improve and teach the student how to use the tools properly.",
+            "score": 0.22237949,
+            "timestamp": "2025-12-28T16:37:57.539079"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 个性化学习 教学方法变革 AI素养",
+            "url": "https://www.govtech.com/education/higher-ed/ai-nudges-syracuse-professors-back-toward-blue-books-in-class-work",
+            "title": "AI Nudges Syracuse Professors Back Toward Blue Books, In-Class Work - GovTech",
+            "content": "“That is completely AI-proof,” said Korol, a biology professor at Onondaga Community College. Korol, like countless other professors in Central New York, has had to change the way she teaches her class and assesses students’ learning due to the ballooning use of generative artificial intelligence. Professors have to either adapt their classes or risk students using AI to avoid thinking through tough assignments. At the three largest educational institutions in Syracuse — Syracuse University, Le Moyne College and Onondaga Community College — many professors are returning to pre-technology assessments while students use AI to study in futuristic ways. SU, Le Moyne and OCC either encourage or require professors to decide how they want students to use AI. Multiple professors said they see students upload class slides or paste class notes into a chatbot and ask it to create study tools like a practice quiz or study questions. The idea is not to teach students how to create or use AI, but rather to think critically about its real world applications, said program director Johannes Himmelreich.",
+            "score": 0.21591271,
+            "timestamp": "2025-12-28T16:37:57.539095"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 个性化学习 教学方法变革 AI素养",
+            "url": "https://www.nbcnews.com/tech/tech-news/ai-school-teacher-student-train-chatgpt-rcna248726",
+            "title": "Teachers test-drive AI as schools give mixed signals on rules - NBC News",
+            "content": "“I feel like we have started talking more openly about AI, but there’s also very much a feeling among teachers of, ‘Oh, aren’t we supposed to not use that?’” said Jen Goodnow, who attended the workshop and teaches English-as-a-new-language (ENL) and French classes at Sunset Park High School in Brooklyn. As someone who uses AI “very, very little,” Goodnow, the ENL teacher, said she was eager to learn more about the technology in general. “I love incorporating AI into my classes because my school is mostly ENL students, and we have students with disabilities,” Stillman said, referring to the high proportion of students in her school who speak English as a second or third language. “I want to move past the fact that teachers are using AI to help them with lesson plans,” said Rose, the computer skills teacher who works in Queens, citing one of the more commonly-used examples of AI in the classroom today. I want to make sure that all of us are well informed and that teachers understand all the different uses of AI.”.",
+            "score": 0.19604042,
+            "timestamp": "2025-12-28T16:37:57.539102"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 个性化学习 教学方法变革 AI素养",
+            "url": "https://www.forbes.com/sites/avivalegatt/2025/12/26/7-ai-decisions-that-will-define-higher-education-in-2026/",
+            "title": "7 AI Decisions That Will Define Higher Education In 2026 - Forbes",
+            "content": "It’s what becomes the new operating model for teaching, assessment, student support, and workforce pathways in an AI-native world. Federal guidance has made clear that institutions may use grant dollars for AI in instruction, student support, and workforce programs, but only with civil-rights and privacy compliance—and with humans remaining accountable for high-stakes decisions. In 2026, the differentiator will be whether institutions can produce a living evidence trail: who owns AI decisions, what uses are permitted, how risk is assessed, how people are trained, how tools are monitored for drift and bias, and how policy evolves over time. In practical terms, the strategic play is to rebuild the pipeline: Make AI literacy universal across majors, require workplace AI experience through internships and co-ops, remake career services into skills-based advising, build stackable credentials tied to verified job data, and invest in AI-driven student success infrastructure that supports retention and equitable access to opportunity.",
+            "score": 0.1940625,
+            "timestamp": "2025-12-28T16:37:57.539108"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 个性化学习 教学方法变革 AI素养",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "*   Your Four-Part Blueprint To Unlock AI Value In 2025| Paid Program. Conversations with leaders in higher education inevitably revolve around AI. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. So if you see a faculty manual that leads with attitudes about AI as an \"academic integrity violation,\" if the recommendation is a retreat to blue-books, there’s an institution that is shutting itself – and its students —off from the future. AI scales to meet society’s great needs for education and upskilling in a time of rapidly changing job. Without internships, and without AI skills, the students have been let down first by their educators and then again, by employers who want productive employees from day one.",
+            "score": 0.17338648,
+            "timestamp": "2025-12-28T16:37:57.539114"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 个性化学习 教学方法变革 AI素养",
+            "url": "https://www.seattletimes.com/education-lab/wa-students-try-out-new-tech-at-hour-of-ai/",
+            "title": "WA students try out new tech at 'Hour of AI' - The Seattle Times",
+            "content": "Like Enzo, the majority of the students had dabbled with AI at home or at school; some had even played the game before. “It’s a pretty good game,” Enzo said, adding he’s likely to try it at home with his younger sister who is also into video games. The company will work with educators “shoulder to shoulder to revise and change the programs as needed and as the technology changes over time,” she said. “It’s especially challenging with AI, because, one, the technology is moving so fast, and two, no one really knows what will happen with AI in terms of what are the skills that are needed, what are the jobs that are going to be created,” Broom said. “This program gives our kids access to AI and technology that they maybe wouldn’t normally get,” Campbell said. Mohammad Sohrawardy, a finance manager in the gaming sectionat Microsoft, said while the concepts may seem elementary, students were learning how to manage time, how to strategize and how opponents can use their prompts against them.",
+            "score": 0.11870165,
+            "timestamp": "2025-12-28T16:37:57.539120"
+          },
+          {
+            "query": "人工智能教育应用 学生学习体验 个性化学习 教学方法变革 AI素养",
+            "url": "https://www.hrdive.com/news/learning-leader-role-changing-amid-ai-adoption/808588/",
+            "title": "How the learning leader role is changing amid AI adoption - HR Dive",
+            "content": "AI is challenging L&D professionals to realize their strategist potential, all while they must also make sure workers don’t feel overwhelmed by transition, experts told HR Dive. On top of that, AI adoption has created a demand for workers that are more than simply comfortable with AI tools, and has led to the development of new tools through which L&D is done. Since AI is changing how people work, it’s a new priority for HR efforts at many organizations. If a company is using AI, employees will need guidance in how to work with those changes — changes they may not be comfortable with. One of those new AI-enabled technologies is immersive learning, like with virtual reality simulations “that put people in realistic situations,” said Ayers. Overall, AI is helping L&D leaders create different avenues for how to train people as well as provide opportunities to people where they are, she added, whether that’s through more traditional methods of learning and development, online courses or simulations.",
+            "score": 0.103178136,
+            "timestamp": "2025-12-28T16:37:57.539125"
+          }
+        ],
+        "latest_summary": "人工智能技术的引入显著改变了传统的学习模式，为学生提供了更加个性化和灵活的学习体验。通过AI技术，学生可以根据自己的学习节奏和兴趣点进行学习，不再受限于统一的课程进度。此外，AI驱动的学习平台能够识别学生的知识盲点，提供针对性的练习和资源，帮助学生更有效地掌握知识。这种个性化的学习体验不仅提高了学习效率，也增强了学生的学习积极性和自主性。搜索结果显示，学生群体正在积极拥抱AI技术，多位教授报告称，学生会上传课堂幻灯片或将课堂笔记粘贴到聊天机器人中，要求其创建练习测验或学习问题等学习工具。正如项目主管Johannes Himmelreich所说，'这里的想法不是教学生如何创建或使用AI，而是让他们批判性地思考AI在现实世界中的应用。'与此同时，教授们也在积极应对AI带来的挑战，如Onondaga Community College的生物学教授Korol所言，他们正在重新设计课程和评估方式，以防止学生使用AI逃避思考困难作业。在锡拉丘兹地区的三大教育机构，许多教授正在回归前技术时代的评估方式，而学生则使用AI以未来主义的方式学习。从教育公平的角度看，AI技术为不同需求的学生提供了新的可能性。布鲁克林日落公园高中教授英语作为新语言(ENL)和法语的Jen Goodnow表示：'我爱在我的课堂中融入AI，因为我的学校主要是ENL学生，我们也有残障学生。'这表明AI技术可以帮助弥合教育差距，为特殊需求学生提供更好的学习体验。此外，AI素养已成为未来工作场所的必备技能。以色列戈登教育学院的研究员兼讲师Dr. Amir Gefen指出：'完全不使用人工智能且缺乏AI素养的学生非常令我担忧，因为他们将很难找到工作。但这不太严重，因为这是可以改进的，可以教学生如何正确使用这些工具。'Ellucian的调查显示，93%的高等教育工作人员预计将扩大AI的使用，这反映了教育界对AI技术重要性的普遍认识。随着AI技术的普及，教育机构需要重新思考如何培养学生适应AI驱动的未来工作环境的能力，正如搜索结果中指出的：'没有实习，没有AI技能，学生首先被他们的教育者辜负，然后又被那些希望从第一天起就有生产力的雇主再次辜负。'因此，人工智能对学生学习体验的影响不仅体现在个性化学习方面，还包括教学方法的根本性转变、AI素养成为核心教育目标、教育公平的新机遇以及教育工作者角色的重新定义。",
+        "reflection_iteration": 2,
+        "is_completed": true
+      },
+      "order": 2
+    },
+    {
+      "title": "人工智能教育应用的挑战与限制",
+      "content": "尽管人工智能在教育领域展现出巨大潜力，但其应用仍面临诸多挑战。首先是数据隐私和安全问题，AI系统需要收集大量学生数据，如何保护这些敏感信息成为重要议题。其次是技术公平性问题，不同地区和学校之间的技术差距可能导致教育资源分配不均。此外，过度依赖AI技术也可能减少师生之间的互动，影响学生的社交能力和情感发展。最后，AI系统的算法偏见也可能对某些学生群体产生不公平的影响。",
+      "research": {
+        "search_history": [
+          {
+            "query": "人工智能教育应用挑战限制",
+            "url": "https://chainstoreage.com/amazon-doubles-ai-education-investment-800k",
+            "title": "Amazon doubles AI education investment to $800K - Chain Store Age",
+            "content": "The online giant initially launched a fund to help schools participate in the White House Presidential AI Challenge in September 2025. Interest from education partners exceeded the scope of the pilot, leading Amazon to now more than double its initial investment to $800,000 and expand support to more educational partners through its Amazon Future Engineer program. [...] This initiative builds on Amazon's broader support for the White House Pledge to America's Youth. Through this commitment, Amazon will support AI skills training for 4 million U.S. learners and enable AI curricula for 10,000 educators by 2028, including up to $30 million in Amazon Web Services promotional credits and $1.5 million in cash prizes for student winners of the Presidential AI Challenge.\n\nREAD MORE: [Amazon to invest $25M in AI research] [...] Advertisement - article continues below\n\nAdvertisement\n\n\"The strong response from school districts showed us how many educators are ready to bring AI into the classroom to help students build skills for the future,\" said Bettina Stix, Amazon global director of community impact. \"By expanding this program, we're helping nearly half a million students access AI education while supporting teachers as they integrate these tools into daily learning.\"",
+            "score": 0.3727112,
+            "timestamp": "2025-12-28T16:39:03.319800"
+          },
+          {
+            "query": "人工智能教育应用挑战限制",
+            "url": "https://www.ynetnews.com/tech-and-digital/article/sjjvaupmzl",
+            "title": "Who fares better in the AI era: students who use it or those who don’t? - Ynetnews",
+            "content": "“The real challenge is ensuring that the grade reflects the student’s knowledge, not just their ability to operate one model or another. At the same time, it’s important to say that using artificial intelligence is legitimate, even welcome. We encourage students to use these tools as part of the learning process, and the world of work expects it as well. [...] “We need to separate the pedagogical principle from the logistical challenge. Pedagogically, there’s no question here: to give a grade, I need to know what the student knows, and the way to express knowledge is in writing or orally. Exams can also be held in large groups, and there’s no problem with that. The student can use AI in their learning, but at the moment of truth, they are alone with the paper. [...] “But at the end of the day, artificial intelligence is not what’s supposed to receive a grade from me. I need to assess the person in front of me. The question is how we separate what the student knows from what the AI knows how to generate for them, and that is the challenge facing academia right now.",
+            "score": 0.3351555,
+            "timestamp": "2025-12-28T16:39:03.319818"
+          },
+          {
+            "query": "人工智能教育应用挑战限制",
+            "url": "https://www.govtech.com/education/higher-ed/ai-nudges-syracuse-professors-back-toward-blue-books-in-class-work",
+            "title": "AI Nudges Syracuse Professors Back Toward Blue Books, In-Class Work - GovTech",
+            "content": "The policies state that AI cannot be used under any circumstance, students can use limited AI or AI can be used freely within reason.  \n  \n“It’s a first step of allowing faculty to think about the use and letting students know how an individual faculty member plans to allow or not allow on assessment in the classroom,” said SU Chief Digital Officer Jeff Rubin. [...] As generative AI continues to develop, faculty are learning how to use it along with students. Some, like Ryan, are skeptical of its application and try to avoid it while others, like Santiago , spend hours figuring out the best application for students.  \n  \n“This has shaken up what education does in a way that other technologies haven’t,” Hannan said.  \n  \n©2025 Advance Local Media LLC. Distributed by Tribune Content Agency, LLC. [...] As AI continues to push itself into our everyday lives, it has created a culture of do or die for higher education. Professors have to either adapt their classes or risk students using AI to avoid thinking through tough assignments. Universities can offer courses teaching students to think critically about AI or assume young minds already know how to ask tough questions.  \n  \nIf higher education as a whole does not adapt, it could be left behind as students embrace AI in their studies.",
+            "score": 0.27857852,
+            "timestamp": "2025-12-28T16:39:03.319825"
+          },
+          {
+            "query": "人工智能教育应用挑战限制",
+            "url": "https://www.nbcnews.com/tech/tech-news/ai-school-teacher-student-train-chatgpt-rcna248726",
+            "title": "Teachers test-drive AI as schools give mixed signals on rules - NBC News",
+            "content": "More importantly, Weil said, AI “should not be a replacement for human interaction and human relationships. Human relationships can be messy and really problematic and hard, but that’s the beauty of humanity.”\n\nFaced with an often-crushing dearth of resources and little time to provide individual attention to students, many teachers at the workshop were eager to learn how AI systems can enhance — not replace — existing education methods. [...] As the use of AI has spread, some educators who have taught the same material for decades are finding that certain AI tools can simplify time-consuming tasks like creating lesson plans or decks of flash cards. At the same time, AI systems still raise significant questions about the role of creativity, critical-thinking and the purpose of education — for teachers and for their students. [...] “K-12 school has a huge impact on and responsibility for the social and emotional growth of people,” he said. “That’s something we shouldn’t be threatening with AI tools.”\n\n“If we just do the same thing teachers have been doing for a long time, then AI could absolutely be detrimental. That’s why the academy exists, to learn about how to use AI in the right way, an ethical way, an appropriate way.”",
+            "score": 0.24604884,
+            "timestamp": "2025-12-28T16:39:03.319831"
+          },
+          {
+            "query": "人工智能教育应用挑战限制",
+            "url": "https://www.nbcnews.com/tech/innovation/andrew-ng-says-ai-limited-wont-replace-humans-anytime-soon-rcna246074",
+            "title": "Andrew Ng says AI is 'limited,' won't replace humans anytime soon - NBC News",
+            "content": "With over a decade of success in the AI-meets-education ecosystem, Ng adopts a Chef Gusteau approach to AI education and coding in particular, arguing that anybody and everybody should code given advancements in coding tools. [...] Ng also has stellar bona fides in the education world. Besides serving as a computer science professor at Stanford University, Ng founded Coursera — one of the world’s largest online learning platforms — and oversees one of the most popular AI-focused education platforms, DeepLearning.AI. [...] Armed with decades of AI experience, Ng says he remains clear-eyed about AI’s abilities. “The tricky thing about AI is that it is amazing and it is also highly limited,” Ng told NBC News in an interview on the sidelines of his AI Developers Conference in November. “And understanding that balance of how amazing and how limited it is, that’s difficult.”",
+            "score": 0.24350345,
+            "timestamp": "2025-12-28T16:39:03.319837"
+          },
+          {
+            "query": "人工智能教育应用挑战限制",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "There are signs that faculty are getting the point. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. The Digital Education Council’s 2025 Global AI Faculty Survey found that [...] Applied, work-based learning can no longer be an 'option’ or 'privileged opportunity.''” [...] Colleges and universities are a public good—or we’re supposed to be. While the challenge is real, so is the price of paralysis. AI won’t wait for anyone’s permission to reshape learning and work. The question isn't whether we'll change—it's whether we'll be relevant when we do.\n\nThat \"A\" in AI? It can still stand for anxiety. Better if it stands for action. The choice, for now, is still ours.",
+            "score": 0.19438346,
+            "timestamp": "2025-12-28T16:39:03.319844"
+          },
+          {
+            "query": "人工智能教育应用挑战限制",
+            "url": "https://www.seattletimes.com/education-lab/wa-students-try-out-new-tech-at-hour-of-ai/",
+            "title": "WA students try out new tech at 'Hour of AI' - The Seattle Times",
+            "content": "A RAND report published in September found that even as AI was increasingly used in schools, K-12 policies have not caught up, and parents, students and districts weren’t always on the same page. [...] “It’s especially challenging with AI, because, one, the technology is moving so fast, and two, no one really knows what will happen with AI in terms of what are the skills that are needed, what are the jobs that are going to be created,” Broom said. “ … It is an unprecedented moment for just our community as a whole, but it’s also an unprecedented economic opportunity for the state of Washington.” [...] The Microsoft initiative partners with the state office of superintendent of public instruction, as well as the national and local teachers unions, to use AI programs to reduce administrative processes.\n\nThe company will also announce grants next month to 10 school districts and 10 community colleges to help them use AI to attack ongoing school-related challenges they identify.",
+            "score": 0.16522941,
+            "timestamp": "2025-12-28T16:39:03.319850"
+          },
+          {
+            "query": "人工智能教育应用挑战限制",
+            "url": "https://www.govtech.com/education/higher-ed/nebraska-colleges-embrace-ai-bots-for-extracuriculars-group-therapy",
+            "title": "Nebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy - GovTech",
+            "content": "Role play has long been the signature pedagogical tool for teaching advanced clinical skills, according to Megan Pendley, an assistant professor of social work at NWU. But there are several limitations of those practice sessions in her \"Advanced Practice with Groups\" class.  \n  \nStudents might not have the lived experience of the patients they are meant to portray, leading to inauthentic sessions. Others might be too nervous to act in front of their peers and professors. [...] The Digital Education Council polled students from various degree levels and across fields of study, finding more than half (54 percent) of respondents relied upon AI on a daily basis.  \n  \nWhile nearly half of the survey's respondents said they felt inadequately prepared for an AI-enabled workforce, Doane students in Miller's class said the opposite. [...] On one Tuesday evening in November, the master's students worked through a series of prompts to inform the AI on the type of therapy session that would be conducted, the population being served, the format and setting, as well as what theoretical orientation would be used.  \n  \nDeveloping the scenario requires iteration and for students to use their own knowledge and judgment to solve any challenges that arise.",
+            "score": 0.16257967,
+            "timestamp": "2025-12-28T16:39:03.319856"
+          },
+          {
+            "query": "人工智能教育应用挑战限制",
+            "url": "https://abovethelaw.com/2025/12/thomson-reuters-white-paper-the-future-is-here-its-just-not-evenly-distributed/",
+            "title": "Thomson Reuters White Paper: The Future Is Here — It’s Just Not Evenly Distributed - Above the Law",
+            "content": "Another danger: the erosion of legal education. According to the paper “students increasingly arrive with diminished critical thinking skills due to pre-law AI exposure while expecting to use AI tools throughout their careers.” If we don’t take steps to disrupt that expectation, we can be sure that these students, when they become lawyers, will continue to use AI tools in exactly the same way.\n\nCan The Risks Be Managed? [...] But there’s more danger ahead according to the paper. Agentic AI can perceive its environment, plan and execute complex multistep workflows, make real-time decisions and adapt strategies, and proactively pursue goals, all without human input. This means, according to the paper, that agentic AI could intensify cognitive offloading. In other words, we turn off our brains and let AI do the thinking for us. And as discussed before, we don’t have a clue how it is doing all this. [...] The Risks For Future Generations\n\nMcConnell and Odegard also cite the danger of overreliance on AI to replace these skills will erode younger lawyer development. It may result in lawyers depending too much on AI instead of thinking for themselves. It may result in “lawyers skilled at managing AI but lacking independent strategic thinking.”",
+            "score": 0.15330847,
+            "timestamp": "2025-12-28T16:39:03.319862"
+          },
+          {
+            "query": "人工智能教育应用挑战限制",
+            "url": "https://www.forbes.com/sites/avivalegatt/2025/12/26/7-ai-decisions-that-will-define-higher-education-in-2026/",
+            "title": "7 AI Decisions That Will Define Higher Education In 2026 - Forbes",
+            "content": "The institutional mandate is clear: shift from academic integrity enforcement to AI fluency enablement. Microsoft’s 2025 AI in Education Report reinforces this normalization, showing students using AI to brainstorm assignments (37%), summarize information (33%), and receive feedback (32%). The 2026 planning implication is to define an AI fluency graduation standard—what every graduate should know, be able to do, and be able to explain about AI use—paired with transparency norms around what [...] Over the past year, the shift from AI as a tool to AI as institutional infrastructure has become unmistakable. Students have already integrated AI into daily academic workflows, vendors are pushing enterprise deployments, federal and accreditation expectations are rising, and labor-market volatility is forcing colleges to rethink how learning connects to opportunity. At the same time, agentic AI is moving from experimentation to execution, reshaping how advising, enrollment, learning support, [...] Survey data shows that roughly 90% of college students have used AI in college, with usage accelerating across age groups and program types—including adult learners returning to higher education. And usage is increasingly task-specific: students use AI to brainstorm, outline, draft, and clarify complex concepts. This is no longer a fringe behavior; it’s becoming part of the academic workflow.",
+            "score": 0.14339177,
+            "timestamp": "2025-12-28T16:39:03.319868"
+          },
+          {
+            "query": "AI教育应用在不同学科领域的具体应用案例和效果",
+            "url": "https://www.govtech.com/education/higher-ed/ai-nudges-syracuse-professors-back-toward-blue-books-in-class-work",
+            "title": "AI Nudges Syracuse Professors Back Toward Blue Books, In-Class Work - GovTech",
+            "content": "“That is completely AI-proof,” said Korol, a biology professor at Onondaga Community College. Korol, like countless other professors in Central New York, has had to change the way she teaches her class and assesses students’ learning due to the ballooning use of generative artificial intelligence. Professors have to either adapt their classes or risk students using AI to avoid thinking through tough assignments. At the three largest educational institutions in Syracuse — Syracuse University, Le Moyne College and Onondaga Community College — many professors are returning to pre-technology assessments while students use AI to study in futuristic ways. SU, Le Moyne and OCC either encourage or require professors to decide how they want students to use AI. Multiple professors said they see students upload class slides or paste class notes into a chatbot and ask it to create study tools like a practice quiz or study questions. The idea is not to teach students how to create or use AI, but rather to think critically about its real world applications, said program director Johannes Himmelreich.",
+            "score": 0.9916196,
+            "timestamp": "2025-12-28T16:40:34.198088"
+          },
+          {
+            "query": "AI教育应用在不同学科领域的具体应用案例和效果",
+            "url": "https://www.govtech.com/education/higher-ed/nebraska-colleges-embrace-ai-bots-for-extracuriculars-group-therapy",
+            "title": "Nebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy - GovTech",
+            "content": "The artificial intelligence assistant, or AI bot, is trained to lead students through proposing clubs that fit university guidelines, as well as help them draft a constitution, set a budget and develop fundraising ideas. Miller, an assistant professor of management at Doane, said the class models for students how to best use AI as a tool in an ethical way, while also demonstrating the limits to the rapidly spreading technology. “It’s not all about AI,” Miller said. While nearly half of the survey's respondents said they felt inadequately prepared for an AI-enabled workforce, Doane students in Miller's class said the opposite. While Doane students said the experience of training an AI bot to solve a problem for a client has helped them prepare for their future careers, students at Nebraska Wesleyan University are using AI to simulate the dynamics of a group therapy session. Both students said the AI bot's ability to better help them understand concepts has been surprising.",
+            "score": 0.9511422,
+            "timestamp": "2025-12-28T16:40:34.198102"
+          },
+          {
+            "query": "AI教育应用在不同学科领域的具体应用案例和效果",
+            "url": "https://edtechmagazine.com/k12/article/2025/12/ai-translation-breaks-down-language-barriers-k-12-schools?amp",
+            "title": "AI Translation Breaks Down Language Barriers in K–12 Schools - EdTech Magazine",
+            "content": "AI translation technology’s use expanded during the COVID-19 pandemic as schools sought ways to stay connected with multilingual families, says Sophie Othman, an associate language education and technology professor at the University of Marie and Louis Pasteur in France. “Tools like Microsoft Translator and education-specific platforms allow teachers to communicate with multilingual families in real time,” Othman says. “When the students join the conversation, they select their language,” he says. It will translate what they say into English.”. As I’m speaking, it’s translating,” she says. Washington’s Bellevue School District uses technologies from a variety of providers for translation purposes, including Microsoft Copilot and a platform that lets families receive and respond to texts in their preferred language, according to Ricardo Macias, director of community outreach. “We use AI for translation, mostly for communication with families, email and things like that,” Macias says. While the district has gotten some constructive feedback suggesting translated documents weren’t always 100% accurate, Macias believes that with regular use, AI-based language tools can help strengthen schools’ correspondence**.**.",
+            "score": 0.9092645,
+            "timestamp": "2025-12-28T16:40:34.198107"
+          },
+          {
+            "query": "AI教育应用在不同学科领域的具体应用案例和效果",
+            "url": "https://www.nbcnews.com/tech/tech-news/ai-school-teacher-student-train-chatgpt-rcna248726",
+            "title": "Teachers test-drive AI as schools give mixed signals on rules - NBC News",
+            "content": "“I feel like we have started talking more openly about AI, but there’s also very much a feeling among teachers of, ‘Oh, aren’t we supposed to not use that?’” said Jen Goodnow, who attended the workshop and teaches English-as-a-new-language (ENL) and French classes at Sunset Park High School in Brooklyn. As someone who uses AI “very, very little,” Goodnow, the ENL teacher, said she was eager to learn more about the technology in general. “I love incorporating AI into my classes because my school is mostly ENL students, and we have students with disabilities,” Stillman said, referring to the high proportion of students in her school who speak English as a second or third language. “I want to move past the fact that teachers are using AI to help them with lesson plans,” said Rose, the computer skills teacher who works in Queens, citing one of the more commonly-used examples of AI in the classroom today. I want to make sure that all of us are well informed and that teachers understand all the different uses of AI.”.",
+            "score": 0.62429357,
+            "timestamp": "2025-12-28T16:40:34.198110"
+          },
+          {
+            "query": "AI教育应用在不同学科领域的具体应用案例和效果",
+            "url": "https://www.seattletimes.com/education-lab/wa-students-try-out-new-tech-at-hour-of-ai/",
+            "title": "WA students try out new tech at 'Hour of AI' - The Seattle Times",
+            "content": "Like Enzo, the majority of the students had dabbled with AI at home or at school; some had even played the game before. “It’s a pretty good game,” Enzo said, adding he’s likely to try it at home with his younger sister who is also into video games. The company will work with educators “shoulder to shoulder to revise and change the programs as needed and as the technology changes over time,” she said. “It’s especially challenging with AI, because, one, the technology is moving so fast, and two, no one really knows what will happen with AI in terms of what are the skills that are needed, what are the jobs that are going to be created,” Broom said. “This program gives our kids access to AI and technology that they maybe wouldn’t normally get,” Campbell said. Mohammad Sohrawardy, a finance manager in the gaming sectionat Microsoft, said while the concepts may seem elementary, students were learning how to manage time, how to strategize and how opponents can use their prompts against them.",
+            "score": 0.50781184,
+            "timestamp": "2025-12-28T16:40:34.198114"
+          },
+          {
+            "query": "AI教育应用在不同学科领域的具体应用案例和效果",
+            "url": "https://www.usatoday.com/story/money/economy/2025/12/24/college-or-training-ai-future/87898126007/",
+            "title": "As AI expands, parents of high schoolers mull college and job training - USA Today",
+            "content": "# As AI expands, parents of high schoolers mull college and job training. Penn Foster Group, a group of companies that includes Penn Foster High School, Penn Foster Career School, the New York Institute of Photography and others, surveyed over 500 parents of high school students in December to learn more about how Americans are thinking about this uncertain future. Parents are rethinking what success after high school should look like, the survey revealed, as they question whether the educational paths that have served generations of Americans are right for their own children in an increasingly automated future. Among the important points revealed by the survey: 55% of parents say they feel anxious about whether their child is prepared for an AI-driven job market. Education that builds those skills, along with digital and technical capabilities, helps learners succeed in jobs with AI as a tool rather than a threat.\".",
+            "score": 0.18010665,
+            "timestamp": "2025-12-28T16:40:34.198118"
+          },
+          {
+            "query": "AI教育应用在不同学科领域的具体应用案例和效果",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "*   Your Four-Part Blueprint To Unlock AI Value In 2025| Paid Program. Conversations with leaders in higher education inevitably revolve around AI. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. So if you see a faculty manual that leads with attitudes about AI as an \"academic integrity violation,\" if the recommendation is a retreat to blue-books, there’s an institution that is shutting itself – and its students —off from the future. AI scales to meet society’s great needs for education and upskilling in a time of rapidly changing job. Without internships, and without AI skills, the students have been let down first by their educators and then again, by employers who want productive employees from day one.",
+            "score": 0.13206616,
+            "timestamp": "2025-12-28T16:40:34.198121"
+          },
+          {
+            "query": "AI教育应用 数据隐私保护措施 解决方案",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "*   Your Four-Part Blueprint To Unlock AI Value In 2025| Paid Program. Conversations with leaders in higher education inevitably revolve around AI. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. So if you see a faculty manual that leads with attitudes about AI as an \"academic integrity violation,\" if the recommendation is a retreat to blue-books, there’s an institution that is shutting itself – and its students —off from the future. AI scales to meet society’s great needs for education and upskilling in a time of rapidly changing job. Without internships, and without AI skills, the students have been let down first by their educators and then again, by employers who want productive employees from day one.",
+            "score": 0.9591543,
+            "timestamp": "2025-12-28T16:41:21.195621"
+          },
+          {
+            "query": "AI教育应用 数据隐私保护措施 解决方案",
+            "url": "https://www.aol.com/articles/ai-security-google-things-never-104202354.html",
+            "title": "I work in AI security at Google and there are some things I would never tell chatbots. I follow 4 rules to use AI safely. - AOL.com",
+            "content": "* He advises using well known AI tools and treating chatbots like a public postcard. AI models use data to generate helpful responses, and we users need to protect our private information so that harmful entities, like cybercriminals and data brokers, can't access it. AI companies may have employees who work on improving the privacy aspects of their models, but it's not advisable to share credit card details, Social Security numbers, your home address, personal medical history, or other personally identifiable information with AI chatbots. Depending on the version being used, the information shared with public AI chatbots can be used to train future models and generate responses that are more relevant. While it's uncertain how conversations are used for training public AI models, companies can pay for \"enterprise\" models. AI chatbots usually keep a history of your conversations, but I recommend deleting it on both enterprise and public models regularly to protect your user privacy in the long term.",
+            "score": 0.5563996,
+            "timestamp": "2025-12-28T16:41:21.195678"
+          },
+          {
+            "query": "AI教育应用 数据隐私保护措施 解决方案",
+            "url": "https://www.axios.com/2025/12/22/ai-child-teen-safety-politicies-state-map",
+            "title": "AI is reshaping childhood. The guardrails aren't ready - Axios",
+            "content": "Most teens now use generative AI, even as parents and schools struggle to keep up with guidance on how to keep kids safe. **Why it matters:** Kids' AI habits are outpacing adult oversight, raising concerns about privacy, development and online safety. **By the numbers:** Seven in 10 teens used generative AI last year, and 83% of parents said schools haven't addressed it, a Common Sense Media survey found. * Trump signed an executive order to override state AI laws — including those aimed at protecting children — in favor of a single national framework. **What they're saying:** \"There really does need to be more overarching policy to move the needle towards safer online experiences for kids, including AI,\" Tiffany Munzer, a developmental behavioral pediatrician, tells Axios. * A 1998 FTC survey found nearly 90% of kids' websites collected personal data — a catalyst for the Children's Online Privacy Protection Act and the Children's Internet Protection Act.",
+            "score": 0.46101677,
+            "timestamp": "2025-12-28T16:41:21.195695"
+          },
+          {
+            "query": "AI教育应用 数据隐私保护措施 解决方案",
+            "url": "https://www.forbes.com/sites/ronschmelzer/2025/12/26/make-2026-the-year-you-actually-learn-ai/",
+            "title": "Make 2026 The Year You Actually Learn AI - Forbes",
+            "content": "# Make 2026 The Year You Actually Learn AI. ## What Learning AI Actually Means. Learning AI means developing literacy in how to work with AI tools effectively, evaluate their outputs critically and integrate them into real tasks. Learning to use current AI tools well matters more than understanding what might be possible in five years. Don't try to learn every AI tool that exists. Join communities of people learning AI. Online forums, Discord servers and social media groups focused on AI tools provide support, share tips and help you learn from others' experiences. Many people try AI tools once, get mediocre results and conclude they're not useful. Privacy concerns stop some people from trying AI tools. You use AI tools regularly for real tasks and can articulate what they help with and what they don't. You follow AI developments with enough context to evaluate new tools and capabilities. Learning to work with AI creates advantages that compound over time.",
+            "score": 0.36840567,
+            "timestamp": "2025-12-28T16:41:21.195704"
+          },
+          {
+            "query": "AI教育应用 数据隐私保护措施 解决方案",
+            "url": "https://www.nbcnews.com/tech/tech-news/ai-school-teacher-student-train-chatgpt-rcna248726",
+            "title": "Teachers test-drive AI as schools give mixed signals on rules - NBC News",
+            "content": "“I feel like we have started talking more openly about AI, but there’s also very much a feeling among teachers of, ‘Oh, aren’t we supposed to not use that?’” said Jen Goodnow, who attended the workshop and teaches English-as-a-new-language (ENL) and French classes at Sunset Park High School in Brooklyn. As someone who uses AI “very, very little,” Goodnow, the ENL teacher, said she was eager to learn more about the technology in general. “I love incorporating AI into my classes because my school is mostly ENL students, and we have students with disabilities,” Stillman said, referring to the high proportion of students in her school who speak English as a second or third language. “I want to move past the fact that teachers are using AI to help them with lesson plans,” said Rose, the computer skills teacher who works in Queens, citing one of the more commonly-used examples of AI in the classroom today. I want to make sure that all of us are well informed and that teachers understand all the different uses of AI.”.",
+            "score": 0.21206881,
+            "timestamp": "2025-12-28T16:41:21.195713"
+          },
+          {
+            "query": "AI教育应用 数据隐私保护措施 解决方案",
+            "url": "https://www.cio.com/article/4109911/cognitive-data-architecture-designing-self-optimizing-frameworks-for-scalable-ai-systems.html",
+            "title": "Cognitive data architecture: Designing self-optimizing frameworks for scalable AI systems - cio.com",
+            "content": "# Cognitive data architecture: Designing self-optimizing frameworks for scalable AI systems. ## If your AI feels slow, expensive or risky, the problem isn’t the models — it’s the data, and cognitive data architecture is the fix. Let’s be honest: our data systems are struggling to keep up with AI. Previously, big organizations relied on one central data team — but that has become a bottleneck. * **Self-serve data platform**: The infrastructure team provides easy tools so business teams can manage their products without roadblocks. Companies that get this right, from Zalando to PayPal to Microsoft, finally solve the “ownership gap.” The people who work closest to the data clarify its meaning and context, making AI more effective. The answer is federated learning (Federated Learning Overview), which lets the AI model travel to the data, learn locally and report only the “lessons learned” back. 2. **Organization (Order and responsibility)**: Business teams own and care for their data products. ### Cognitive data architecture: Designing self-optimizing frameworks for scalable AI systems.",
+            "score": 0.08449276,
+            "timestamp": "2025-12-28T16:41:21.195721"
+          },
+          {
+            "query": "AI教育应用 数据隐私保护措施 解决方案",
+            "url": "https://insider.govtech.com/california/sponsored/californias-employment-development-department-protects-customers-with-elastic",
+            "title": "California’s Employment Development Department Protects Customers with Elastic - GovTech",
+            "content": "## The Employment Development Department runs critical programs for Californians in need while protecting them from security and privacy issues with Elastic Security. * **3,000 servers connected:** Elastic integrates into IT systems across EDD, bringing visibility that allows the security team to better spot patterns and vulnerabilities across the organization. Douglas Leone, Chief Information Security Officer at the Department, and his 60-person team work tirelessly to protect information from cyber threats, ensuring EDD resources reach the people who need them most. Elastic Security has helped the EDD team quickly find the root cause of issues by consolidating data from multiple systems and servers into one place. Through a strong partnership with Elastic, including valuable support from Elastic professional services, Leone and his team are demonstrating the value that security brings to EDD and the people it serves across California. Elastic Consulting supports EDD’s efforts to expand Elastic across the Department by developing dashboards and visualizations, ingesting logs from new systems, and training the ML and AI models.",
+            "score": 0.056652427,
+            "timestamp": "2025-12-28T16:41:21.195728"
+          }
+        ],
+        "latest_summary": "尽管人工智能在教育领域展现出巨大潜力，但其应用仍面临诸多挑战。首先是数据隐私和安全问题，AI系统需要收集大量学生数据，如何保护这些敏感信息成为重要议题。调查显示，93%的高等教育工作人员预计将扩大AI使用，但对数据隐私表示担忧，这反映了教育工作者在拥抱新技术时的谨慎态度。此外，用户需要保护个人隐私信息，例如信用卡详情、社会安全号码、家庭住址、个人医疗史等，避免被AI工具用于训练未来模型。其次是技术公平性问题，不同地区和学校之间的技术差距可能导致教育资源分配不均。例如，RAND报告发现K-12政策未能跟上AI的使用，家长、学生和学区并不总是达成共识，这种技术获取的不平等可能加剧教育鸿沟。此外，过度依赖AI技术也可能减少师生之间的互动，影响学生的社交能力和情感发展。正如专家所言，\"K-12教育对社会和情感发展有巨大影响，不应被AI工具威胁\"。在实际应用中，生物学教授Korol等教育工作者不得不改变教学方式，因为\"学生使用AI来避免思考困难的作业\"，这促使教师重新评估评估方法。最后，AI系统的算法偏见也可能对某些学生群体产生不公平的影响。在专业教育领域，\"学生因预先接触AI而批判性思维能力下降\"，这种潜在偏见需要教育工作者警惕。尽管存在这些挑战，AI教育应用已在多个学科领域展现出积极效果，如管理学教授Miller使用AI助手教授学生如何道德地使用AI，翻译技术帮助学校与多语言家庭沟通，以及游戏化AI应用帮助学生发展策略思维和时间管理能力。",
+        "reflection_iteration": 2,
+        "is_completed": true
+      },
+      "order": 3
+    },
+    {
+      "title": "结论与未来展望",
+      "content": "人工智能正在深刻改变教育的面貌，为教学和学习带来了前所未有的机遇。然而，要充分发挥AI在教育中的潜力，需要技术开发者、教育工作者和政策制定者的共同努力。未来，随着技术的不断进步，我们可以期待更加智能、更加个性化的教育体验。同时，也需要建立完善的监管框架，确保AI技术的应用符合教育伦理和价值观，真正服务于每一位学生的全面发展。",
+      "research": {
+        "search_history": [
+          {
+            "query": "人工智能教育 未来发展 教育技术",
+            "url": "https://www.govtech.com/education/higher-ed/ai-nudges-syracuse-professors-back-toward-blue-books-in-class-work",
+            "title": "AI Nudges Syracuse Professors Back Toward Blue Books, In-Class Work - GovTech",
+            "content": "As generative AI continues to develop, faculty are learning how to use it along with students. Some, like Ryan, are skeptical of its application and try to avoid it while others, like Santiago , spend hours figuring out the best application for students.  \n  \n“This has shaken up what education does in a way that other technologies haven’t,” Hannan said.  \n  \n©2025 Advance Local Media LLC. Distributed by Tribune Content Agency, LLC. [...] Facebook\n LinkedIn\n Twitter\n Print)\n Email\n\n## Tags:\n\nArtificial Intelligence Higher EducationEducationArtificial Intelligence\n\nRelated Content\n\nHigher Education\n\nOnline PD Resource Trains Educators on ‘Growth Mindset’\n\nDecember 22, 2025\n\n · Abby Sourwine\n\nK-12 Education\n\nCarousel and FileWave Partner for Device Management, Digital Comms\n\nDecember 22, 2025\n\n · News Staff\n\nHigher Education\n\nNebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy\n\nDecember 22, 2025 [...] As AI continues to push itself into our everyday lives, it has created a culture of do or die for higher education. Professors have to either adapt their classes or risk students using AI to avoid thinking through tough assignments. Universities can offer courses teaching students to think critically about AI or assume young minds already know how to ask tough questions.  \n  \nIf higher education as a whole does not adapt, it could be left behind as students embrace AI in their studies.",
+            "score": 0.4811862,
+            "timestamp": "2025-12-28T16:42:04.684794"
+          },
+          {
+            "query": "人工智能教育 未来发展 教育技术",
+            "url": "https://www.forbes.com/sites/avivalegatt/2025/12/26/7-ai-decisions-that-will-define-higher-education-in-2026/",
+            "title": "7 AI Decisions That Will Define Higher Education In 2026 - Forbes",
+            "content": "Over the past year, the shift from AI as a tool to AI as institutional infrastructure has become unmistakable. Students have already integrated AI into daily academic workflows, vendors are pushing enterprise deployments, federal and accreditation expectations are rising, and labor-market volatility is forcing colleges to rethink how learning connects to opportunity. At the same time, agentic AI is moving from experimentation to execution, reshaping how advising, enrollment, learning support, [...] Survey data shows that roughly 90% of college students have used AI in college, with usage accelerating across age groups and program types—including adult learners returning to higher education. And usage is increasingly task-specific: students use AI to brainstorm, outline, draft, and clarify complex concepts. This is no longer a fringe behavior; it’s becoming part of the academic workflow. [...] AI is restructuring the labor market faster than colleges can update curricula. The traditional degree-to-job pipeline—once a reliable proxy for workforce readiness—is no longer aligned with how skills emerge, how roles evolve, or how people actually break into AI-adjacent careers. The future of work will run on pathways, not credentials alone.",
+            "score": 0.4465194,
+            "timestamp": "2025-12-28T16:42:04.684808"
+          },
+          {
+            "query": "人工智能教育 未来发展 教育技术",
+            "url": "https://www.nbcnews.com/tech/tech-news/ai-school-teacher-student-train-chatgpt-rcna248726",
+            "title": "Teachers test-drive AI as schools give mixed signals on rules - NBC News",
+            "content": "As the use of AI has spread, some educators who have taught the same material for decades are finding that certain AI tools can simplify time-consuming tasks like creating lesson plans or decks of flash cards. At the same time, AI systems still raise significant questions about the role of creativity, critical-thinking and the purpose of education — for teachers and for their students. [...] More importantly, Weil said, AI “should not be a replacement for human interaction and human relationships. Human relationships can be messy and really problematic and hard, but that’s the beauty of humanity.”\n\nFaced with an often-crushing dearth of resources and little time to provide individual attention to students, many teachers at the workshop were eager to learn how AI systems can enhance — not replace — existing education methods. [...] Danielle Kinzer, who used to teach mathematics and now helps coordinate schedules and programs at Information Technology High School in Queens, said that educators have an extra incentive to learn about AI given their mission to help students learn about the world.\n\n“The technology is moving quickly, but teachers are experts in learning and adaptation,” Kinzer said. “We work in education, so it would be kind of hypocritical for us to say, ‘No, I don’t want to learn about this new tool.’”",
+            "score": 0.3934788,
+            "timestamp": "2025-12-28T16:42:04.684812"
+          },
+          {
+            "query": "人工智能教育 未来发展 教育技术",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "“Eventually” can take a long time. AI has a different sphere of influence, far exceeding anything we have seen before, and the job displacement is likely to be more acute and long-lasting. Moreover, it is happening at a time when traditional higher ed is particularly vulnerable to nimble and well-capitalized competitors. I asked Judith Spitz how she saw this from her perspective as CEO of Break Through Tech: “AI is ushering in a new reality where learning and work must be seamlessly connected. [...] There are signs that faculty are getting the point. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. The Digital Education Council’s 2025 Global AI Faculty Survey found that [...] to be shiveringly unprepared for its early impact on entry-level jobs. Richard R. Smith and Arafat Kabiroffer some solutions: \"Rather than treating AI as a separate skill set or capability, leading organizations will integrate AI training with employee development...The goal is developing professionals who think about AI as part of business strategy rather than as a separate technical domain. This approach represents the future of work.\"",
+            "score": 0.39312926,
+            "timestamp": "2025-12-28T16:42:04.684816"
+          },
+          {
+            "query": "人工智能教育 未来发展 教育技术",
+            "url": "https://chainstoreage.com/amazon-doubles-ai-education-investment-800k",
+            "title": "Amazon doubles AI education investment to $800K - Chain Store Age",
+            "content": "Through this initiative, Amazon Future Engineer is supporting 18 educational partners across seven U.S. regions, spanning large public school districts, charter networks, individual schools, and a state-level education service center. [...] Advertisement - article continues below\n\nAdvertisement\n\n\"The strong response from school districts showed us how many educators are ready to bring AI into the classroom to help students build skills for the future,\" said Bettina Stix, Amazon global director of community impact. \"By expanding this program, we're helping nearly half a million students access AI education while supporting teachers as they integrate these tools into daily learning.\" [...] Amazon Future Engineer funds introductory and Advanced Placement computer science courses in more than 2,000 high schools serving more than 100,000 students in underserved and underrepresented communities. Amazon’s funding also provides preparatory lessons, tutorials, professional development for teachers, digital curriculum for students, and live online support for both teachers and students.",
+            "score": 0.38228035,
+            "timestamp": "2025-12-28T16:42:04.684819"
+          },
+          {
+            "query": "人工智能教育 未来发展 教育技术",
+            "url": "https://www.usatoday.com/story/money/economy/2025/12/24/college-or-training-ai-future/87898126007/",
+            "title": "As AI expands, parents of high schoolers mull college and job training - USA Today",
+            "content": "AI is changing many aspects of work, Cook said, but “it is not replacing human judgment, problem-solving, and adaptability. Education that builds those skills, along with digital and technical capabilities, helps learners succeed in jobs with AI as a tool rather than a threat.\"\n\nFeatured Weekly Ad [...] Artificial intelligence is already transforming everything from the mundane, like how we search the internet, to profound endeavors such as scientific progress. So for parents considering how their children can grow up to thrive in the workforce, a future shaped by AI may seem overwhelming. [...] New insights from a company that specializes in online education and training solutions highlights some of those concerns. Penn Foster Group, a group of companies that includes Penn Foster High School, Penn Foster Career School, the New York Institute of Photography and others, surveyed over 500 parents of high school students in December to learn more about how Americans are thinking about this uncertain future.",
+            "score": 0.32827148,
+            "timestamp": "2025-12-28T16:42:04.684823"
+          },
+          {
+            "query": "人工智能教育 未来发展 教育技术",
+            "url": "https://www.govtech.com/education/higher-ed/nebraska-colleges-embrace-ai-bots-for-extracuriculars-group-therapy",
+            "title": "Nebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy - GovTech",
+            "content": "Facebook\n LinkedIn\n Twitter\n Print)\n Email\n\n## Tags:\n\nArtificial Intelligence Higher EducationEducationNebraska\n\nRelated Content\n\nHigher Education\n\nStanford Grads Struggle to Find Work in AI-Enabled Job Market\n\nDecember 19, 2025\n\nHigher Education\n\nElizabethtown College Receives Grant for Science Program\n\nDecember 19, 2025\n\nHigher Education\n\nRivian Partners With Georgia Colleges to Train Engineers\n\nDecember 19, 2025\n\nHigher Education\n\nCoursera and Udemy to Merge in $2.5B Deal [...] Schmitz said he could see how AI could be useful in courses that train accountants or auditors, easily identifying potential mistakes that then allow students the time to dig into analyzing what went wrong.  \n  \n“It can be the difference between having busy work in a class and doing really meaningful work,” Schmitz said. [...] December 17, 2025\n\n · News Staff\n\nHigher Education\n\nGov. Newsom Taps Universities for State AI Council\n\nDecember 16, 2025\n\nHigher Education\n\nOpinion: In an Age of Tech, Colleges Should Emphasize Connections\n\nDecember 16, 2025\n\nNever miss a story with the GovTech Today newsletter.",
+            "score": 0.28640917,
+            "timestamp": "2025-12-28T16:42:04.684826"
+          },
+          {
+            "query": "人工智能教育 未来发展 教育技术",
+            "url": "https://www.seattletimes.com/education-lab/wa-students-try-out-new-tech-at-hour-of-ai/",
+            "title": "WA students try out new tech at 'Hour of AI' - The Seattle Times",
+            "content": "The Microsoft initiative partners with the state office of superintendent of public instruction, as well as the national and local teachers unions, to use AI programs to reduce administrative processes.\n\nThe company will also announce grants next month to 10 school districts and 10 community colleges to help them use AI to attack ongoing school-related challenges they identify. [...] A RAND report published in September found that even as AI was increasingly used in schools, K-12 policies have not caught up, and parents, students and districts weren’t always on the same page. [...] The first step is to get the technology into students’ and teachers’ hands, she said. The company will make its Copilot Studio available to school districts and community colleges in January.\n\nAdvertising\n\nThe moves come as schools and districts expand AI use, even as questions emerge about its long-term use and the potential negative impacts on children.",
+            "score": 0.25332078,
+            "timestamp": "2025-12-28T16:42:04.684830"
+          },
+          {
+            "query": "人工智能教育 未来发展 教育技术",
+            "url": "https://www.axios.com/2025/12/22/ai-child-teen-safety-politicies-state-map",
+            "title": "AI is reshaping childhood. The guardrails aren't ready - Axios",
+            "content": "By the numbers: Seven in 10 teens used generative AI last year, and 83% of parents said schools haven't addressed it, a Common Sense Media survey found.\n\n A 2025 Pew survey shows that among teens who reported using chatbots, about 3 in 10 do so every day.\n\nState of play: Conversations about children's safety and AI are just now coming to the forefront. [...] Axios\n\n9 mins ago - Technology\n\n# AI is changing childhood. The guardrails aren't ready\n\n Ashley May\n\nAdd Axios on Google\n\nAdd Axios as your preferred source to\n\nsee more of our stories on Google.\n\nAdd Axios on Google\n\nMost teens now use generative AI, even as parents and schools struggle to keep up with guidance on how to keep kids safe.\n\nWhy it matters: Kids' AI habits are outpacing adult oversight, raising concerns about privacy, development and online safety. [...] Early worries centered on nude photos, data-hungry sites and chatroom strangers. The 2010s brought smartphones, screen time, cyberbullying and algorithmic rabbit holes. Today, concerns extend to how AI and other digital interactions may shape kids' brains, attention and emotional development.\n Families are navigating these questions now, even as guidance from policymakers, researchers and tech companies catches up.\n\nAdd Axios on Google\n\n##### What to read next",
+            "score": 0.17869808,
+            "timestamp": "2025-12-28T16:42:04.684833"
+          },
+          {
+            "query": "人工智能教育 未来发展 教育技术",
+            "url": "https://www.wsj.com/business/entrepreneurship/teenage-founders-ecb9cbd3?gaa_at=eafs&gaa_n=AWEtsqeTL7gIvTPSM5FrbVaMyZdje-rXqDTyku6RrPf7PZOU_2cPLTvg9WoZ&gaa_ts=6948a05b&gaa_sig=Co4juRooxuI8RGWOhQNzKQ_-mWXSsJEM-kN2Hr56gegwtq1Z4LCayjTkhCKKpZBGqGEgJRQhSHpyLUgJtca50w%3D%3D",
+            "title": "These Teenagers Are Already Running Their Own AI Companies - The Wall Street Journal",
+            "content": "### Further Reading\n\n### OpenAI’s New Fundraising Round Could Value Startup at as Much as $830 Billion\n\n### Behind the Deal That Took Disney From AI Skeptic to OpenAI Investor\n\n### OpenAI Updates ChatGPT Amid Battle for Knowledge Workers\n\n### Oracle Can’t Escape OpenAI’s Shadow\n\n### Adobe Integrates With ChatGPT\n\nAdvertisement [...] 10 hours ago\n\nPlus, an unhinged AI vending-machine takeover, the crazy year in AI and a columnist’s tips for helping family with tech.\n\nContinue To Article\n\n### This Is What the World’s Smartest Minds Really Think About AI\n\nAt a meeting that’s become the center of the tech universe, nerdy researchers partied on yachts and gathered on rooftops to trade gossip and compare notes. Everyone was feeling bubbly.\n\nContinue To Article\n\nAdvertisement\n\n### High-Tech Clothes Promise Wellness Benefits [...] Plus, anti-drunken-driving technology, an AI-powered vending machine and ChatGPT’s integration with DoorDash.\n\nContinue To Article\n\n### Why My Generation Is Turning to ‘Financial Nihilism’\n\nIt might seem reckless for Gen Z to gamble money on meme coins and sports, but many of us have lost confidence in the traditional ladder of success.\n\nContinue To Article\n\n### Tech, Media & Telecom Roundup: Market Talk",
+            "score": 0.048105557,
+            "timestamp": "2025-12-28T16:42:04.684837"
+          },
+          {
+            "query": "AI教育应用长期效果评估 未来5-10年预测",
+            "url": "https://www.forbes.com/sites/avivalegatt/2025/12/26/7-ai-decisions-that-will-define-higher-education-in-2026/",
+            "title": "7 AI Decisions That Will Define Higher Education In 2026 - Forbes",
+            "content": "It’s what becomes the new operating model for teaching, assessment, student support, and workforce pathways in an AI-native world. Federal guidance has made clear that institutions may use grant dollars for AI in instruction, student support, and workforce programs, but only with civil-rights and privacy compliance—and with humans remaining accountable for high-stakes decisions. In 2026, the differentiator will be whether institutions can produce a living evidence trail: who owns AI decisions, what uses are permitted, how risk is assessed, how people are trained, how tools are monitored for drift and bias, and how policy evolves over time. In practical terms, the strategic play is to rebuild the pipeline: Make AI literacy universal across majors, require workplace AI experience through internships and co-ops, remake career services into skills-based advising, build stackable credentials tied to verified job data, and invest in AI-driven student success infrastructure that supports retention and equitable access to opportunity.",
+            "score": 0.3934788,
+            "timestamp": "2025-12-28T16:43:48.698448"
+          },
+          {
+            "query": "AI教育应用长期效果评估 未来5-10年预测",
+            "url": "https://www.forbes.com/sites/annkirschner/2025/12/23/the-a-in-ai-is-for-anxiety-and-theres-nothing-artificial-about-it/",
+            "title": "The A In AI Is For Anxiety, And There’s Nothing Artificial About It - Forbes",
+            "content": "*   Your Four-Part Blueprint To Unlock AI Value In 2025| Paid Program. Conversations with leaders in higher education inevitably revolve around AI. Surveys suggest that AI adoption among educators is increasing, but still lags behind student use. A survey by Ellucian found that 93% of higher education staff expected to expand their use of AI, but expressed fears about data privacy, cheating, and ethical guidelines, and concerns that their institution was not providing adequate guidelines or professional development. So if you see a faculty manual that leads with attitudes about AI as an \"academic integrity violation,\" if the recommendation is a retreat to blue-books, there’s an institution that is shutting itself – and its students —off from the future. AI scales to meet society’s great needs for education and upskilling in a time of rapidly changing job. Without internships, and without AI skills, the students have been let down first by their educators and then again, by employers who want productive employees from day one.",
+            "score": 0.25603873,
+            "timestamp": "2025-12-28T16:43:48.698494"
+          },
+          {
+            "query": "AI教育应用长期效果评估 未来5-10年预测",
+            "url": "https://www.usatoday.com/story/money/economy/2025/12/24/college-or-training-ai-future/87898126007/",
+            "title": "As AI expands, parents of high schoolers mull college and job training - USA Today",
+            "content": "# As AI expands, parents of high schoolers mull college and job training. Penn Foster Group, a group of companies that includes Penn Foster High School, Penn Foster Career School, the New York Institute of Photography and others, surveyed over 500 parents of high school students in December to learn more about how Americans are thinking about this uncertain future. Parents are rethinking what success after high school should look like, the survey revealed, as they question whether the educational paths that have served generations of Americans are right for their own children in an increasingly automated future. Among the important points revealed by the survey: 55% of parents say they feel anxious about whether their child is prepared for an AI-driven job market. Education that builds those skills, along with digital and technical capabilities, helps learners succeed in jobs with AI as a tool rather than a threat.\".",
+            "score": 0.18246956,
+            "timestamp": "2025-12-28T16:43:48.698577"
+          },
+          {
+            "query": "AI教育应用长期效果评估 未来5-10年预测",
+            "url": "https://news.ycombinator.com/item?id=46392115",
+            "title": "Rob Pike goes nuclear over GenAI - Hacker News",
+            "content": "reply | | | |  | | --- | | UncleMeat 8 hours ago  | parent | prev | next )   > When a product manager can generate a highly detailed and working demo of what he wants in 5 minutes using gen AI, the traditional software developer loses a ton of power in tech companies. reply | | | |  | | --- | | MangoCoffee 15 hours ago  | parent | prev | next )   Many people have pointed out that if AI gets better at writing code and doesn't generate slop, then programmers' roles will evolve to Project Manager. Think how good they'll be on a 10 year timespan  reply | | | |  | | --- | | charcircuit 4 hours ago  | root | parent | prev | next )   First mover advantage for important AI tools that deliver enormous value to humanity.",
+            "score": 0.17999165,
+            "timestamp": "2025-12-28T16:43:48.698626"
+          },
+          {
+            "query": "AI教育应用长期效果评估 未来5-10年预测",
+            "url": "https://www.webpronews.com/ai-transforms-workforce-automation-upskilling-and-optimism-amid-layoffs/",
+            "title": "AI Transforms Workforce: Automation, Upskilling, and Optimism Amid Layoffs - WebProNews",
+            "content": "Insights from 50 tech leaders reveal AI's transformative impact on the workforce, automating routine tasks while creating needs for upskilling in areas like prompt engineering and ethics. Beyond automation, tech leaders stress the ethical dimensions of AI deployment. Gone are the days of rote coding; now, new hires must integrate AI tools into workflows, a trend that tech leaders say will elevate the baseline for tech careers. For example, leaders from Anthropic discuss how AI can handle data analysis, allowing teams to focus on strategic decisions. One podcast guest emphasized diversifying skills across full-stack development and AI engineering, aligning with X discussions on trends like multi-agent systems and edge reasoning for 2026. Looking ahead, tech leaders foresee AI driving innovation in unexpected areas. Insights from El-Balad.com, aggregating leader perspectives, highlight AI’s transformative effects across sectors, emphasizing ethical skill requirements globally. Tech leaders call for sustainable practices, integrating green tech with AI development. Perfect for business leaders, tech professionals, and AI enthusiasts looking to stay ahead of the curve.",
+            "score": 0.11937757,
+            "timestamp": "2025-12-28T16:43:48.698646"
+          },
+          {
+            "query": "AI教育应用长期效果评估 未来5-10年预测",
+            "url": "https://www.ynetnews.com/tech-and-digital/article/sjjvaupmzl",
+            "title": "Who fares better in the AI era: students who use it or those who don’t? - Ynetnews",
+            "content": "## As academia adapts to a world where students can generate flawless work with a click, the job market now expects AI literacy; in a special interview, Dr. Amir Gefen explains why grades remain, exams are returning and whether overusing AI or avoiding it altogether is the bigger concern. A conversation with Dr. Amir Gefen, a researcher and lecturer in artificial intelligence and online safety at Gordon Academic College of Education and an academic adviser to Israel’s Education Ministry, reveals a far more complex picture than the simple question of whether students are copy-pasting their assignments. Pedagogically, there’s no question here: to give a grade, I need to know what the student knows, and the way to express knowledge is in writing or orally. Students who don’t use artificial intelligence at all and lack AI literacy worry me a lot, because they will struggle to find jobs. But that’s less serious, because it’s something you can work on, improve and teach the student how to use the tools properly.",
+            "score": 0.1137077,
+            "timestamp": "2025-12-28T16:43:48.698663"
+          },
+          {
+            "query": "AI教育应用长期效果评估 未来5-10年预测",
+            "url": "https://abovethelaw.com/2025/12/lessons-from-the-abas-second-report-on-the-next-phase-of-legal-ai/",
+            "title": "Lessons From The ABA’s Second Report On The Next Phase Of Legal AI - Above the Law",
+            "content": "For example, the American Bar Association recently released its “AI Task Force on Law and Artificial Intelligence Report.” This was the second in a series of reports addressing AI’s impact on the legal profession. The report covered a lot of ground, with topics ranging from AI adoption and its impact on access to justice to how law schools and the courts are approaching AI. That same cost dynamic extends beyond law firms and into the access-to-justice space where, once again, AI offers tremendous unrealized potential. The report cites a Berkeley-led study documenting 100-plus real-world AI use cases in legal aid, “including ratings, recommendations, and estimates of efficiency gains.” However, pricing is once again a barrier, and “high subscription costs for the best and most reliable legal AI tools might make those tools unaffordable and inaccessible to the access-to-justice community.”. Another 83% provide hands-on AI experiences like clinics or labs, and Case Western Reserve Law School even requires all first-year students to obtain legal AI certification.",
+            "score": 0.10092311,
+            "timestamp": "2025-12-28T16:43:48.698672"
+          },
+          {
+            "query": "AI教育基础设施实施案例 最佳实践 个性化学习",
+            "url": "https://chainstoreage.com/amazon-doubles-ai-education-investment-800k",
+            "title": "Amazon doubles AI education investment to $800K - Chain Store Age",
+            "content": "Amazon is supporting AI education. Interest from education partners exceeded the scope of the pilot, leading Amazon to now more than double its initial investment to $800,000 and expand support to more educational partners through its Amazon Future Engineer program. All educators and students participating in this program have access to a no-cost membership with Amazon Web Services (AWS) Educate, Amazon’s global initiative to provide students resources for building skills in cloud technology. Through a collaboration with education nonprofit Playlab, Amazon will provide participating school districts with access to custom AI tools for both students and teachers, along with hands-on training to implement AI education. \"The strong response from school districts showed us how many educators are ready to bring AI into the classroom to help students build skills for the future,\" said Bettina Stix, Amazon global director of community impact.",
+            "score": 0.98102194,
+            "timestamp": "2025-12-28T16:44:39.902178"
+          },
+          {
+            "query": "AI教育基础设施实施案例 最佳实践 个性化学习",
+            "url": "https://www.govtech.com/education/higher-ed/ai-nudges-syracuse-professors-back-toward-blue-books-in-class-work",
+            "title": "AI Nudges Syracuse Professors Back Toward Blue Books, In-Class Work - GovTech",
+            "content": "“That is completely AI-proof,” said Korol, a biology professor at Onondaga Community College. Korol, like countless other professors in Central New York, has had to change the way she teaches her class and assesses students’ learning due to the ballooning use of generative artificial intelligence. Professors have to either adapt their classes or risk students using AI to avoid thinking through tough assignments. At the three largest educational institutions in Syracuse — Syracuse University, Le Moyne College and Onondaga Community College — many professors are returning to pre-technology assessments while students use AI to study in futuristic ways. SU, Le Moyne and OCC either encourage or require professors to decide how they want students to use AI. Multiple professors said they see students upload class slides or paste class notes into a chatbot and ask it to create study tools like a practice quiz or study questions. The idea is not to teach students how to create or use AI, but rather to think critically about its real world applications, said program director Johannes Himmelreich.",
+            "score": 0.9801293,
+            "timestamp": "2025-12-28T16:44:39.902218"
+          },
+          {
+            "query": "AI教育基础设施实施案例 最佳实践 个性化学习",
+            "url": "https://www.govtech.com/education/higher-ed/nebraska-colleges-embrace-ai-bots-for-extracuriculars-group-therapy",
+            "title": "Nebraska Colleges Embrace AI Bots for Extracuriculars, Group Therapy - GovTech",
+            "content": "The artificial intelligence assistant, or AI bot, is trained to lead students through proposing clubs that fit university guidelines, as well as help them draft a constitution, set a budget and develop fundraising ideas. Miller, an assistant professor of management at Doane, said the class models for students how to best use AI as a tool in an ethical way, while also demonstrating the limits to the rapidly spreading technology. “It’s not all about AI,” Miller said. While nearly half of the survey's respondents said they felt inadequately prepared for an AI-enabled workforce, Doane students in Miller's class said the opposite. While Doane students said the experience of training an AI bot to solve a problem for a client has helped them prepare for their future careers, students at Nebraska Wesleyan University are using AI to simulate the dynamics of a group therapy session. Both students said the AI bot's ability to better help them understand concepts has been surprising.",
+            "score": 0.96210754,
+            "timestamp": "2025-12-28T16:44:39.902235"
+          },
+          {
+            "query": "AI教育基础设施实施案例 最佳实践 个性化学习",
+            "url": "https://www.seattletimes.com/education-lab/wa-students-try-out-new-tech-at-hour-of-ai/",
+            "title": "WA students try out new tech at 'Hour of AI' - The Seattle Times",
+            "content": "Like Enzo, the majority of the students had dabbled with AI at home or at school; some had even played the game before. “It’s a pretty good game,” Enzo said, adding he’s likely to try it at home with his younger sister who is also into video games. The company will work with educators “shoulder to shoulder to revise and change the programs as needed and as the technology changes over time,” she said. “It’s especially challenging with AI, because, one, the technology is moving so fast, and two, no one really knows what will happen with AI in terms of what are the skills that are needed, what are the jobs that are going to be created,” Broom said. “This program gives our kids access to AI and technology that they maybe wouldn’t normally get,” Campbell said. Mohammad Sohrawardy, a finance manager in the gaming sectionat Microsoft, said while the concepts may seem elementary, students were learning how to manage time, how to strategize and how opponents can use their prompts against them.",
+            "score": 0.8539127,
+            "timestamp": "2025-12-28T16:44:39.902250"
+          },
+          {
+            "query": "AI教育基础设施实施案例 最佳实践 个性化学习",
+            "url": "https://www.forbes.com/sites/avivalegatt/2025/12/26/7-ai-decisions-that-will-define-higher-education-in-2026/",
+            "title": "7 AI Decisions That Will Define Higher Education In 2026 - Forbes",
+            "content": "It’s what becomes the new operating model for teaching, assessment, student support, and workforce pathways in an AI-native world. Federal guidance has made clear that institutions may use grant dollars for AI in instruction, student support, and workforce programs, but only with civil-rights and privacy compliance—and with humans remaining accountable for high-stakes decisions. In 2026, the differentiator will be whether institutions can produce a living evidence trail: who owns AI decisions, what uses are permitted, how risk is assessed, how people are trained, how tools are monitored for drift and bias, and how policy evolves over time. In practical terms, the strategic play is to rebuild the pipeline: Make AI literacy universal across majors, require workplace AI experience through internships and co-ops, remake career services into skills-based advising, build stackable credentials tied to verified job data, and invest in AI-driven student success infrastructure that supports retention and equitable access to opportunity.",
+            "score": 0.8509647,
+            "timestamp": "2025-12-28T16:44:39.902265"
+          },
+          {
+            "query": "AI教育基础设施实施案例 最佳实践 个性化学习",
+            "url": "https://www.openpr.com/news/4328441/learning-4-0-how-ai-and-immersive-tech-are-shaping-the-workforce",
+            "title": "Learning 4.0: How AI and Immersive Tech Are Shaping the Workforce of Tomorrow - openPR.com",
+            "content": "Learning 4.0 is transforming workforce development across Dubai, London, Seoul, Shanghai, and Abu Dhabi through AI, VR/AR, and integrated CRM and ERP systems, enabling immersive, data-driven training and smarter skill development, writes technology expert Vladimir Burke. Across global hubs such as Dubai, London, Seoul, Shanghai, and Abu Dhabi, organizations are leveraging AI, VR/AR, and digital platforms to redefine how employees learn, upskill, and adapt to rapidly evolving industries. Personalized Learning Journeys: AI adapts content to each learner's pace, experience, and skill level.Predictive Performance Analysis: Systems forecast potential challenges and recommend proactive interventions.Enhanced Engagement: VR/AR simulations make learning immersive, reducing drop-offs and boosting retention.Data-Driven Insights: Integration with CRM and ERP platforms provides measurable ROI on training programs. HTF MI Analyst have added a new research study on Title Global Learning Services Outsourcing Market Insights by Application, Product Type, Competitive Landscape & Regional Forecast 2027 with detailed information of Product Types, Applications [Certificate, Diploma and Others] & Key Players Such as Caveo Learning (United States), Judge Learning Solutions (United States), NetCom Learning (United States), NetCom Learning (United States), The Training Associates Corporation (Canada), Cognizant (United States), Cegos (France),….",
+            "score": 0.8344069,
+            "timestamp": "2025-12-28T16:44:39.902279"
+          },
+          {
+            "query": "AI教育基础设施实施案例 最佳实践 个性化学习",
+            "url": "https://edtechmagazine.com/k12/article/2025/12/ai-translation-breaks-down-language-barriers-k-12-schools?amp",
+            "title": "AI Translation Breaks Down Language Barriers in K–12 Schools - EdTech Magazine",
+            "content": "AI translation technology’s use expanded during the COVID-19 pandemic as schools sought ways to stay connected with multilingual families, says Sophie Othman, an associate language education and technology professor at the University of Marie and Louis Pasteur in France. “Tools like Microsoft Translator and education-specific platforms allow teachers to communicate with multilingual families in real time,” Othman says. “When the students join the conversation, they select their language,” he says. It will translate what they say into English.”. As I’m speaking, it’s translating,” she says. Washington’s Bellevue School District uses technologies from a variety of providers for translation purposes, including Microsoft Copilot and a platform that lets families receive and respond to texts in their preferred language, according to Ricardo Macias, director of community outreach. “We use AI for translation, mostly for communication with families, email and things like that,” Macias says. While the district has gotten some constructive feedback suggesting translated documents weren’t always 100% accurate, Macias believes that with regular use, AI-based language tools can help strengthen schools’ correspondence**.**.",
+            "score": 0.5175709,
+            "timestamp": "2025-12-28T16:44:39.902294"
+          }
+        ],
+        "latest_summary": "人工智能正在深刻改变教育的面貌，为教学和学习带来了前所未有的机遇。然而，要充分发挥AI在教育中的潜力，需要技术开发者、教育工作者和政策制定者的共同努力。未来5-10年，AI将从辅助工具逐步转变为教育基础设施，成为教学、评估、学生支持和职业发展路径的新操作系统模式。到2026年，教育机构的差异化能力将体现在能否建立\"活证据链\"，明确AI决策权归属、使用范围、风险评估方法、人员培训机制以及工具偏见监测体系。\n\n随着技术不断进步，我们可以期待更加智能、更加个性化的教育体验，AI将能够根据学生的学习风格、进度和需求提供定制化的教育支持。例如，一些大学已开始利用AI工具帮助学生建立俱乐部、起草章程、制定预算并设计筹款方案，同时强调AI的伦理使用和其应用的边界。此外，AI还被用于模拟小组治疗场景，帮助学生更好地理解概念，提升学习效果。同时，AI素养将成为各专业的通用要求，教育系统需要通过实习和合作项目提供AI实践经验，将职业服务转变为基于技能的咨询，并建立与就业市场数据紧密关联的可堆叠证书体系。\n\n然而，这一转变也伴随着挑战。数据显示，93%的高等教育工作者计划扩大AI使用，但对数据隐私、作弊和伦理准则表示担忧；55%的家长对子女是否准备好应对AI驱动的工作市场感到焦虑。因此，建立完善的监管框架至关重要，确保AI技术的应用符合教育伦理和价值观，真正服务于每一位学生的全面发展。未来的教育必须确保AI不会加剧教育不平等，而是为服务不足和代表性不足社区的学生提供更多机会，使AI成为缩小而非扩大教育差距的工具。例如，亚马逊通过其Amazon Future Engineer计划，将初始投资翻倍至80万美元，并为更多教育机构提供定制AI工具和培训，以帮助学生和教师适应未来技术需求。此外，像美国华盛顿州的贝尔维尤学区，已经开始使用AI翻译技术，为多语言家庭提供实时沟通支持，尽管存在准确性方面的挑战，但随着使用频率的增加，AI有望提升学校与家庭之间的联系。",
+        "reflection_iteration": 2,
+        "is_completed": true
+      },
+      "order": 4
+    }
+  ],
+  "final_report": "# 报告生成失败\n\n无法生成有效的报告内容。",
+  "is_completed": true,
+  "created_at": "2025-12-28T16:22:47.166541",
+  "updated_at": "2025-12-28T16:52:32.206765"
+}

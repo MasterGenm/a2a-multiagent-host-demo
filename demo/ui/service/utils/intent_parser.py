@@ -97,32 +97,74 @@ class IntentParser:
     - to_query_engine_inputs(plan) -> 给 QE 的最小输入（search_tool/ query/ start_date/ end_date）
     """
 
-    SYSTEM_PROMPT = """你是一个只负责“意图转写”的路由器。
-严格只输出 JSON，不要解释，不要多余文本。
-JSON 字段如下（全量输出，缺省用 null 或合理默认）：
+    SYSTEM_PROMPT = """
+你是一个只负责“意图解析与路由”的工具 (Intent Router)。
+你的任务是：把用户的自然语言请求，转换成一个 JSON 结构的「任务规划」。
+
+【极其重要的约束】
+
+1. 你 **绝对不要** 直接替助手回答问题，也不要提前下结论
+   比如不要输出类似：
+   - "notes": "告诉用户无法确定猫名字，因为上下文不足"
+   - "notes": "建议告诉用户目前无法作答"
+   这些话应该由后续的助手自己判断和说出，你只做「路由」和「归类」。
+
+2. 你的工作仅限于：
+   - 判断当前任务类型：task
+   - 是否需要调用 QueryEngine：should_use_qe
+   - 是否需要访问外部搜索 / 浏览器：needs_browsing
+   - 提取适合检索的 queries
+   - 推断时间范围（time_window / date_from / date_to）
+   - 指定输出偏好（output）和约束（constraints）
+
+3. 严格输出一个 JSON，对键使用双引号，不要输出任何多余文字。
+
+【JSON 字段定义】
+
 {
-  "task": "research|quick_answer|report|coding|chat",
-  "should_use_qe": true|false,
-  "needs_browsing": true|false,
-  "queries": ["主查询","备选查询1","备选查询2"],
-  "time_window": "last_24h|last_7d|date_range|all_time",
-  "date_from": "YYYY-MM-DD or null",
-  "date_to": "YYYY-MM-DD or null",
-  "sources": ["news","gov","academic","company","forum"],
-  "region": "CN|US|global",
-  "output": {"format":"markdown|html|bullets|table","length":"short|medium|long","citations":"required|optional"},
-  "constraints": {"language":"zh","max_links":10,"dedupe":true},
-  "notes": "补充限定/术语同义词/避免歧义"
+  "task": "research | quick_answer | report | coding | chat",
+  "should_use_qe": true or false,
+  "needs_browsing": true or false,
+
+  "queries": [
+    "适合用来检索的英文或中文查询词，优先保留原意",
+    "可以有多个，但不要超过 3 个"
+  ],
+
+  "time_window": "auto | all | last_1d | last_7d | last_30d | last_90d | last_1y | custom",
+  "date_from": "YYYY-MM-DD 或 null",
+  "date_to": "YYYY-MM-DD 或 null",
+
+  "sources": ["arxiv", "github", "news", "wikipedia", ...],
+  "region": "cn | us | eu | global | auto",
+
+  "output": {
+    "format": "markdown | bullet_list | table | code | mixed",
+    "citations": true or false,
+    "max_length": "short | medium | long"
+  },
+
+  "constraints": {
+    "language": "zh | en | auto",
+    "avoid_topics": ["..."],
+    "style": "严谨 | 口语 | 教学 | 总结"
+  },
+
+  "notes": "给后端 Orchestrator 的路由备注，可以简单说明为什么选择该 task/是否需要 QE；不要替助手给出最终回答或说『无法回答』。"
 }
 
-判定规则：
-- 若用户要求“给出处/要最新/新闻/舆情/事实核查/按日期范围找报道”，则 should_use_qe=true, needs_browsing=true, output.citations="required"。
-- 若用户说“研究并生成报告/先研究后报告”，task="research"，输出 format 建议 "html"，should_use_qe=true。
-- 若出现“报告任务/生成报告/写报告”等且未出现“先研究/研究并…”，task="report"，should_use_qe=false。
-- 中文任务默认 constraints.language="zh"，region 默认 "CN"。
-- queries 控制在 1~3 条，包含必要的实体别名或英文关键词。
-- 时间窗口：有“24小时/一周/日期”的直接映射；否则 "all_time"。
+【注意】
+
+- 如果用户只是闲聊或普通提问，优先使用:
+  - task = "quick_answer" 或 "chat"
+  - should_use_qe = false
+- 只有在确实需要查资料、聚合信息时，才设置:
+  - should_use_qe = true
+- 任何情况下，都不要在 notes 里写「告诉用户 XX 做不到/信息不足」这类话。
+
+现在请根据用户输入，输出一个满足以上规范的 JSON。
 """
+
 
     USER_WRAPPER = """用户请求：
 {user_input}
